@@ -1,0 +1,12 @@
+E:\10Work\17Code\018HiTopo\StdLog4\bin\Release\net45\log4net.config
+E:\10Work\17Code\018HiTopo\StdLog4\bin\Release\net45\hiLog4.dll
+E:\10Work\17Code\018HiTopo\StdLog4\bin\Release\net45\hiLog4.pdb
+E:\10Work\17Code\018HiTopo\StdLog4\bin\Release\net45\log4net.dll
+E:\10Work\17Code\018HiTopo\StdLog4\obj\Release\net45\hiLog4.csproj.AssemblyReference.cache
+E:\10Work\17Code\018HiTopo\StdLog4\obj\Release\net45\hiLog4.GeneratedMSBuildEditorConfig.editorconfig
+E:\10Work\17Code\018HiTopo\StdLog4\obj\Release\net45\hiLog4.AssemblyInfoInputs.cache
+E:\10Work\17Code\018HiTopo\StdLog4\obj\Release\net45\hiLog4.AssemblyInfo.cs
+E:\10Work\17Code\018HiTopo\StdLog4\obj\Release\net45\hiLog4.csproj.CoreCompileInputs.cache
+E:\10Work\17Code\018HiTopo\StdLog4\obj\Release\net45\hiLog4.csproj.Up2Date
+E:\10Work\17Code\018HiTopo\StdLog4\obj\Release\net45\hiLog4.dll
+E:\10Work\17Code\018HiTopo\StdLog4\obj\Release\net45\hiLog4.pdb

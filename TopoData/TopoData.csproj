@@ -1,0 +1,111 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <TargetFramework>net8.0-windows</TargetFramework>
+    <UseWindowsForms>true</UseWindowsForms>
+    <ApplicationIcon>Resource\2.ico</ApplicationIcon>
+    <Authors>Topotech团队</Authors>
+    <BaseOutputPath>..\bin\</BaseOutputPath>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <COMReference Include="IWshRuntimeLibrary">
+      <WrapperTool>tlbimp</WrapperTool>
+      <VersionMinor>0</VersionMinor>
+      <VersionMajor>1</VersionMajor>
+      <Guid>f935dc20-1cf0-11d0-adb9-00c04fd58a0b</Guid>
+      <Lcid>0</Lcid>
+      <Isolated>false</Isolated>
+      <EmbedInteropTypes>true</EmbedInteropTypes>
+    </COMReference>
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Include="Resource\2.ico" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Costura.Fody" Version="6.0.0">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
+    <PackageReference Include="DevExpress.Win.Design" Version="23.2.3" />
+    <PackageReference Include="EPPlus" Version="7.5.1" />
+    <PackageReference Include="Flee" Version="2.0.0" />
+    <PackageReference Include="Microsoft.AspNetCore.Hosting" Version="2.3.9" />
+    <PackageReference Include="Microsoft.Graph" Version="5.102.0" />
+    <PackageReference Include="OPCFoundation.NetStandard.Opc.Ua.Client" Version="1.5.374.118" />
+    <PackageReference Include="OPCFoundation.NetStandard.Opc.Ua.Core" Version="1.5.374.118" />
+    <PackageReference Include="RestSharp" Version="112.1.0" />
+    <PackageReference Include="SqlSugarCore" Version="5.1.4.169" />
+    <PackageReference Include="Swashbuckle.AspNetCore" Version="10.1.3" />
+  </ItemGroup>
+
+  <ItemGroup>
+
+    <ProjectReference Include="..\auDASLib\hiLib.csproj" />
+    <ProjectReference Include="..\StdLog4\Log4.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Reference Include="hiServer">
+      <HintPath>..\packages\hiServer.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Update="DriverPanel\diaOPCUATagSelect.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="DriverPanel\ucDriverEmpty.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Update="DriverPanel\ucDriverOPCUA.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Update="DriverPanel\ucDriverProfinet.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Update="Properties\Resources.Designer.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Update="Public\NoFlashListView.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Update="Public\WITPLMMultiSelectTreeView.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Update="SubPage\diaRecipeTagSelect.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="SubPage\diaColumnSelect.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="SubPage\diaExpress.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="SubPage\diaExpressAbout.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="SubPage\diaExpressCheck.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="SubPage\diaTagSelect.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="SubPage\diaWrite.cs">
+      <SubType>Form</SubType>
+    </Compile>
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Update="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+  </ItemGroup>
+
+</Project>

@@ -1,0 +1,46 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="Current" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <_LastSelectedProfileId>E:\10Work\17Code\018HiTopo\HiTopoV1\HiTopo\TopoData\Properties\PublishProfiles\FolderProfile.pubxml</_LastSelectedProfileId>
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Update="DriverPanel\ucDevice.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Update="frmMain.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="SubPage\ucAbout.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Update="SubPage\ucCannelCfg.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Update="SubPage\ucDataTableCfg.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Update="SubPage\ucDiagnose.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Update="SubPage\ucHisQuery.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Update="SubPage\ucRecipe.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Update="SubPage\ucSystemCfg.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Update="SubPage\waitForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="SubPage\waitForm.Designer.cs">
+      <SubType>Code</SubType>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Update="SubPage\waitForm.resx">
+      <SubType>Code</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+</Project>

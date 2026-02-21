@@ -1,0 +1,783 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="About" xml:space="preserve">
+    <value>关于</value>
+  </data>
+  <data name="AlmFilePrefix" xml:space="preserve">
+    <value>报警文件名前缀</value>
+  </data>
+  <data name="AuditFilePrefix" xml:space="preserve">
+    <value>Audit文件名前缀</value>
+  </data>
+  <data name="batch" xml:space="preserve">
+    <value>批次号</value>
+  </data>
+  <data name="Cancel" xml:space="preserve">
+    <value>取消</value>
+  </data>
+  <data name="CfgExitApp" xml:space="preserve">
+    <value>确认退出应用程序吗？</value>
+  </data>
+  <data name="CfgExitAppYN" xml:space="preserve">
+    <value>是否退出？选 [否] ，最小化到托盘</value>
+  </data>
+  <data name="cfgTitle" xml:space="preserve">
+    <value>基本配置</value>
+  </data>
+  <data name="Close" xml:space="preserve">
+    <value>关闭</value>
+  </data>
+  <data name="Comunication" xml:space="preserve">
+    <value>通讯配置</value>
+  </data>
+  <data name="Config" xml:space="preserve">
+    <value>配置</value>
+  </data>
+  <data name="DataBase" xml:space="preserve">
+    <value>数据库</value>
+  </data>
+  <data name="DB" xml:space="preserve">
+    <value>数据库</value>
+  </data>
+  <data name="DbDataSource" xml:space="preserve">
+    <value>数据库存储位置</value>
+  </data>
+  <data name="DbStoreDuration" xml:space="preserve">
+    <value>数据库保留时间</value>
+  </data>
+  <data name="DbTestOk" xml:space="preserve">
+    <value>数据库被创建，并且连接正常。</value>
+  </data>
+  <data name="diaTitle" xml:space="preserve">
+    <value>通讯诊断</value>
+  </data>
+  <data name="DriveFreePercentage" xml:space="preserve">
+    <value>硬盘剩余百分比</value>
+  </data>
+  <data name="DriveFreeSpace" xml:space="preserve">
+    <value>硬盘剩余空间</value>
+  </data>
+  <data name="DriveSpace" xml:space="preserve">
+    <value>硬盘空间</value>
+  </data>
+  <data name="EnableLog4" xml:space="preserve">
+    <value>本地Log日志</value>
+  </data>
+  <data name="eTime" xml:space="preserve">
+    <value>结束时间</value>
+  </data>
+  <data name="Export" xml:space="preserve">
+    <value>导出</value>
+  </data>
+  <data name="FileUpload" xml:space="preserve">
+    <value>加载文件</value>
+  </data>
+  <data name="frmAlarm" xml:space="preserve">
+    <value>报警</value>
+  </data>
+  <data name="frmAuditTrail" xml:space="preserve">
+    <value>审计追踪</value>
+  </data>
+  <data name="frmLTreeNavigate" xml:space="preserve">
+    <value>通讯配置</value>
+  </data>
+  <data name="frmLSelect" xml:space="preserve">
+    <value>工单查询</value>
+  </data>
+  <data name="frmCannelCfg" xml:space="preserve">
+    <value>数采通道</value>
+  </data>
+  <data name="frmDataSampleCfg" xml:space="preserve">
+    <value>参数存储配置</value>
+  </data>
+  <data name="frmSystemCfg" xml:space="preserve">
+    <value>基本配置</value>
+  </data>
+  <data name="Hide" xml:space="preserve">
+    <value>隐藏</value>
+  </data>
+  <data name="Import" xml:space="preserve">
+    <value>导入</value>
+  </data>
+  <data name="Language" xml:space="preserve">
+    <value>语言</value>
+  </data>
+  <data name="mainTitle" xml:space="preserve">
+    <value>奥星-数据采集系统</value>
+  </data>
+  <data name="Month" xml:space="preserve">
+    <value>月</value>
+  </data>
+  <data name="No" xml:space="preserve">
+    <value>否</value>
+  </data>
+  <data name="NoDataReport" xml:space="preserve">
+    <value>没查到数据，不能导出报表。</value>
+  </data>
+  <data name="Num" xml:space="preserve">
+    <value>序号</value>
+  </data>
+  <data name="OK" xml:space="preserve">
+    <value>确认</value>
+  </data>
+  <data name="OpenAlm" xml:space="preserve">
+    <value>加载报警文件</value>
+  </data>
+  <data name="PromptMessage" xml:space="preserve">
+    <value>确认</value>
+  </data>
+  <data name="Quality" xml:space="preserve">
+    <value>质量</value>
+  </data>
+  <data name="Quit" xml:space="preserve">
+    <value>退出</value>
+  </data>
+  <data name="Search" xml:space="preserve">
+    <value>查询</value>
+  </data>
+  <data name="ServiceStarted" xml:space="preserve">
+    <value>服务已经启动... ...</value>
+  </data>
+  <data name="ShareFolder" xml:space="preserve">
+    <value>共享文件夹</value>
+  </data>
+  <data name="SoftwareAutoStart" xml:space="preserve">
+    <value>软件自动启动</value>
+  </data>
+  <data name="SoftwareTrayStart" xml:space="preserve">
+    <value>软件托盘启动</value>
+  </data>
+  <data name="sTime" xml:space="preserve">
+    <value>开始时间</value>
+  </data>
+  <data name="TagCount" xml:space="preserve">
+    <value>点数</value>
+  </data>
+  <data name="TagName" xml:space="preserve">
+    <value>变量名</value>
+  </data>
+  <data name="test" xml:space="preserve">
+    <value>测试</value>
+  </data>
+  <data name="testMode" xml:space="preserve">
+    <value>测试模式(采集周期1秒)</value>
+  </data>
+  <data name="Time" xml:space="preserve">
+    <value>时间</value>
+  </data>
+  <data name="Value" xml:space="preserve">
+    <value>数值</value>
+  </data>
+  <data name="wo" xml:space="preserve">
+    <value>工单号</value>
+  </data>
+  <data name="Yes" xml:space="preserve">
+    <value>确认</value>
+  </data>
+  <data name="frmHisQuery" xml:space="preserve">
+    <value>历史查询</value>
+  </data>
+  <data name="SftwareAutoStart" xml:space="preserve">
+    <value>软件自动启动</value>
+  </data>
+  <data name="Open" xml:space="preserve">
+    <value>打开</value>
+  </data>
+  <data name="Start" xml:space="preserve">
+    <value>启动</value>
+  </data>
+  <data name="frmDiagnose" xml:space="preserve">
+    <value>诊断</value>
+  </data>
+  <data name="frmStepSampleCfg" xml:space="preserve">
+    <value>步序存储配置</value>
+  </data>
+  <data name="frmExpressTagCfg" xml:space="preserve">
+    <value>表达式变量</value>
+  </data>
+  <data name="CannelName" xml:space="preserve">
+    <value>通道名</value>
+  </data>
+  <data name="CannelType" xml:space="preserve">
+    <value>通道类型</value>
+  </data>
+  <data name="DriverType" xml:space="preserve">
+    <value>驱动类型</value>
+  </data>
+  <data name="CannelCfg" xml:space="preserve">
+    <value>通道配置</value>
+  </data>
+  <data name="Enable" xml:space="preserve">
+    <value>启用</value>
+  </data>
+  <data name="Save" xml:space="preserve">
+    <value>保存</value>
+  </data>
+  <data name="Clear" xml:space="preserve">
+    <value>清空</value>
+  </data>
+  <data name="TimeStart" xml:space="preserve">
+    <value>开始时间</value>
+  </data>
+  <data name="TimeEnd" xml:space="preserve">
+    <value>停止时间</value>
+  </data>
+  <data name="byWO" xml:space="preserve">
+    <value>按工单</value>
+  </data>
+  <data name="byTime" xml:space="preserve">
+    <value>按时间</value>
+  </data>
+  <data name="Task" xml:space="preserve">
+    <value>任务</value>
+  </data>
+  <data name="DBCreate" xml:space="preserve">
+    <value>创建DB</value>
+  </data>
+  <data name="DBTest" xml:space="preserve">
+    <value>测试DB</value>
+  </data>
+  <data name="DBCfg" xml:space="preserve">
+    <value>数据库配置</value>
+  </data>
+  <data name="DBType" xml:space="preserve">
+    <value>数据库类型</value>
+  </data>
+  <data name="DBStoreTime" xml:space="preserve">
+    <value>数据存储时间</value>
+  </data>
+  <data name="port" xml:space="preserve">
+    <value>端口</value>
+  </data>
+  <data name="User_psd" xml:space="preserve">
+    <value>密码</value>
+  </data>
+  <data name="User_user" xml:space="preserve">
+    <value>用户</value>
+  </data>
+  <data name="DBLocation" xml:space="preserve">
+    <value>数据库位置</value>
+  </data>
+  <data name="DBFile" xml:space="preserve">
+    <value>数据库文件</value>
+  </data>
+  <data name="EquipmentName" xml:space="preserve">
+    <value>设备名</value>
+  </data>
+  <data name="SynchronizeTable" xml:space="preserve">
+    <value>同步表结构</value>
+  </data>
+  <data name="Add" xml:space="preserve">
+    <value>添加</value>
+  </data>
+  <data name="Update" xml:space="preserve">
+    <value>更新</value>
+  </data>
+  <data name="Delete" xml:space="preserve">
+    <value>删除</value>
+  </data>
+  <data name="Up" xml:space="preserve">
+    <value>向上</value>
+  </data>
+  <data name="Down" xml:space="preserve">
+    <value>向下</value>
+  </data>
+  <data name="TimeScaleTable" xml:space="preserve">
+    <value>时序存储表</value>
+  </data>
+  <data name="DBTable" xml:space="preserve">
+    <value>数据库表</value>
+  </data>
+  <data name="TitleStep" xml:space="preserve">
+    <value>表抬头/步序</value>
+  </data>
+  <data name="triggering_condition" xml:space="preserve">
+    <value>触发条件</value>
+  </data>
+  <data name="LotNum" xml:space="preserve">
+    <value>批次号</value>
+  </data>
+  <data name="Expression" xml:space="preserve">
+    <value>表达式</value>
+  </data>
+  <data name="TagComm" xml:space="preserve">
+    <value>通讯点</value>
+  </data>
+  <data name="BoolTrigTag" xml:space="preserve">
+    <value>Bool触发点</value>
+  </data>
+  <data name="CollectionRisingEdge" xml:space="preserve">
+    <value>上升沿采集</value>
+  </data>
+  <data name="CollectionConsecutive" xml:space="preserve">
+    <value>连续采集</value>
+  </data>
+  <data name="TaskList" xml:space="preserve">
+    <value>任务列表</value>
+  </data>
+  <data name="SteptType" xml:space="preserve">
+    <value>步序类型</value>
+  </data>
+  <data name="StepName" xml:space="preserve">
+    <value>步序名称</value>
+  </data>
+  <data name="Recipe" xml:space="preserve">
+    <value>配方</value>
+  </data>
+  <data name="Product" xml:space="preserve">
+    <value>产品</value>
+  </data>
+  <data name="Phase" xml:space="preserve">
+    <value>阶段</value>
+  </data>
+  <data name="GetEndpoint" xml:space="preserve">
+    <value>获取Endpoint</value>
+  </data>
+  <data name="UseUserLogIn" xml:space="preserve">
+    <value>使用账号密码登录</value>
+  </data>
+  <data name="PLC_Cfg_Notes" xml:space="preserve">
+    <value>PLC配置注意事项：</value>
+  </data>
+  <data name="Save_Restart" xml:space="preserve">
+    <value>任何配置修改，需要重启软件</value>
+  </data>
+  <data name="S7_400Look4Cfg" xml:space="preserve">
+    <value>S7-400 : 看配置</value>
+  </data>
+  <data name="DataType" xml:space="preserve">
+    <value>数据类型</value>
+  </data>
+  <data name="Address" xml:space="preserve">
+    <value>地址</value>
+  </data>
+  <data name="TagInternal" xml:space="preserve">
+    <value>中间变量</value>
+  </data>
+  <data name="TagInternalList" xml:space="preserve">
+    <value>中间变量列表</value>
+  </data>
+  <data name="diaExpress" xml:space="preserve">
+    <value>表达式编辑</value>
+  </data>
+  <data name="diaExpressCheck" xml:space="preserve">
+    <value>表达式检查</value>
+  </data>
+  <data name="Check" xml:space="preserve">
+    <value>检查</value>
+  </data>
+  <data name="ConfigSys" xml:space="preserve">
+    <value>系统配置</value>
+  </data>
+  <data name="TagDevice" xml:space="preserve">
+    <value>设备点</value>
+  </data>
+  <data name="ValueDefault" xml:space="preserve">
+    <value>默认值</value>
+  </data>
+  <data name="UOM" xml:space="preserve">
+    <value>单位</value>
+  </data>
+  <data name="QstDeletDBColumn" xml:space="preserve">
+    <value>是否删除数据库列及相关数据？</value>
+  </data>
+  <data name="DeletFail" xml:space="preserve">
+    <value>删除失败。</value>
+  </data>
+  <data name="DeletSucess" xml:space="preserve">
+    <value>删除成功, 数据库删除列的数据也被删除。</value>
+  </data>
+  <data name="msgDBTitleNotNull" xml:space="preserve">
+    <value>数据库表名或报表抬头不能为空。</value>
+  </data>
+  <data name="msgCreateDBFail" xml:space="preserve">
+    <value>创建数据库表失败, 数据库连接正常情况下，请重新保存创建数据采集表。</value>
+  </data>
+  <data name="msgSelectLine" xml:space="preserve">
+    <value>请先选择一行！</value>
+  </data>
+  <data name="msgIPWrong" xml:space="preserve">
+    <value>IP 地址解析错误。</value>
+  </data>
+  <data name="msgSaveError" xml:space="preserve">
+    <value>保持失败</value>
+  </data>
+  <data name="msgRSError" xml:space="preserve">
+    <value>Rack or Slot 解析错误</value>
+  </data>
+  <data name="msgSelectEndpoint" xml:space="preserve">
+    <value>请选择Endpoint。</value>
+  </data>
+  <data name="msgExportExcelFail" xml:space="preserve">
+    <value>数据导出到excel失败：</value>
+  </data>
+  <data name="msgExport1" xml:space="preserve">
+    <value>共导出 </value>
+  </data>
+  <data name="msgExport2" xml:space="preserve">
+    <value> 条数据。</value>
+  </data>
+  <data name="msgImportTag1" xml:space="preserve">
+    <value>导入变量点 </value>
+  </data>
+  <data name="msgImportExcelFail" xml:space="preserve">
+    <value>Excel 导入失败：</value>
+  </data>
+  <data name="treeCannel" xml:space="preserve">
+    <value>数采通道</value>
+  </data>
+  <data name="treeStoreCfg" xml:space="preserve">
+    <value>参数存储配置</value>
+  </data>
+  <data name="treeStepStoreCfg" xml:space="preserve">
+    <value>步序存储配置</value>
+  </data>
+  <data name="treeSysCfg" xml:space="preserve">
+    <value>基本配置</value>
+  </data>
+  <data name="treeDiagnose" xml:space="preserve">
+    <value>系统诊断</value>
+  </data>
+  <data name="treeHistoricalQuery" xml:space="preserve">
+    <value>历史查询</value>
+  </data>
+  <data name="msgWoNotNullFail" xml:space="preserve">
+    <value>工单名称不能为空，查询失败。</value>
+  </data>
+  <data name="msgSctStore" xml:space="preserve">
+    <value>请选择一个存储任务。</value>
+  </data>
+  <data name="msgNoTagFail" xml:space="preserve">
+    <value>查询任务没有字段，查询失败。</value>
+  </data>
+  <data name="msgRptExportFail" xml:space="preserve">
+    <value>报表导出失败。</value>
+  </data>
+  <data name="msgRptExportSucess" xml:space="preserve">
+    <value>报表导出成功。</value>
+  </data>
+  <data name="msgNoTableQFail" xml:space="preserve">
+    <value>数据库表不存在，或者查询数据库没有字段。查询失败。</value>
+  </data>
+  <data name="msgNoMatchQFail" xml:space="preserve">
+    <value>查询任务字段和实际数据库字段不符。查询失败。</value>
+  </data>
+  <data name="WriteDown" xml:space="preserve">
+    <value>写入</value>
+  </data>
+  <data name="WriteOperation" xml:space="preserve">
+    <value>写操作</value>
+  </data>
+  <data name="Select" xml:space="preserve">
+    <value>选择</value>
+  </data>
+  <data name="PromptComTest" xml:space="preserve">
+    <value>通讯测试</value>
+  </data>
+  <data name="msgDBcOK" xml:space="preserve">
+    <value>数据库通讯正常。</value>
+  </data>
+  <data name="msgDBcFail" xml:space="preserve">
+    <value>数据库通讯失败。</value>
+  </data>
+  <data name="msgDBTbcFail" xml:space="preserve">
+    <value>创建表失败。</value>
+  </data>
+  <data name="msgDBCreateOK" xml:space="preserve">
+    <value>创建数据库成功。</value>
+  </data>
+  <data name="msgDBSyncOK" xml:space="preserve">
+    <value>创建数据库已经存在,同步数据库表成功。</value>
+  </data>
+  <data name="msgDBCreateFail1" xml:space="preserve">
+    <value>请指定数据库存储路径，创建数据库失败。</value>
+  </data>
+  <data name="msgDbTskNameNotNull" xml:space="preserve">
+    <value>数据库表名或任务名不能为空.</value>
+  </data>
+  <data name="msgTagNameNotNull" xml:space="preserve">
+    <value>通讯点名不能为空。</value>
+  </data>
+  <data name="msgTagNameSelectNotExist" xml:space="preserve">
+    <value>选择的通讯点不存在, 请检查通讯配置。</value>
+  </data>
+  <data name="msgSampleWindowError1" xml:space="preserve">
+    <value>设定采样周期不能小于 400 ms</value>
+  </data>
+  <data name="msgAttributeError1" xml:space="preserve">
+    <value>此属性不能重复添加</value>
+  </data>
+  <data name="msgExample1" xml:space="preserve">
+    <value>表达式例子：(a = 100 OR b &gt; 0) AND c &lt;&gt; 2</value>
+  </data>
+  <data name="msgExample2" xml:space="preserve">
+    <value>a,b,c为参数名</value>
+  </data>
+  <data name="Company" xml:space="preserve">
+    <value>Austar 集团</value>
+  </data>
+  <data name="toolStripConnFail" xml:space="preserve">
+    <value> 服务连接异常 </value>
+  </data>
+  <data name="toolStripConnOK" xml:space="preserve">
+    <value>通讯正常</value>
+  </data>
+  <data name="hour" xml:space="preserve">
+    <value>小时</value>
+  </data>
+  <data name="toolStripTryOut1" xml:space="preserve">
+    <value>试用授权，试用时间</value>
+  </data>
+  <data name="toolStripTryOut2" xml:space="preserve">
+    <value>试用</value>
+  </data>
+  <data name="toolStripTryOut3" xml:space="preserve">
+    <value>小时结束，请重启 </value>
+  </data>
+  <data name="msgRptQuerySucess" xml:space="preserve">
+    <value>总共：</value>
+  </data>
+  <data name="QstDeletAll" xml:space="preserve">
+    <value>是否删除所有数据？</value>
+  </data>
+  <data name="msgUACfgError1" xml:space="preserve">
+    <value>没有选择OPC UA安全策略。 请选择Endpoint.</value>
+  </data>
+  <data name="msgTag1" xml:space="preserve">
+    <value>下列 TagName 已存在：</value>
+  </data>
+  <data name="msgTag2" xml:space="preserve">
+    <value>将添加其余 </value>
+  </data>
+  <data name="msgTag3" xml:space="preserve">
+    <value>个不重复项，是否继续？</value>
+  </data>
+  <data name="ServerNode" xml:space="preserve">
+    <value>服务节点</value>
+  </data>
+  <data name="Attribute" xml:space="preserve">
+    <value>属性</value>
+  </data>
+  <data name="GetTag" xml:space="preserve">
+    <value>获取Tag</value>
+  </data>
+  <data name="TableName" xml:space="preserve">
+    <value>表名</value>
+  </data>
+  <data name="QstDeletSelected" xml:space="preserve">
+    <value>是否删除选中数据？</value>
+  </data>
+  <data name="ExportExcel" xml:space="preserve">
+    <value>导出Excel</value>
+  </data>
+  <data name="ExportChart" xml:space="preserve">
+    <value>导出趋势图</value>
+  </data>
+  <data name="msgChartExportSucess" xml:space="preserve">
+    <value>趋势图导出成功。</value>
+  </data>
+  <data name="msgChartExporFail" xml:space="preserve">
+    <value>趋势图导出失败。</value>
+  </data>
+  <data name="DataTable" xml:space="preserve">
+    <value>表格</value>
+  </data>
+  <data name="TrendChart" xml:space="preserve">
+    <value>趋势图</value>
+  </data>
+  <data name="TableColName" xml:space="preserve">
+    <value>表字段</value>
+  </data>
+  <data name="DeleteDBDate" xml:space="preserve">
+    <value>删除数据</value>
+  </data>
+  <data name="msgDBCreateFail2" xml:space="preserve">
+    <value>创建数据库失败。</value>
+  </data>
+  <data name="msgDBQuering" xml:space="preserve">
+    <value>正在查询数据，请稍候…</value>
+  </data>
+  <data name="TimeScaleTableNotNullFail" xml:space="preserve">
+    <value>时序存储表不能空。</value>
+  </data>
+  <data name="currentValue" xml:space="preserve">
+    <value>当前值</value>
+  </data>
+  <data name="RealTimeValue" xml:space="preserve">
+    <value>实时值</value>
+  </data>
+  <data name="msgStartsWithSpecialCharOrDigitError" xml:space="preserve">
+    <value>列名不能特殊字符或数字开头</value>
+  </data>
+  <data name="msgWoTagTypeError" xml:space="preserve">
+    <value>Tag 数据类型应该是字符串类型。</value>
+  </data>
+  <data name="MenChannel" xml:space="preserve">
+    <value>设备管理</value>
+  </data>
+  <data name="MenDataTable" xml:space="preserve">
+    <value>数据存储</value>
+  </data>
+  <data name="MenFormula" xml:space="preserve">
+    <value>配方管理</value>
+  </data>
+  <data name="MenDiagnose" xml:space="preserve">
+    <value>参数诊断</value>
+  </data>
+  <data name="MenHistory" xml:space="preserve">
+    <value>数据查询</value>
+  </data>
+  <data name="MenSystem" xml:space="preserve">
+    <value>系统配置</value>
+  </data>
+  <data name="MenAbout" xml:space="preserve">
+    <value>关于</value>
+  </data>
+  <data name="Description" xml:space="preserve">
+    <value>备注</value>
+  </data>
+  <data name="Equipments" xml:space="preserve">
+    <value>设备列表</value>
+  </data>
+  <data name="Off" xml:space="preserve">
+    <value>禁用</value>
+  </data>
+  <data name="On" xml:space="preserve">
+    <value>启用</value>
+  </data>
+  <data name="TagWO" xml:space="preserve">
+    <value>批次通讯点</value>
+  </data>
+  <data name="WebAPICfg" xml:space="preserve">
+    <value>WebAPI 配置</value>
+  </data>
+  <data name="TagList" xml:space="preserve">
+    <value>点表</value>
+  </data>
+  <data name="EquipmentCfguration" xml:space="preserve">
+    <value>设备配置</value>
+  </data>
+  <data name="GetThisItem" xml:space="preserve">
+    <value>获取当前节点</value>
+  </data>
+  <data name="MenuGetSubItems" xml:space="preserve">
+    <value>获取所有下一级子节点</value>
+  </data>
+</root>
