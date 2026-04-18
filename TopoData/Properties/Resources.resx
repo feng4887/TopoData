@@ -1,0 +1,785 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="About" xml:space="preserve">
+    <value>About</value>
+  </data>
+  <data name="AlmFilePrefix" xml:space="preserve">
+    <value>Alarm File Prefix</value>
+  </data>
+  <data name="AuditFilePrefix" xml:space="preserve">
+    <value>Audit File Prefix</value>
+  </data>
+  <data name="batch" xml:space="preserve">
+    <value>batch number</value>
+  </data>
+  <data name="Cancel" xml:space="preserve">
+    <value>Cancel</value>
+  </data>
+  <data name="CfgExitApp" xml:space="preserve">
+    <value>Do you want Exit this Application?</value>
+  </data>
+  <data name="CfgExitAppYN" xml:space="preserve">
+    <value>Do you want Exit this Application? Select [No] will change to Tral Mode.</value>
+  </data>
+  <data name="cfgTitle" xml:space="preserve">
+    <value>Basic Configuration</value>
+  </data>
+  <data name="Close" xml:space="preserve">
+    <value>Close</value>
+  </data>
+  <data name="Comunication" xml:space="preserve">
+    <value>Comunication</value>
+  </data>
+  <data name="Config" xml:space="preserve">
+    <value>Configuration</value>
+  </data>
+  <data name="DataBase" xml:space="preserve">
+    <value>Data Base</value>
+  </data>
+  <data name="DB" xml:space="preserve">
+    <value>DB</value>
+  </data>
+  <data name="DbDataSource" xml:space="preserve">
+    <value>DB DataSource</value>
+  </data>
+  <data name="DbStoreDuration" xml:space="preserve">
+    <value>DB Store Duration</value>
+  </data>
+  <data name="DbTestOk" xml:space="preserve">
+    <value>Database created and connection good.</value>
+  </data>
+  <data name="diaTitle" xml:space="preserve">
+    <value>Comunication Diagnosis</value>
+  </data>
+  <data name="DriveFreePercentage" xml:space="preserve">
+    <value>Drive Free Percentage</value>
+  </data>
+  <data name="DriveFreeSpace" xml:space="preserve">
+    <value>Drive Free Space</value>
+  </data>
+  <data name="DriveSpace" xml:space="preserve">
+    <value>Drive Space</value>
+  </data>
+  <data name="EnableLog4" xml:space="preserve">
+    <value>Enable Log</value>
+  </data>
+  <data name="eTime" xml:space="preserve">
+    <value>End Time</value>
+  </data>
+  <data name="Export" xml:space="preserve">
+    <value>Export</value>
+  </data>
+  <data name="FileUpload" xml:space="preserve">
+    <value>File Upload</value>
+  </data>
+  <data name="frmAlarm" xml:space="preserve">
+    <value>Alarm</value>
+  </data>
+  <data name="frmAuditTrail" xml:space="preserve">
+    <value>AuditTrail</value>
+  </data>
+  <data name="frmLTreeNavigate" xml:space="preserve">
+    <value>Comunication</value>
+  </data>
+  <data name="frmLSelect" xml:space="preserve">
+    <value>WorkorderSelect</value>
+  </data>
+  <data name="frmCannelCfg" xml:space="preserve">
+    <value>CannelCfg</value>
+  </data>
+  <data name="frmDataSampleCfg" xml:space="preserve">
+    <value>DataSampleCfg</value>
+  </data>
+  <data name="frmSystemCfg" xml:space="preserve">
+    <value>SystemCfg</value>
+  </data>
+  <data name="Hide" xml:space="preserve">
+    <value>Hide</value>
+  </data>
+  <data name="Import" xml:space="preserve">
+    <value>Import</value>
+  </data>
+  <data name="Language" xml:space="preserve">
+    <value>Language</value>
+  </data>
+  <data name="mainTitle" xml:space="preserve">
+    <value>Austar-AuDAServer</value>
+  </data>
+  <data name="Month" xml:space="preserve">
+    <value>Month</value>
+  </data>
+  <data name="No" xml:space="preserve">
+    <value>No</value>
+  </data>
+  <data name="NoDataReport" xml:space="preserve">
+    <value>No data, and cannot export report.</value>
+  </data>
+  <data name="Num" xml:space="preserve">
+    <value>Num</value>
+  </data>
+  <data name="OK" xml:space="preserve">
+    <value>OK</value>
+  </data>
+  <data name="OpenAlm" xml:space="preserve">
+    <value>LoadAlarmFile</value>
+  </data>
+  <data name="PromptMessage" xml:space="preserve">
+    <value>Prompt Message</value>
+  </data>
+  <data name="Quality" xml:space="preserve">
+    <value>Quality</value>
+  </data>
+  <data name="Quit" xml:space="preserve">
+    <value>Quit</value>
+  </data>
+  <data name="Search" xml:space="preserve">
+    <value>Search</value>
+  </data>
+  <data name="ServiceStarted" xml:space="preserve">
+    <value>Service Started... ...</value>
+  </data>
+  <data name="ShareFolder" xml:space="preserve">
+    <value>Share Folder</value>
+  </data>
+  <data name="SoftwareAutoStart" xml:space="preserve">
+    <value>Software Automatic Start</value>
+  </data>
+  <data name="SoftwareTrayStart" xml:space="preserve">
+    <value>Software Tray Start</value>
+  </data>
+  <data name="sTime" xml:space="preserve">
+    <value>Start Time</value>
+  </data>
+  <data name="TagCount" xml:space="preserve">
+    <value>Tag Count</value>
+  </data>
+  <data name="TagName" xml:space="preserve">
+    <value>TagName</value>
+  </data>
+  <data name="test" xml:space="preserve">
+    <value>Test</value>
+  </data>
+  <data name="testMode" xml:space="preserve">
+    <value>Test Mode(Sample 1000ms)</value>
+  </data>
+  <data name="Time" xml:space="preserve">
+    <value>Time</value>
+  </data>
+  <data name="Value" xml:space="preserve">
+    <value>Value</value>
+  </data>
+  <data name="wo" xml:space="preserve">
+    <value>work order</value>
+  </data>
+  <data name="Yes" xml:space="preserve">
+    <value>Yes</value>
+  </data>
+  <data name="frmHisQuery" xml:space="preserve">
+    <value>HistryQuery</value>
+  </data>
+  <data name="SftwareAutoStart" xml:space="preserve">
+    <value>Software Automatic Start</value>
+  </data>
+  <data name="Open" xml:space="preserve">
+    <value>Open</value>
+  </data>
+  <data name="Start" xml:space="preserve">
+    <value>Start</value>
+  </data>
+  <data name="frmDiagnose" xml:space="preserve">
+    <value>frmDiagnose</value>
+  </data>
+  <data name="frmStepSampleCfg" xml:space="preserve">
+    <value>StepSampleCfg</value>
+  </data>
+  <data name="frmExpressTagCfg" xml:space="preserve">
+    <value>ExpressTagCfg</value>
+  </data>
+  <data name="CannelName" xml:space="preserve">
+    <value>CannelName</value>
+  </data>
+  <data name="CannelType" xml:space="preserve">
+    <value>CannelType</value>
+  </data>
+  <data name="DriverType" xml:space="preserve">
+    <value>DriverType</value>
+  </data>
+  <data name="CannelCfg" xml:space="preserve">
+    <value>CannelCfg</value>
+  </data>
+  <data name="Enable" xml:space="preserve">
+    <value>Enable</value>
+  </data>
+  <data name="Save" xml:space="preserve">
+    <value>Save</value>
+  </data>
+  <data name="Clear" xml:space="preserve">
+    <value>Clear</value>
+  </data>
+  <data name="TimeStart" xml:space="preserve">
+    <value>TimeStart</value>
+  </data>
+  <data name="TimeEnd" xml:space="preserve">
+    <value>TimeEnd</value>
+  </data>
+  <data name="byWO" xml:space="preserve">
+    <value>byWO</value>
+  </data>
+  <data name="byTime" xml:space="preserve">
+    <value>byTime</value>
+  </data>
+  <data name="Task" xml:space="preserve">
+    <value>Task</value>
+  </data>
+  <data name="DBCreate" xml:space="preserve">
+    <value>DBCreate</value>
+  </data>
+  <data name="DBTest" xml:space="preserve">
+    <value>DBTest</value>
+  </data>
+  <data name="DBCfg" xml:space="preserve">
+    <value>DBCfg</value>
+  </data>
+  <data name="DBType" xml:space="preserve">
+    <value>DBType</value>
+  </data>
+  <data name="DBStoreTime" xml:space="preserve">
+    <value>DB Store Time</value>
+  </data>
+  <data name="port" xml:space="preserve">
+    <value>port</value>
+  </data>
+  <data name="User_psd" xml:space="preserve">
+    <value>Password</value>
+  </data>
+  <data name="User_user" xml:space="preserve">
+    <value>User_user</value>
+  </data>
+  <data name="DBLocation" xml:space="preserve">
+    <value>DBLocation</value>
+  </data>
+  <data name="DBFile" xml:space="preserve">
+    <value>DBFile</value>
+  </data>
+  <data name="EquipmentName" xml:space="preserve">
+    <value>EquipmentName</value>
+  </data>
+  <data name="SynchronizeTable" xml:space="preserve">
+    <value>SynchronizeTable</value>
+  </data>
+  <data name="Add" xml:space="preserve">
+    <value>Add</value>
+  </data>
+  <data name="Update" xml:space="preserve">
+    <value>Uppdate</value>
+  </data>
+  <data name="Delete" xml:space="preserve">
+    <value>Delete</value>
+  </data>
+  <data name="Up" xml:space="preserve">
+    <value>Up</value>
+  </data>
+  <data name="Down" xml:space="preserve">
+    <value>Down</value>
+  </data>
+  <data name="TimeScaleTable" xml:space="preserve">
+    <value>Time Scale Table</value>
+  </data>
+  <data name="DBTable" xml:space="preserve">
+    <value>DBTable</value>
+  </data>
+  <data name="TitleStep" xml:space="preserve">
+    <value>TitleStep</value>
+  </data>
+  <data name="triggering_condition" xml:space="preserve">
+    <value>triggering_condition</value>
+  </data>
+  <data name="LotNum" xml:space="preserve">
+    <value>LotNum</value>
+  </data>
+  <data name="Expression" xml:space="preserve">
+    <value>Expression</value>
+  </data>
+  <data name="TagComm" xml:space="preserve">
+    <value>TagComm</value>
+  </data>
+  <data name="BoolTrigTag" xml:space="preserve">
+    <value>BoolTrigTag</value>
+  </data>
+  <data name="CollectionRisingEdge" xml:space="preserve">
+    <value>AcquisitionRisingEdge </value>
+  </data>
+  <data name="CollectionConsecutive" xml:space="preserve">
+    <value>CollectionConsecutive </value>
+    <comment>连续采集</comment>
+  </data>
+  <data name="TaskList" xml:space="preserve">
+    <value>TaskList</value>
+  </data>
+  <data name="SteptType" xml:space="preserve">
+    <value>SteptType</value>
+  </data>
+  <data name="StepName" xml:space="preserve">
+    <value>StepName</value>
+  </data>
+  <data name="Recipe" xml:space="preserve">
+    <value>Recipe</value>
+  </data>
+  <data name="Product" xml:space="preserve">
+    <value>Product</value>
+  </data>
+  <data name="Phase" xml:space="preserve">
+    <value>Phase</value>
+  </data>
+  <data name="GetEndpoint" xml:space="preserve">
+    <value>GetEndpoint</value>
+  </data>
+  <data name="UseUserLogIn" xml:space="preserve">
+    <value>UseUserLogIn</value>
+  </data>
+  <data name="PLC_Cfg_Notes" xml:space="preserve">
+    <value>PLC_Cfg_Notes</value>
+  </data>
+  <data name="Save_Restart" xml:space="preserve">
+    <value>Save_Restart</value>
+  </data>
+  <data name="S7_400Look4Cfg" xml:space="preserve">
+    <value>S7_400Look4Cfg</value>
+  </data>
+  <data name="DataType" xml:space="preserve">
+    <value>DataType</value>
+  </data>
+  <data name="Address" xml:space="preserve">
+    <value>Address</value>
+  </data>
+  <data name="TagInternal" xml:space="preserve">
+    <value>Internal Tag</value>
+  </data>
+  <data name="TagInternalList" xml:space="preserve">
+    <value>Internal tag list</value>
+  </data>
+  <data name="diaExpress" xml:space="preserve">
+    <value>diaExpress</value>
+  </data>
+  <data name="diaExpressCheck" xml:space="preserve">
+    <value>diaExpressCheck</value>
+  </data>
+  <data name="Check" xml:space="preserve">
+    <value>Check</value>
+  </data>
+  <data name="ConfigSys" xml:space="preserve">
+    <value>ConfigSys</value>
+  </data>
+  <data name="TagDevice" xml:space="preserve">
+    <value>TagDevice</value>
+  </data>
+  <data name="ValueDefault" xml:space="preserve">
+    <value>ValueDefault</value>
+  </data>
+  <data name="UOM" xml:space="preserve">
+    <value>UOM</value>
+  </data>
+  <data name="QstDeletDBColumn" xml:space="preserve">
+    <value>QstDeletDBColumn</value>
+  </data>
+  <data name="DeletFail" xml:space="preserve">
+    <value>DeletFail</value>
+  </data>
+  <data name="DeletSucess" xml:space="preserve">
+    <value>DeletSucess</value>
+  </data>
+  <data name="msgDBTitleNotNull" xml:space="preserve">
+    <value>msgDBTitleNotNull</value>
+  </data>
+  <data name="msgCreateDBFail" xml:space="preserve">
+    <value>msgCreateDBFail</value>
+  </data>
+  <data name="msgSelectLine" xml:space="preserve">
+    <value>msgSelectLine</value>
+  </data>
+  <data name="msgIPWrong" xml:space="preserve">
+    <value>msgIPWrong</value>
+  </data>
+  <data name="msgSaveError" xml:space="preserve">
+    <value>msgSaveError</value>
+  </data>
+  <data name="msgRSError" xml:space="preserve">
+    <value>msgRSError</value>
+  </data>
+  <data name="msgSelectEndpoint" xml:space="preserve">
+    <value>msgSelectEndpoint</value>
+  </data>
+  <data name="msgExportExcelFail" xml:space="preserve">
+    <value>msgExportExcelFail</value>
+  </data>
+  <data name="msgExport1" xml:space="preserve">
+    <value>msgExport1</value>
+  </data>
+  <data name="msgExport2" xml:space="preserve">
+    <value>msgExport2</value>
+  </data>
+  <data name="msgImportTag1" xml:space="preserve">
+    <value>msgImportTag1</value>
+  </data>
+  <data name="msgImportExcelFail" xml:space="preserve">
+    <value>msgImportExcelFail</value>
+  </data>
+  <data name="treeCannel" xml:space="preserve">
+    <value>treeCannel</value>
+  </data>
+  <data name="treeStoreCfg" xml:space="preserve">
+    <value>treeStoreCfg</value>
+  </data>
+  <data name="treeStepStoreCfg" xml:space="preserve">
+    <value>treeStepStoreCfg</value>
+  </data>
+  <data name="treeSysCfg" xml:space="preserve">
+    <value>treeSysCfg</value>
+  </data>
+  <data name="treeDiagnose" xml:space="preserve">
+    <value>treeDiagnose</value>
+  </data>
+  <data name="treeHistoricalQuery" xml:space="preserve">
+    <value>treeHistoricalQuery</value>
+  </data>
+  <data name="msgWoNotNullFail" xml:space="preserve">
+    <value>msgWoNotNullFail</value>
+  </data>
+  <data name="msgSctStore" xml:space="preserve">
+    <value>msgSctStore</value>
+  </data>
+  <data name="msgNoTagFail" xml:space="preserve">
+    <value>msgNoTagFail</value>
+  </data>
+  <data name="msgRptExportFail" xml:space="preserve">
+    <value>msgRptExportFail</value>
+  </data>
+  <data name="msgRptExportSucess" xml:space="preserve">
+    <value>msgRptExportSucess</value>
+  </data>
+  <data name="msgNoTableQFail" xml:space="preserve">
+    <value>msgNoTableQFail</value>
+  </data>
+  <data name="msgNoMatchQFail" xml:space="preserve">
+    <value>msgNoMatchQFail</value>
+  </data>
+  <data name="WriteDown" xml:space="preserve">
+    <value>WriteDown</value>
+  </data>
+  <data name="WriteOperation" xml:space="preserve">
+    <value>WriteOperation</value>
+  </data>
+  <data name="Select" xml:space="preserve">
+    <value>Select</value>
+  </data>
+  <data name="PromptComTest" xml:space="preserve">
+    <value>PromptComTest</value>
+  </data>
+  <data name="msgDBcOK" xml:space="preserve">
+    <value>msgDBcOK</value>
+  </data>
+  <data name="msgDBcFail" xml:space="preserve">
+    <value>msgDBcFail</value>
+  </data>
+  <data name="msgDBTbcFail" xml:space="preserve">
+    <value>msgDBTbcFail</value>
+  </data>
+  <data name="msgDBCreateOK" xml:space="preserve">
+    <value>msgDBCreateOK</value>
+  </data>
+  <data name="msgDBSyncOK" xml:space="preserve">
+    <value>msgDBSyncOK</value>
+  </data>
+  <data name="msgDBCreateFail1" xml:space="preserve">
+    <value>msgDBCreateFail1</value>
+  </data>
+  <data name="msgDbTskNameNotNull" xml:space="preserve">
+    <value>msgDbTskNameNotNull</value>
+  </data>
+  <data name="msgTagNameNotNull" xml:space="preserve">
+    <value>msgTagNameNotNull</value>
+  </data>
+  <data name="msgTagNameSelectNotExist" xml:space="preserve">
+    <value>msgTagNameSelectNotExist</value>
+  </data>
+  <data name="msgSampleWindowError1" xml:space="preserve">
+    <value>msgSampleWindowError1</value>
+  </data>
+  <data name="msgAttributeError1" xml:space="preserve">
+    <value>msgAttributeError1</value>
+  </data>
+  <data name="msgExample1" xml:space="preserve">
+    <value>msgExample1</value>
+  </data>
+  <data name="msgExample2" xml:space="preserve">
+    <value>msgExample2</value>
+  </data>
+  <data name="Company" xml:space="preserve">
+    <value>Company</value>
+  </data>
+  <data name="toolStripConnFail" xml:space="preserve">
+    <value>toolStripConnFail</value>
+  </data>
+  <data name="toolStripConnOK" xml:space="preserve">
+    <value>toolStripConnOK</value>
+  </data>
+  <data name="hour" xml:space="preserve">
+    <value>hour</value>
+  </data>
+  <data name="toolStripTryOut1" xml:space="preserve">
+    <value>toolStripTryOut1</value>
+  </data>
+  <data name="toolStripTryOut2" xml:space="preserve">
+    <value>toolStripTryOut2</value>
+  </data>
+  <data name="toolStripTryOut3" xml:space="preserve">
+    <value>toolStripTryOut3</value>
+  </data>
+  <data name="msgRptQuerySucess" xml:space="preserve">
+    <value>msgRptQuerySucess</value>
+  </data>
+  <data name="QstDeletAll" xml:space="preserve">
+    <value>QstDeletAll</value>
+  </data>
+  <data name="msgUACfgError1" xml:space="preserve">
+    <value>msgUACfgError1</value>
+  </data>
+  <data name="msgTag1" xml:space="preserve">
+    <value>msgTag1</value>
+  </data>
+  <data name="msgTag2" xml:space="preserve">
+    <value>msgTag2</value>
+  </data>
+  <data name="msgTag3" xml:space="preserve">
+    <value>msgTag3</value>
+  </data>
+  <data name="ServerNode" xml:space="preserve">
+    <value>ServerNode</value>
+  </data>
+  <data name="Attribute" xml:space="preserve">
+    <value>Attribute</value>
+  </data>
+  <data name="GetTag" xml:space="preserve">
+    <value>GetTag</value>
+  </data>
+  <data name="TableName" xml:space="preserve">
+    <value>TableName</value>
+  </data>
+  <data name="QstDeletSelected" xml:space="preserve">
+    <value>QstDeletSelected</value>
+  </data>
+  <data name="ExportExcel" xml:space="preserve">
+    <value>ExportExcel</value>
+  </data>
+  <data name="ExportChart" xml:space="preserve">
+    <value>ExportChart</value>
+  </data>
+  <data name="msgChartExportSucess" xml:space="preserve">
+    <value>msgChartExportSucess</value>
+  </data>
+  <data name="msgChartExporFail" xml:space="preserve">
+    <value>msgChartExporFail</value>
+  </data>
+  <data name="DataTable" xml:space="preserve">
+    <value>DataTable</value>
+  </data>
+  <data name="TrendChart" xml:space="preserve">
+    <value>TrendChart</value>
+  </data>
+  <data name="TableColName" xml:space="preserve">
+    <value>TableColName</value>
+  </data>
+  <data name="DeleteDBDate" xml:space="preserve">
+    <value>DeleteDBDate</value>
+  </data>
+  <data name="msgDBCreateFail2" xml:space="preserve">
+    <value>msgDBCreateFail2</value>
+  </data>
+  <data name="msgDBQuering" xml:space="preserve">
+    <value>msgDBQuering</value>
+  </data>
+  <data name="TimeScaleTableNotNullFail" xml:space="preserve">
+    <value>TimeScaleTableNotNullFail</value>
+    <comment>TimeScaleTableNotNullFail</comment>
+  </data>
+  <data name="currentValue" xml:space="preserve">
+    <value>currentValue</value>
+  </data>
+  <data name="RealTimeValue" xml:space="preserve">
+    <value>RealTimeValue</value>
+  </data>
+  <data name="msgStartsWithSpecialCharOrDigitError" xml:space="preserve">
+    <value>msgStartsWithSpecialCharOrDigitError</value>
+  </data>
+  <data name="msgWoTagTypeError" xml:space="preserve">
+    <value>msgWoTagTypeError</value>
+  </data>
+  <data name="MenChannel" xml:space="preserve">
+    <value>MenDataTable</value>
+  </data>
+  <data name="MenDataTable" xml:space="preserve">
+    <value>MenDataTable</value>
+  </data>
+  <data name="MenFormula" xml:space="preserve">
+    <value>MenFormula</value>
+  </data>
+  <data name="MenDiagnose" xml:space="preserve">
+    <value>MenDiagnose</value>
+  </data>
+  <data name="MenHistory" xml:space="preserve">
+    <value>MenHistory</value>
+  </data>
+  <data name="MenSystem" xml:space="preserve">
+    <value>MenSystem</value>
+  </data>
+  <data name="MenAbout" xml:space="preserve">
+    <value>MenAbout</value>
+  </data>
+  <data name="Description" xml:space="preserve">
+    <value>Description</value>
+  </data>
+  <data name="Equipments" xml:space="preserve">
+    <value>Equipments</value>
+  </data>
+  <data name="Off" xml:space="preserve">
+    <value>Off</value>
+  </data>
+  <data name="On" xml:space="preserve">
+    <value>On</value>
+  </data>
+  <data name="TagWO" xml:space="preserve">
+    <value>TagWO</value>
+  </data>
+  <data name="WebAPICfg" xml:space="preserve">
+    <value>WebAPICfg</value>
+  </data>
+  <data name="TagList" xml:space="preserve">
+    <value>TagList</value>
+  </data>
+  <data name="EquipmentCfguration" xml:space="preserve">
+    <value>EquipmentCfguration</value>
+  </data>
+  <data name="GetThisItem" xml:space="preserve">
+    <value>GetThisItem</value>
+  </data>
+  <data name="MenuGetSubItems" xml:space="preserve">
+    <value>MenuGetSubItems</value>
+  </data>
+</root>
