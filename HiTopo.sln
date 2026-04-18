@@ -1,0 +1,37 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.10.34928.147
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Log4", "StdLog4\Log4.csproj", "{ED5D24B6-3E3A-405F-8F0C-BDB44762ECEA}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TopoData", "TopoData\TopoData.csproj", "{5B39CE52-4836-407B-BED0-E75A2CFB2786}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "hiLib", "auDASLib\hiLib.csproj", "{740F12D2-6F02-05A6-98ED-8829CE40D515}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{ED5D24B6-3E3A-405F-8F0C-BDB44762ECEA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{ED5D24B6-3E3A-405F-8F0C-BDB44762ECEA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{ED5D24B6-3E3A-405F-8F0C-BDB44762ECEA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{ED5D24B6-3E3A-405F-8F0C-BDB44762ECEA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5B39CE52-4836-407B-BED0-E75A2CFB2786}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5B39CE52-4836-407B-BED0-E75A2CFB2786}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5B39CE52-4836-407B-BED0-E75A2CFB2786}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5B39CE52-4836-407B-BED0-E75A2CFB2786}.Release|Any CPU.Build.0 = Release|Any CPU
+		{740F12D2-6F02-05A6-98ED-8829CE40D515}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{740F12D2-6F02-05A6-98ED-8829CE40D515}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{740F12D2-6F02-05A6-98ED-8829CE40D515}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{740F12D2-6F02-05A6-98ED-8829CE40D515}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {E23C53D0-5743-4EF7-AF47-CC9CFD6B7236}
+	EndGlobalSection
+EndGlobal
