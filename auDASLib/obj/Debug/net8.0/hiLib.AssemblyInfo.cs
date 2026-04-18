@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("Topotech团队")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("2.6.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("0.5.0")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("0.5.0+82ff3492ca2be75f445591d6b171ebae737f833e")]
 [assembly: System.Reflection.AssemblyProductAttribute("hiLib")]
 [assembly: System.Reflection.AssemblyTitleAttribute("hiLib")]
 [assembly: System.Reflection.AssemblyVersionAttribute("2.6.0.0")]

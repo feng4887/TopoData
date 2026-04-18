@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "DkTGkwcVnpc=",
+  "dgSpecHash": "dRbAeazY8FM=",
   "success": true,
-  "projectFilePath": "E:\\10Work\\17Code\\018HiTopo\\HiTopoV1\\HiTopo\\TopoData\\TopoData.csproj",
+  "projectFilePath": "E:\\10Work\\17Code\\018HiTopo\\HiTopoMain\\TopoData\\TopoData.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\LENOVO\\.nuget\\packages\\azure.core\\1.50.0\\azure.core.1.50.0.nupkg.sha512",
     "C:\\Users\\LENOVO\\.nuget\\packages\\azure.identity\\1.11.4\\azure.identity.1.11.4.nupkg.sha512",
@@ -193,9 +193,9 @@
       "code": "NU1902",
       "level": "Warning",
       "message": "包 \"OPCFoundation.NetStandard.Opc.Ua.Core\" 1.5.374.118 具有已知的 中 严重性漏洞，https://github.com/advisories/GHSA-h958-fxgg-g7w3",
-      "projectPath": "E:\\10Work\\17Code\\018HiTopo\\HiTopoV1\\HiTopo\\TopoData\\TopoData.csproj",
+      "projectPath": "E:\\10Work\\17Code\\018HiTopo\\HiTopoMain\\TopoData\\TopoData.csproj",
       "warningLevel": 1,
-      "filePath": "E:\\10Work\\17Code\\018HiTopo\\HiTopoV1\\HiTopo\\TopoData\\TopoData.csproj",
+      "filePath": "E:\\10Work\\17Code\\018HiTopo\\HiTopoMain\\TopoData\\TopoData.csproj",
       "libraryId": "OPCFoundation.NetStandard.Opc.Ua.Core",
       "targetGraphs": [
         "net8.0-windows7.0"

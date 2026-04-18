@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "CfSpBmaABtw=",
+  "dgSpecHash": "sv10vzH3oIk=",
   "success": true,
-  "projectFilePath": "E:\\10Work\\17Code\\018HiTopo\\HiTopoV1\\HiTopo\\StdLog4\\Log4.csproj",
+  "projectFilePath": "E:\\10Work\\17Code\\018HiTopo\\HiTopoMain\\StdLog4\\Log4.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\LENOVO\\.nuget\\packages\\log4net\\2.0.12\\log4net.2.0.12.nupkg.sha512",
     "C:\\Users\\LENOVO\\.nuget\\packages\\microsoft.netcore.platforms\\1.1.0\\microsoft.netcore.platforms.1.1.0.nupkg.sha512",
@@ -19,5 +19,19 @@
     "C:\\Users\\LENOVO\\.nuget\\packages\\system.security.permissions\\4.5.0\\system.security.permissions.4.5.0.nupkg.sha512",
     "C:\\Users\\LENOVO\\.nuget\\packages\\system.security.principal.windows\\4.5.0\\system.security.principal.windows.4.5.0.nupkg.sha512"
   ],
-  "logs": []
+  "logs": [
+    {
+      "code": "NU1902",
+      "level": "Warning",
+      "message": "包 \"log4net\" 2.0.12 具有已知的 中 严重性漏洞，https://github.com/advisories/GHSA-4f7c-pmjv-c25w",
+      "projectPath": "E:\\10Work\\17Code\\018HiTopo\\HiTopoMain\\StdLog4\\Log4.csproj",
+      "warningLevel": 1,
+      "filePath": "E:\\10Work\\17Code\\018HiTopo\\HiTopoMain\\StdLog4\\Log4.csproj",
+      "libraryId": "log4net",
+      "targetGraphs": [
+        ".NETFramework,Version=v4.5",
+        ".NETStandard,Version=v2.0"
+      ]
+    }
+  ]
 }

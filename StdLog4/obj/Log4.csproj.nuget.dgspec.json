@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "E:\\10Work\\17Code\\018HiTopo\\HiTopoV1\\HiTopo\\StdLog4\\Log4.csproj": {}
+    "E:\\10Work\\17Code\\018HiTopo\\HiTopoMain\\StdLog4\\Log4.csproj": {}
   },
   "projects": {
-    "E:\\10Work\\17Code\\018HiTopo\\HiTopoV1\\HiTopo\\StdLog4\\Log4.csproj": {
+    "E:\\10Work\\17Code\\018HiTopo\\HiTopoMain\\StdLog4\\Log4.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "E:\\10Work\\17Code\\018HiTopo\\HiTopoV1\\HiTopo\\StdLog4\\Log4.csproj",
+        "projectUniqueName": "E:\\10Work\\17Code\\018HiTopo\\HiTopoMain\\StdLog4\\Log4.csproj",
         "projectName": "Log4",
-        "projectPath": "E:\\10Work\\17Code\\018HiTopo\\HiTopoV1\\HiTopo\\StdLog4\\Log4.csproj",
+        "projectPath": "E:\\10Work\\17Code\\018HiTopo\\HiTopoMain\\StdLog4\\Log4.csproj",
         "packagesPath": "C:\\Users\\LENOVO\\.nuget\\packages\\",
-        "outputPath": "E:\\10Work\\17Code\\018HiTopo\\HiTopoV1\\HiTopo\\StdLog4\\obj\\",
+        "outputPath": "E:\\10Work\\17Code\\018HiTopo\\HiTopoMain\\StdLog4\\obj\\",
         "projectStyle": "PackageReference",
         "crossTargeting": true,
         "fallbackFolders": [

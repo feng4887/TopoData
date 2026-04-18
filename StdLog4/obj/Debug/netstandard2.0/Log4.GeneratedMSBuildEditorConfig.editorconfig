@@ -1,6 +1,6 @@
 is_global = true
 build_property.RootNamespace = Log4
-build_property.ProjectDir = E:\10Work\17Code\018HiTopo\HiTopoV1\HiTopo\StdLog4\
+build_property.ProjectDir = E:\10Work\17Code\018HiTopo\HiTopoMain\StdLog4\
 build_property.EnableComHosting = 
 build_property.EnableGeneratedComInterfaceComImportInterop = 
 build_property.CsWinRTUseWindowsUIXamlProjections = false

@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "nRIcNpNhv2A=",
+  "dgSpecHash": "7oXXt/s5obg=",
   "success": true,
-  "projectFilePath": "E:\\10Work\\17Code\\018HiTopo\\HiTopoV1\\HiTopo\\auDASLib\\hiLib.csproj",
+  "projectFilePath": "E:\\10Work\\17Code\\018HiTopo\\HiTopoMain\\auDASLib\\hiLib.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\LENOVO\\.nuget\\packages\\azure.core\\1.38.0\\azure.core.1.38.0.nupkg.sha512",
     "C:\\Users\\LENOVO\\.nuget\\packages\\azure.identity\\1.11.4\\azure.identity.1.11.4.nupkg.sha512",

@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "E:\\10Work\\17Code\\018HiTopo\\HiTopoV1\\HiTopo\\auDASLib\\hiLib.csproj": {}
+    "E:\\10Work\\17Code\\018HiTopo\\HiTopoMain\\auDASLib\\hiLib.csproj": {}
   },
   "projects": {
-    "E:\\10Work\\17Code\\018HiTopo\\HiTopoV1\\HiTopo\\auDASLib\\hiLib.csproj": {
+    "E:\\10Work\\17Code\\018HiTopo\\HiTopoMain\\auDASLib\\hiLib.csproj": {
       "version": "0.5.0",
       "restore": {
-        "projectUniqueName": "E:\\10Work\\17Code\\018HiTopo\\HiTopoV1\\HiTopo\\auDASLib\\hiLib.csproj",
+        "projectUniqueName": "E:\\10Work\\17Code\\018HiTopo\\HiTopoMain\\auDASLib\\hiLib.csproj",
         "projectName": "hiLib",
-        "projectPath": "E:\\10Work\\17Code\\018HiTopo\\HiTopoV1\\HiTopo\\auDASLib\\hiLib.csproj",
+        "projectPath": "E:\\10Work\\17Code\\018HiTopo\\HiTopoMain\\auDASLib\\hiLib.csproj",
         "packagesPath": "C:\\Users\\LENOVO\\.nuget\\packages\\",
-        "outputPath": "E:\\10Work\\17Code\\018HiTopo\\HiTopoV1\\HiTopo\\auDASLib\\obj\\",
+        "outputPath": "E:\\10Work\\17Code\\018HiTopo\\HiTopoMain\\auDASLib\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files\\DevExpress 23.2\\Components\\Offline Packages",

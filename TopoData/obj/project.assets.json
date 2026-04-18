@@ -8607,11 +8607,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "E:\\10Work\\17Code\\018HiTopo\\HiTopoV1\\HiTopo\\TopoData\\TopoData.csproj",
+      "projectUniqueName": "E:\\10Work\\17Code\\018HiTopo\\HiTopoMain\\TopoData\\TopoData.csproj",
       "projectName": "TopoData",
-      "projectPath": "E:\\10Work\\17Code\\018HiTopo\\HiTopoV1\\HiTopo\\TopoData\\TopoData.csproj",
+      "projectPath": "E:\\10Work\\17Code\\018HiTopo\\HiTopoMain\\TopoData\\TopoData.csproj",
       "packagesPath": "C:\\Users\\LENOVO\\.nuget\\packages\\",
-      "outputPath": "E:\\10Work\\17Code\\018HiTopo\\HiTopoV1\\HiTopo\\TopoData\\obj\\",
+      "outputPath": "E:\\10Work\\17Code\\018HiTopo\\HiTopoMain\\TopoData\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files\\DevExpress 23.2\\Components\\Offline Packages",
@@ -8635,11 +8635,11 @@
         "net8.0-windows7.0": {
           "targetAlias": "net8.0-windows",
           "projectReferences": {
-            "E:\\10Work\\17Code\\018HiTopo\\HiTopoV1\\HiTopo\\auDASLib\\hiLib.csproj": {
-              "projectPath": "E:\\10Work\\17Code\\018HiTopo\\HiTopoV1\\HiTopo\\auDASLib\\hiLib.csproj"
+            "E:\\10Work\\17Code\\018HiTopo\\HiTopoMain\\auDASLib\\hiLib.csproj": {
+              "projectPath": "E:\\10Work\\17Code\\018HiTopo\\HiTopoMain\\auDASLib\\hiLib.csproj"
             },
-            "E:\\10Work\\17Code\\018HiTopo\\HiTopoV1\\HiTopo\\StdLog4\\Log4.csproj": {
-              "projectPath": "E:\\10Work\\17Code\\018HiTopo\\HiTopoV1\\HiTopo\\StdLog4\\Log4.csproj"
+            "E:\\10Work\\17Code\\018HiTopo\\HiTopoMain\\StdLog4\\Log4.csproj": {
+              "projectPath": "E:\\10Work\\17Code\\018HiTopo\\HiTopoMain\\StdLog4\\Log4.csproj"
             }
           }
         }
