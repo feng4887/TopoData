@@ -1,0 +1,12 @@
+E:\10Work\17Code\018HiTopo\auDASLib\bin\Debug\net8.0\hiDASLib.deps.json
+E:\10Work\17Code\018HiTopo\auDASLib\bin\Debug\net8.0\hiDASLib.dll
+E:\10Work\17Code\018HiTopo\auDASLib\bin\Debug\net8.0\hiDASLib.pdb
+E:\10Work\17Code\018HiTopo\auDASLib\obj\Debug\net8.0\hiDASLib.csproj.AssemblyReference.cache
+E:\10Work\17Code\018HiTopo\auDASLib\obj\Debug\net8.0\hiDASLib.GeneratedMSBuildEditorConfig.editorconfig
+E:\10Work\17Code\018HiTopo\auDASLib\obj\Debug\net8.0\hiDASLib.AssemblyInfoInputs.cache
+E:\10Work\17Code\018HiTopo\auDASLib\obj\Debug\net8.0\hiDASLib.AssemblyInfo.cs
+E:\10Work\17Code\018HiTopo\auDASLib\obj\Debug\net8.0\hiDASLib.csproj.CoreCompileInputs.cache
+E:\10Work\17Code\018HiTopo\auDASLib\obj\Debug\net8.0\hiDASLib.dll
+E:\10Work\17Code\018HiTopo\auDASLib\obj\Debug\net8.0\refint\hiDASLib.dll
+E:\10Work\17Code\018HiTopo\auDASLib\obj\Debug\net8.0\hiDASLib.pdb
+E:\10Work\17Code\018HiTopo\auDASLib\obj\Debug\net8.0\ref\hiDASLib.dll
