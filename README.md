@@ -1,6 +1,6 @@
 # HiTopo
 
-# V1.0 Readme
+# V1.1 Readme
 
 TopoData provides data acquisition and storage capabilities for the industrial automation sector, along with data read/write interfaces for third-party software, aiming to help system integrators bridge the communication gap between IT and OT.
 
