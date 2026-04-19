@@ -16,7 +16,7 @@ Provides flexible recipe definition functionality, allowing users to select diff
  Historical data can be exported to Excel.   
  HMI Data acquisition and storage models for industry software engineers.
 
-# 1 Installation
+# 1 Environment
 
 # 1.1 Installation Environment
 
@@ -26,6 +26,13 @@ The software is developed based on DotNet 8. Therefore, before using it, the fol
  windowsdesktop-runtime-8.0.11-win-x64.exe   
  dotnet-runtime-8.0.11-win-x64.exe   
  aspnetcore-runtime-8.0.11-win-x64.exe
+
+
+# 1.2 Develop Environment
+VS2022
+.net8
+Devexpress 23.2
+
 
 # 2 System configuration
 
