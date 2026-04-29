@@ -184,42 +184,59 @@ namespace TopoData
                 _ApplicationName = _rtv[cbEndpointItems.SelectedIndex].ApplicationName;
             }
         }
+
+        private object _object = new object();
+
         private async void btGetEndpoint_Click(object sender, EventArgs e)
         {
-            cbEndpointItems.Properties.Items.Clear();
-            _rtv.Clear();
-            _SecurityMode = "";
-            _securityPolicy = "";
-            _ApplicationName = "";
-            //The local discovery URL for the discovery server
-            string discoveryUrl = tbEndPoint.Text;
+            lock (_object)
+            { 
+                 cbEndpointItems.Properties.Items.Clear();
+                _rtv.Clear();
+                _SecurityMode = "";
+                _securityPolicy = "";
+                _ApplicationName = "";
+                //The local discovery URL for the discovery server
+                string discoveryUrl = tbEndPoint.Text;
 
-            try
-            {
-                await Task.Run(() =>
-                {
-                    _rtv = UAOperator.GetUACfgs(tbEndPoint.Text);
-                });
-
-                if (_rtv != null || _rtv.Count > 0)
+                try
                 {
                     cbEndpointItems.Properties.Items.Clear();
-                    foreach (var r in _rtv)
+                    _rtv.Clear();
+
+
+                    _rtv = UAOperator.GetUACfgs(tbEndPoint.Text);
+
+                    if (_rtv != null || _rtv.Count > 0)
                     {
-                        string item = "[" + r.SecurityMode + "] " + " [" + r.securityPolicy + "] ";
-                        int i = cbEndpointItems.Properties.Items.Add(item);
+
+                        foreach (var r in _rtv)
+                        {
+                            string item = "[" + r.SecurityMode + "] " + " [" + r.securityPolicy + "] ";
+                            int i = cbEndpointItems.Properties.Items.Add(item);
+                        }
+                        cbEndpointItems.SelectedIndex = 0;
                     }
                 }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message);
+                }           
             }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message);
-            }
+
         }
 
         private async void btGetTag_Click(object sender, EventArgs e)
         {
             diaOPCUATagSelect uatgselect = new diaOPCUATagSelect();
+
+            if (cbEndpointItems.SelectedIndex >= 0)
+            {
+                _SecurityMode = _rtv[cbEndpointItems.SelectedIndex].SecurityMode;
+                _securityPolicy = _rtv[cbEndpointItems.SelectedIndex].securityPolicy;
+                _ApplicationName = _rtv[cbEndpointItems.SelectedIndex].ApplicationName;
+            }
+
             uatgselect.mySession = null;
             uatgselect.EndpointUrl = tbEndPoint.Text;
             uatgselect.SecurityMode = _SecurityMode;
