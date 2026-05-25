@@ -1,4 +1,5 @@
 ﻿using auDASLib;
+using DevExpress.CodeParser;
 using DevExpress.Data;
 using DevExpress.XtraEditors;
 using RestSharp;
@@ -17,7 +18,6 @@ using TopoData.model;
 using TopoData.Properties;
 using TopoData.SubPage;
 using static OfficeOpenXml.ExcelErrorValue;
-
 
 namespace TopoData.Page
 {
@@ -77,17 +77,24 @@ namespace TopoData.Page
                     return;
 
                 //------------------------------------------
-
                 List<RealTimeValue> rtvs = new List<RealTimeValue>();
                 if (TagIDs != null && TagIDs.Count > 0)
                 {
-                    foreach (var item in TagIDs)
-                    {
-                        RealTimeValue realTimeValue = new RealTimeValue();
-                        var vl = auDAServer.ItemPool.ValuePool.TryGetValue(item, out realTimeValue);
-                        if (vl && realTimeValue != null)
-                            rtvs.Add(realTimeValue);
+                    try
+                    { 
+                         foreach (var item in TagIDs)
+                        {
+                            RealTimeValue realTimeValue = new RealTimeValue();
+                            var vl = auDAServer.ItemPool.ValuePool.TryGetValue(item, out realTimeValue);
+                            if (vl && realTimeValue != null)
+                                rtvs.Add(realTimeValue);
+                        }                   
                     }
+                    catch (Exception ex)
+                    {
+                        Debug.WriteLine(ex.Message);
+                    }
+
 
                 }
 
@@ -107,13 +114,19 @@ namespace TopoData.Page
                     // 保存当前滚动位置
                     int topRowHandle = gridView1.TopRowIndex;
 
-                    // 增量更新数据（不清空，保持现有数据结构）
-                    UpdateRealtimeValues(rtvs);
+                    try
+                    { 
+                        // 增量更新数据（不清空，保持现有数据结构）
+                        UpdateRealtimeValues(rtvs);            
+                        // 恢复滚动位置
+                        if (topRowHandle >= 0 && topRowHandle < gridView1.RowCount)
+                        {
+                            gridView1.TopRowIndex = topRowHandle;
+                        }                        
+                    }
 
-                    // 恢复滚动位置
-                    if (topRowHandle >= 0 && topRowHandle < gridView1.RowCount)
-                    {
-                        gridView1.TopRowIndex = topRowHandle;
+                    catch(Exception ex)
+                    { 
                     }
                 }
             }
@@ -254,7 +267,7 @@ namespace TopoData.Page
                     return;
 
                 var client = new RestSharp.RestClient(url);
-                var requestGet = new RestRequest("api/Data/WriteRealtimeValues", Method.Post);
+                var requestGet = new RestRequest("api/Data/WriteRealtimeValues", RestSharp.Method.Post);
                 requestGet.AddHeader("Content-Type", "application/json");
                 //string x = JsonHelper.Serialize<TagNames>(tn);
                 //requestGet.AddParameter("TagNames", x);
@@ -343,7 +356,7 @@ namespace TopoData.Page
                     return;
 
                 var client = new RestSharp.RestClient(url);
-                var requestGet = new RestRequest("/api/Recipe/DownloadRecipe", Method.Post);
+                var requestGet = new RestRequest("/api/Recipe/DownloadRecipe", RestSharp.Method.Post);
                 requestGet.AddHeader("Content-Type", "application/json");
                 string jsonRecipeName = $"\"{selectedRecipe}\""; // 双引号包裹
                 requestGet.AddJsonBody(jsonRecipeName);

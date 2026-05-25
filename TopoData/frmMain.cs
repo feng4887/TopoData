@@ -21,6 +21,7 @@ using TopoData.Page;
 using TopoData.Properties;
 namespace TopoData
 {
+	
     /// <summary>
     /// Main Form of HiTopo Data Acquisition System
     /// </summary>
@@ -47,15 +48,13 @@ namespace TopoData
 
             ApplyDefaultLanguage();
 
-            //if (LicenseManager.UsageMode == LicenseUsageMode.Designtime)
-            //    return;
-
             //Auto Start 启动项
-            if (AutoStart.IsAutoStartViaShortcutEnabled("TopoData"))
-            {
-                AutoStartOperation();
-            }
+            //if (AutoStart.IsAutoStartViaShortcutEnabled("TopoData"))
+            //{
+            //    AutoStartOperation();
+            //}
         }
+
         /// <summary>
         ///  Auto start data operation service
         /// 自动启动服务操作事件处理程序
@@ -136,14 +135,17 @@ namespace TopoData
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        private void barButtonEnd_ItemClick(object sender, ItemClickEventArgs e)
+        private async void barButtonEnd_ItemClick(object sender, ItemClickEventArgs e)
         {
             try
             {
                 barButtonStart.Visibility = BarItemVisibility.Always;
                 barButtonEnd.Visibility = BarItemVisibility.Never;
 
-                HiTopoServer.MainClass.Stop();
+                await Task.Run(() =>
+                {
+                    HiTopoServer.MainClass.Stop();
+                });
 
                 toolStrip_ServiceStatus.Caption = $" Service Status: Stopped ";
                 toolStrip_ServiceStatus.ItemAppearance.Normal.ForeColor = Color.Red;            

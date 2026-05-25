@@ -7,7 +7,15 @@
     <ApplicationIcon>Resource\2.ico</ApplicationIcon>
     <Authors>Topotech团队</Authors>
     <BaseOutputPath>..\bin\</BaseOutputPath>
+    <Version>1.2</Version>
   </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Remove="StdLog4\**" />
+    <EmbeddedResource Remove="StdLog4\**" />
+    <None Remove="StdLog4\**" />
+    <Page Remove="StdLog4\**" />
+  </ItemGroup>
 
   <ItemGroup>
     <COMReference Include="IWshRuntimeLibrary">
@@ -35,6 +43,7 @@
     <PackageReference Include="Flee" Version="2.0.0" />
     <PackageReference Include="Microsoft.AspNetCore.Hosting" Version="2.3.9" />
     <PackageReference Include="Microsoft.Graph" Version="5.102.0" />
+    <PackageReference Include="NModbus" Version="3.0.83" />
     <PackageReference Include="OPCFoundation.NetStandard.Opc.Ua.Client" Version="1.5.374.118" />
     <PackageReference Include="OPCFoundation.NetStandard.Opc.Ua.Core" Version="1.5.374.118" />
     <PackageReference Include="RestSharp" Version="112.1.0" />
@@ -43,7 +52,6 @@
   </ItemGroup>
 
   <ItemGroup>
-
     <ProjectReference Include="..\auDASLib\hiLib.csproj" />
     <ProjectReference Include="..\StdLog4\Log4.csproj" />
   </ItemGroup>

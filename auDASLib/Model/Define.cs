@@ -626,6 +626,9 @@ namespace auDASLib
                     return 10;
                 case "double":
                     return 11;
+                case "int64":
+                case "long":
+                    return 12;
                 default:
                     return -1;
             }
@@ -652,6 +655,8 @@ namespace auDASLib
                     return "float";
                 case 11:
                     return "double";
+                case 12:
+                    return "int64";
                 default:
                     return "";
             }

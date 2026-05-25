@@ -154,7 +154,6 @@ namespace TopoData
             cbEndpointItems.Location = new Point(63, 39);
             cbEndpointItems.Name = "cbEndpointItems";
             cbEndpointItems.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] { new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo) });
-            cbEndpointItems.Properties.Items.AddRange(new object[] { "OPC UA", "Siemens Profinet" });
             cbEndpointItems.Properties.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.DisableTextEditor;
             cbEndpointItems.Size = new Size(217, 18);
             cbEndpointItems.TabIndex = 12;

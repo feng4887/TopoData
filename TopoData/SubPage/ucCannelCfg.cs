@@ -1,4 +1,6 @@
-﻿using auDASLib;
+﻿using auDAManager.DriverPanel;
+using auDAServer;
+using auDASLib;
 using DevExpress.Data;
 using DevExpress.XtraEditors;
 using DevExpress.XtraEditors.Controls;
@@ -20,9 +22,9 @@ using System.Text;
 using System.Threading.Channels;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using TopoData.model;
 using TopoData.Properties;
 using auDAServer;
-using TopoData.model;
 namespace TopoData.Page
 {
     public partial class ucCannelCfg : DevExpress.XtraEditors.XtraUserControl
@@ -31,6 +33,7 @@ namespace TopoData.Page
         private ucDriverProfinet ucProfinet = new ucDriverProfinet();
         private ucDriverOPCUA ucOPCUA = new ucDriverOPCUA();
         private ucDriverEmpty ucDriverEmpty = new ucDriverEmpty();
+        private ucDriverModbusTCP ucModbusTCP = new ucDriverModbusTCP();
 
         /// <summary>
         /// 默认设备
@@ -86,6 +89,10 @@ namespace TopoData.Page
             {
                 ucOPCUA.ApplyLanguage();
             }
+            else if (cbCannel.SelectedItem?.ToString() == "Modbus TCP")
+            {
+                ucModbusTCP.ApplyLanguage();
+            }
         }
 
         /// <summary>
@@ -96,10 +103,12 @@ namespace TopoData.Page
             cbCannel.SelectedIndex = 0;
             ucProfinet.Parent = pnCannel;
             ucOPCUA.Parent = pnCannel;
+            ucModbusTCP.Parent = pnCannel;
             //ucDriverEmpty.Parent = pnCannel;
             //ucDriverEmpty.Visible = false;
-            ucProfinet.Visible = false;
-            ucOPCUA.Visible = true;
+            ucProfinet.Visible  = false;
+            ucModbusTCP.Visible = false;
+            ucOPCUA.Visible     = true;
             ucOPCUA.TagEvent += UcOPCUA_TagEvent;
         }
         #endregion //[form]
@@ -155,6 +164,20 @@ namespace TopoData.Page
                                 ucOPCUA.ApplicationName = cd.UAParamter.ApplicationName;
                                 ucOPCUA.InitControl();
                                 cbCannel.SelectedItem = "OPC UA";
+                            }
+                            else if (cd.devType == DeviceType.ModbusTCP)
+                            {
+                                ucModbusTCP.Host = cd.IpCfg.Host.ToString();
+                                ucModbusTCP.Port = cd.IpCfg.Port;
+                                ucModbusTCP.DeviceAddress = cd.IpCfg.Slot;
+
+                                if (cd.IpCfg.Rack == 0)
+                                    ucModbusTCP.ParseData = "CDAB";
+                                else if (cd.IpCfg.Rack == 1)
+                                    ucModbusTCP.ParseData = "ABCD";
+                                //ucModbusTCP.InitControl();
+
+                                cbCannel.SelectedItem = "Modbus TCP";
                             }
                             navBarItem1.Caption = cd.CannelID; // 更新导航栏名称
                             tbDescription.Text = cd.Description;
@@ -420,8 +443,9 @@ namespace TopoData.Page
                 new DataTypeItem { Id = 2, Name = "wstring" },
                 new DataTypeItem { Id = 3, Name = "byte" },
                 new DataTypeItem { Id = 4, Name = "int16" },
-                new DataTypeItem { Id = 5, Name = "word" },
                 new DataTypeItem { Id = 6, Name = "int" },
+                new DataTypeItem { Id = 4, Name = "int64" },
+                new DataTypeItem { Id = 5, Name = "word" },
                 new DataTypeItem { Id = 10, Name = "float" },
                 new DataTypeItem { Id = 11, Name = "double" }
             };
@@ -603,18 +627,18 @@ namespace TopoData.Page
 
                     //----------------------------------------------------------------------
                     // 免费版本 列数限制
-                    if (DACtrl.free_Version)
+                    if (auDAServer.DACtrl.free_Version)
                     {                           
 
-                        if (tosave.Count > DACtrl.free_CannelTags)
+                        if (tosave.Count > auDAServer.DACtrl.free_CannelTags)
                         {
-                            for (int i = tosave.Count - 1; i >= DACtrl.free_CannelTags; i--)
+                            for (int i = tosave.Count - 1; i >= auDAServer.DACtrl.free_CannelTags; i--)
                             {
                                 tosave.RemoveAt(i);
                             }
 
-                            DevExpress.XtraEditors.XtraMessageBox.Show($"免费版本导入变量点数量不能超过 {DACtrl.free_CannelTags} 个。", "信息", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                            updateSheetRowsByFreeversion(DACtrl.free_CannelTags);
+                            DevExpress.XtraEditors.XtraMessageBox.Show($"免费版本导入变量点数量不能超过 {auDAServer.DACtrl.free_CannelTags} 个。", "信息", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                            updateSheetRowsByFreeversion(auDAServer.DACtrl.free_CannelTags);
                             DataImport.dicCannelTags[tbCannelID.Text] = GetDBTagsFromSheet(tbCannelID.Text);
                         }
                     }
@@ -658,8 +682,6 @@ namespace TopoData.Page
                             return;
                         }
                         cd.IpCfg = new IpCfg() { Host = ucProfinet.Host, Rack = rack, Slot = slot };
-                        cd.UAParamter = null;
-
                     }
                     //***************************************
                     //4 保存 OPC UA 配置
@@ -670,7 +692,6 @@ namespace TopoData.Page
                         cd.devType = DeviceType.OPCUA;
                         cd.SampleInterval = 20;
                         cd.SampleQty = 10;
-                        cd.IpCfg = null;
                         cd.UAParamter = new UACfg()
                         {
                             EndpointUrl = ucOPCUA.EndpointUrl,
@@ -680,6 +701,38 @@ namespace TopoData.Page
                             User = ucOPCUA.User,
                             UseUserLogIn = ucOPCUA.UseUserLogIn,
                             ApplicationName = ucOPCUA.ApplicationName,
+                        };
+                    }
+
+                    //5. 保存 Modbus TCP配置
+                    if (cbCannel.SelectedItem != null &&
+                        cbCannel.SelectedItem.ToString() == "Modbus TCP")
+                    {
+                        cd.Address = "1";
+                        cd.devType = DeviceType.ModbusTCP;
+                        cd.SampleInterval = 20;
+                        cd.SampleQty = 10;
+
+                        int parseData = 0;
+                        if (ucModbusTCP.ParseData == "ABCD")
+                            parseData = 1;
+                        else if (ucModbusTCP.ParseData == "CDAB")
+                            parseData = 0;
+
+                        bool v = PubFunction.IsValidIP(ucProfinet.Host);
+                        if (!v)
+                        {
+                            //new diaMessageY(Resources.msgIPWrong, Resources.msgSaveError).ShowDialog();
+                            DevExpress.XtraEditors.XtraMessageBox.Show($"IP 地址错误。", "保存错误", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                            return;
+                        }
+
+                        cd.IpCfg = new IpCfg()
+                        {
+                            Host = ucModbusTCP.Host,
+                            Port = ucModbusTCP.Port,
+                            Rack = parseData, //解析顺序
+                            Slot = ucModbusTCP.DeviceAddress
                         };
                     }
 
@@ -723,17 +776,17 @@ namespace TopoData.Page
 
                     //----------------------------------------------------------------------
                     // 免费版本 列数限制
-                    if (DACtrl.free_Version)
+                    if (auDAServer.DACtrl.free_Version)
                     {
                         if (dtt == null ) return;
 
-                        if (dtt.Rows.Count > DACtrl.free_CannelTags)
+                        if (dtt.Rows.Count > auDAServer.DACtrl.free_CannelTags)
                         { 
-                            for (int i = dtt.Rows.Count - 1; i >= DACtrl.free_CannelTags; i--)
+                            for (int i = dtt.Rows.Count - 1; i >= auDAServer.DACtrl.free_CannelTags; i--)
                             {
                                 dtt.Rows.RemoveAt(i);
                             }
-                            MessageBox.Show($"免费版本导入变量点数量不能超过 {DACtrl.free_CannelTags} 个。", "信息", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                            MessageBox.Show($"免费版本导入变量点数量不能超过 {auDAServer.DACtrl.free_CannelTags} 个。", "信息", MessageBoxButtons.OK, MessageBoxIcon.Information);
                         }
                     }
 
@@ -747,7 +800,8 @@ namespace TopoData.Page
                         //**************************************
                         //驱动不同，添加更多代码
                         //**************************************
-                        if (cbCannel.SelectedItem.ToString() == "Siemens Profinet")
+                        if (cbCannel.SelectedItem.ToString() == "Siemens Profinet"
+                            || cbCannel.SelectedItem.ToString() == "Modbus TCP")
                         {
                             foreach (DataRow x in dtt.Rows)
                             {
@@ -756,12 +810,13 @@ namespace TopoData.Page
                                     continue; // 跳过重复的
 
                                 processedTagNames.Add(x[0].ToString());
+                                string dt = x[2].ToString();
 
                                 Tags.Add(new DBTag()
                                 {
                                     TagId = tbCannelID.Text + "." + x[0].ToString(),
                                     Address = x[1].ToString(),
-                                    DataType = DBTag.GetDataType(x[2].ToString()),
+                                    DataType = DBTag.GetDataType(dt),
                                     CannelID = tbCannelID.Text,
                                     TagName = x[0].ToString(),
                                     UOM = x[3].ToString(),
@@ -989,7 +1044,69 @@ namespace TopoData.Page
                         dtl.Rows.Add("pkg_Bucket", "ns=2;s=模拟器示例.函数.Sine1", "-", "");
                     }
                 }
+                else if (cbCannel.SelectedItem.ToString() == "Modbus TCP")
+                {
+                    dtl.Columns.Add("TagId", typeof(string));
+                    dtl.Columns.Add("Address", typeof(string));
+                    dtl.Columns.Add("DataType", typeof(string));
+                    dtl.Columns.Add("UOM", typeof(string));
+                    dtl.Columns.Add("Description", typeof(string));
+                    if (File.Exists(pubDefine.TagDefine))
+                    {
+                        List<DBTag> yy = XmlHelper.XmlDeserializeFromFile<List<DBTag>>(pubDefine.TagDefine, Encoding.UTF8);
 
+                        var xx = new List<DBTag>();
+                        if (yy != null && yy.Count > 0)
+                            xx = yy.Where(it => it.CannelID == tbCannelID.Text).ToList();
+
+                        if (xx.Count > 0)
+                        {
+
+                            for (int i = 0; i < xx.Count; i++)
+                            {
+                                if (xx != null && xx.Count > 0)
+                                {
+                                    string dp = "";
+                                    dp = DBTag.DataTypeString(xx[i].DataType);
+                                    dtl.Rows.Add(xx[i].TagName, xx[i].Address, dp, xx[i].UOM, xx[i].Description);
+                                }
+                            }
+                        }
+                        else
+                        {
+                            if (MessageBox.Show("System will export demo tag list.", "Information", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.No)
+                                return;
+
+                            dtl.Rows.Add("HR1", "40001", "int", "-", "Holding Register 1");
+                            dtl.Rows.Add("HR2", "40001", "word", "-", "Holding Register 2");
+                            dtl.Rows.Add("HR3", "40001", "double", "-", "Holding Register 3");
+                            dtl.Rows.Add("HR4", "40001", "float", "-", "Holding Register 4");
+                            dtl.Rows.Add("HR5", "40001", "int16", "-", "Holding Register 5");
+                            dtl.Rows.Add("HR6", "40001", "int64", "-", "Holding Register 6");
+                            dtl.Rows.Add("HR7", "40001", "word", "-", "Holding Register 7");
+                            dtl.Rows.Add("IR1", "30001", "word", "-", "Input Register");
+                            dtl.Rows.Add("Input1", "10001", "bool", "-", "Input Status");
+                            dtl.Rows.Add("Coil1", "00001", "bool", "-", "Coil Status");
+                        }
+                    }
+
+                    else
+                    {
+                        if (MessageBox.Show("System will export demo tag list.", "Information", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.No)
+                            return;
+
+                        dtl.Rows.Add("HR1", "40001", "int", "-", "Holding Register 1");
+                        dtl.Rows.Add("HR2", "40001", "word", "-", "Holding Register 2");
+                        dtl.Rows.Add("HR3", "40001", "double", "-", "Holding Register 3");
+                        dtl.Rows.Add("HR4", "40001", "float", "-", "Holding Register 4");
+                        dtl.Rows.Add("HR5", "40001", "int16", "-", "Holding Register 5");
+                        dtl.Rows.Add("HR6", "40001", "int64", "-", "Holding Register 6");
+                        dtl.Rows.Add("HR7", "40001", "word", "-", "Holding Register 7");
+                        dtl.Rows.Add("IR1", "30001", "word", "-", "Input Register");
+                        dtl.Rows.Add("Input1", "10001", "bool", "-", "Input Status");
+                        dtl.Rows.Add("Coil1", "00001", "bool", "-", "Coil Status");
+                    }
+                }
                 try
                 {
                     ExcelHelper eh = new ExcelHelper();
@@ -1025,6 +1142,7 @@ namespace TopoData.Page
 
                 if (cbCannel.SelectedItem.ToString() == "Siemens Profinet")
                 {
+                    ucModbusTCP.Visible = false;
                     ucDriverEmpty.Visible = false;
                     ucProfinet.Visible = true;
                     ucOPCUA.Visible = false;
@@ -1033,11 +1151,21 @@ namespace TopoData.Page
 
                 else if (cbCannel.SelectedItem.ToString() == "OPC UA")
                 {
+                    ucModbusTCP.Visible = false;
                     ucDriverEmpty.Visible = false;
                     ucProfinet.Visible = false;
                     ucOPCUA.Visible = true;
                     ucOPCUA.ApplyLanguage();
                 }
+                else if (cbCannel.SelectedItem.ToString() == "Modbus TCP")
+                {
+                    ucDriverEmpty.Visible = false;
+                    ucProfinet.Visible = false;
+                    ucOPCUA.Visible = false;
+                    ucModbusTCP.Visible = true;
+                    ucModbusTCP.ApplyLanguage();
+                }
+                
             }
         }
 
@@ -1077,7 +1205,6 @@ namespace TopoData.Page
             }
         }
         #endregion  //[button action
-
 
     }
 }

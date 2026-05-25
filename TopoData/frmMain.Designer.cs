@@ -81,9 +81,10 @@
             // 
             fluentDesignFormContainer1.Controls.Add(navigationFrame1);
             fluentDesignFormContainer1.Dock = System.Windows.Forms.DockStyle.Fill;
-            fluentDesignFormContainer1.Location = new System.Drawing.Point(141, 31);
+            fluentDesignFormContainer1.Location = new System.Drawing.Point(212, 46);
+            fluentDesignFormContainer1.Margin = new System.Windows.Forms.Padding(4);
             fluentDesignFormContainer1.Name = "fluentDesignFormContainer1";
-            fluentDesignFormContainer1.Size = new System.Drawing.Size(939, 660);
+            fluentDesignFormContainer1.Size = new System.Drawing.Size(1408, 990);
             fluentDesignFormContainer1.TabIndex = 0;
             // 
             // navigationFrame1
@@ -95,106 +96,120 @@
             navigationFrame1.Controls.Add(PageDataTable);
             navigationFrame1.Controls.Add(PageAbout);
             navigationFrame1.Controls.Add(PageRecipe);
-            navigationFrame1.Location = new System.Drawing.Point(5, 42);
+            navigationFrame1.Location = new System.Drawing.Point(8, 63);
+            navigationFrame1.Margin = new System.Windows.Forms.Padding(4);
             navigationFrame1.Name = "navigationFrame1";
             navigationFrame1.Pages.AddRange(new DevExpress.XtraBars.Navigation.NavigationPageBase[] { PageCannelCfg, PageSysCfg, PageDiagnose, PageHisQuery, PageDataTable, PageAbout, PageRecipe });
             navigationFrame1.SelectedPage = PageSysCfg;
-            navigationFrame1.Size = new System.Drawing.Size(581, 334);
+            navigationFrame1.Size = new System.Drawing.Size(872, 501);
             navigationFrame1.TabIndex = 2;
             navigationFrame1.Text = "navigationFrame1";
             // 
             // PageDiagnose
             // 
             PageDiagnose.Controls.Add(ucDiagnose1);
+            PageDiagnose.Margin = new System.Windows.Forms.Padding(4);
             PageDiagnose.Name = "PageDiagnose";
-            PageDiagnose.Size = new System.Drawing.Size(581, 334);
+            PageDiagnose.Size = new System.Drawing.Size(872, 501);
             // 
             // ucDiagnose1
             // 
-            ucDiagnose1.Location = new System.Drawing.Point(40, 13);
-            ucDiagnose1.Margin = new System.Windows.Forms.Padding(4);
+            ucDiagnose1.Location = new System.Drawing.Point(54, 16);
+            ucDiagnose1.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
             ucDiagnose1.Name = "ucDiagnose1";
-            ucDiagnose1.Padding = new System.Windows.Forms.Padding(9);
-            ucDiagnose1.Size = new System.Drawing.Size(447, 296);
+            ucDiagnose1.Padding = new System.Windows.Forms.Padding(13, 11, 13, 11);
+            ucDiagnose1.Size = new System.Drawing.Size(603, 363);
             ucDiagnose1.TabIndex = 0;
             // 
             // PageCannelCfg
             // 
             PageCannelCfg.Controls.Add(ucCannelCfg2);
+            PageCannelCfg.Margin = new System.Windows.Forms.Padding(4);
             PageCannelCfg.Name = "PageCannelCfg";
-            PageCannelCfg.Size = new System.Drawing.Size(581, 334);
+            PageCannelCfg.Size = new System.Drawing.Size(872, 501);
             // 
             // ucCannelCfg2
             // 
-            ucCannelCfg2.Location = new System.Drawing.Point(33, 21);
-            ucCannelCfg2.Margin = new System.Windows.Forms.Padding(4);
+            ucCannelCfg2.Location = new System.Drawing.Point(45, 26);
+            ucCannelCfg2.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
             ucCannelCfg2.Name = "ucCannelCfg2";
-            ucCannelCfg2.Size = new System.Drawing.Size(359, 291);
+            ucCannelCfg2.Size = new System.Drawing.Size(484, 357);
             ucCannelCfg2.TabIndex = 1;
+            // 
             // PageHisQuery
             // 
             PageHisQuery.Controls.Add(ucHisQuery1);
+            PageHisQuery.Margin = new System.Windows.Forms.Padding(4);
             PageHisQuery.Name = "PageHisQuery";
-            PageHisQuery.Size = new System.Drawing.Size(581, 334);
+            PageHisQuery.Size = new System.Drawing.Size(872, 501);
             // 
             // ucHisQuery1
             // 
-            ucHisQuery1.Location = new System.Drawing.Point(45, 41);
-            ucHisQuery1.Margin = new System.Windows.Forms.Padding(4);
+            ucHisQuery1.Location = new System.Drawing.Point(61, 51);
+            ucHisQuery1.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
             ucHisQuery1.Name = "ucHisQuery1";
-            ucHisQuery1.Padding = new System.Windows.Forms.Padding(9);
-            ucHisQuery1.Size = new System.Drawing.Size(439, 255);
+            ucHisQuery1.Padding = new System.Windows.Forms.Padding(13, 11, 13, 11);
+            ucHisQuery1.Size = new System.Drawing.Size(592, 313);
             ucHisQuery1.TabIndex = 0;
             // 
             // PageSysCfg
             // 
             PageSysCfg.Controls.Add(ucSystemCfg1);
+            PageSysCfg.Margin = new System.Windows.Forms.Padding(4);
             PageSysCfg.Name = "PageSysCfg";
-            PageSysCfg.Size = new System.Drawing.Size(581, 334);
+            PageSysCfg.Size = new System.Drawing.Size(872, 501);
             // 
             // ucSystemCfg1
             // 
-            ucSystemCfg1.Location = new System.Drawing.Point(45, 12);
-            ucSystemCfg1.Margin = new System.Windows.Forms.Padding(4);
+            ucSystemCfg1.Location = new System.Drawing.Point(61, 15);
+            ucSystemCfg1.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
             ucSystemCfg1.Name = "ucSystemCfg1";
-            ucSystemCfg1.Size = new System.Drawing.Size(495, 310);
+            ucSystemCfg1.Size = new System.Drawing.Size(748, 474);
             ucSystemCfg1.TabIndex = 0;
             // 
             // PageDataTable
             // 
             PageDataTable.Controls.Add(ucDataTableCfg1);
+            PageDataTable.Margin = new System.Windows.Forms.Padding(4);
             PageDataTable.Name = "PageDataTable";
-            PageDataTable.Size = new System.Drawing.Size(581, 334);
+            PageDataTable.Size = new System.Drawing.Size(872, 501);
             // 
             // ucDataTableCfg1
             // 
-            ucDataTableCfg1.Location = new System.Drawing.Point(29, 17);
-            ucDataTableCfg1.Margin = new System.Windows.Forms.Padding(4);
+            ucDataTableCfg1.Location = new System.Drawing.Point(40, 21);
+            ucDataTableCfg1.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
             ucDataTableCfg1.Name = "ucDataTableCfg1";
-            ucDataTableCfg1.Size = new System.Drawing.Size(432, 286);
+            ucDataTableCfg1.Size = new System.Drawing.Size(583, 351);
             ucDataTableCfg1.TabIndex = 0;
+            // 
             // PageAbout
             // 
             PageAbout.Controls.Add(ucAbout);
+            PageAbout.Margin = new System.Windows.Forms.Padding(4);
             PageAbout.Name = "PageAbout";
-            PageAbout.Size = new System.Drawing.Size(581, 334);
+            PageAbout.Size = new System.Drawing.Size(872, 501);
             // 
             // ucAbout
             // 
-            ucAbout.Location = new System.Drawing.Point(4, 13);
-            ucAbout.Margin = new System.Windows.Forms.Padding(4);
+            ucAbout.Location = new System.Drawing.Point(5, 16);
+            ucAbout.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
             ucAbout.Name = "ucAbout";
-            ucAbout.Size = new System.Drawing.Size(473, 287);
+            ucAbout.Size = new System.Drawing.Size(639, 352);
             ucAbout.TabIndex = 0;
+            // 
             // PageRecipe
             // 
             PageRecipe.Controls.Add(ucRecipe);
+            PageRecipe.Margin = new System.Windows.Forms.Padding(4);
             PageRecipe.Name = "PageRecipe";
-            PageRecipe.Size = new System.Drawing.Size(581, 334);
-            ucRecipe.Location = new System.Drawing.Point(47, 14);
-            ucRecipe.Margin = new System.Windows.Forms.Padding(4);
+            PageRecipe.Size = new System.Drawing.Size(872, 501);
+            // 
+            // ucRecipe
+            // 
+            ucRecipe.Location = new System.Drawing.Point(63, 17);
+            ucRecipe.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
             ucRecipe.Name = "ucRecipe";
-            ucRecipe.Size = new System.Drawing.Size(424, 234);
+            ucRecipe.Size = new System.Drawing.Size(572, 287);
             ucRecipe.TabIndex = 0;
             // 
             // fluentFormDefaultManager1
@@ -252,10 +267,11 @@
             // 
             accordionControl1.Dock = System.Windows.Forms.DockStyle.Left;
             accordionControl1.Elements.AddRange(new DevExpress.XtraBars.Navigation.AccordionControlElement[] { accordionControlElement3, accordionControlDatatable, accordionControlRecipe, accordionControlucDiagnose, accordionControlHisQuery, accordionControlSysCfg, accordionControlAbout });
-            accordionControl1.Location = new System.Drawing.Point(0, 31);
+            accordionControl1.Location = new System.Drawing.Point(0, 46);
+            accordionControl1.Margin = new System.Windows.Forms.Padding(4);
             accordionControl1.Name = "accordionControl1";
             accordionControl1.ScrollBarMode = DevExpress.XtraBars.Navigation.ScrollBarMode.Touch;
-            accordionControl1.Size = new System.Drawing.Size(141, 660);
+            accordionControl1.Size = new System.Drawing.Size(212, 990);
             accordionControl1.TabIndex = 1;
             accordionControl1.ViewType = DevExpress.XtraBars.Navigation.AccordionControlViewType.HamburgerMenu;
             // 
@@ -319,9 +335,10 @@
             fluentDesignFormControl1.Items.AddRange(new DevExpress.XtraBars.BarItem[] { barButtonStart, barButtonEnd, toolStrip_ServiceStatus, cbLanguage });
             fluentDesignFormControl1.Location = new System.Drawing.Point(0, 0);
             fluentDesignFormControl1.Manager = fluentFormDefaultManager1;
+            fluentDesignFormControl1.Margin = new System.Windows.Forms.Padding(4);
             fluentDesignFormControl1.Name = "fluentDesignFormControl1";
             fluentDesignFormControl1.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] { repositoryItemComboBox1 });
-            fluentDesignFormControl1.Size = new System.Drawing.Size(1080, 31);
+            fluentDesignFormControl1.Size = new System.Drawing.Size(1620, 46);
             fluentDesignFormControl1.TabIndex = 2;
             fluentDesignFormControl1.TabStop = false;
             fluentDesignFormControl1.TitleItemLinks.Add(barButtonStart);
@@ -331,18 +348,21 @@
             // 
             // frmMain
             // 
-            AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
+            Appearance.Options.UseFont = true;
+            AutoScaleDimensions = new System.Drawing.SizeF(9F, 18F);
             AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            ClientSize = new System.Drawing.Size(1080, 691);
+            ClientSize = new System.Drawing.Size(1620, 1036);
             ControlContainer = fluentDesignFormContainer1;
             Controls.Add(fluentDesignFormContainer1);
             Controls.Add(accordionControl1);
             Controls.Add(fluentDesignFormControl1);
             FluentDesignFormControl = fluentDesignFormControl1;
+            Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, 134);
             IconOptions.Icon = (System.Drawing.Icon)resources.GetObject("frmMain.IconOptions.Icon");
+            Margin = new System.Windows.Forms.Padding(4);
             Name = "frmMain";
             NavigationControl = accordionControl1;
-            Text = "TopData V1.0";
+            Text = "TopData V1.2";
             Load += frmMain_Load;
             fluentDesignFormContainer1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)navigationFrame1).EndInit();

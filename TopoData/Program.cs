@@ -1,6 +1,8 @@
-﻿using auDASLib;
+﻿using auDAServer;
+using auDASLib;
 using DevExpress.Skins;
 using DevExpress.UserSkins;
+using DevExpress.XtraVerticalGrid.Rows;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
@@ -115,6 +117,7 @@ namespace TopoData
                 }
 
                 DataImport.ImportCannelTags(tags);
+                ItemPool.Instance.Start(DataImport.dicTagPool.Values.ToList());
 
                 //----------------------------------------------------------------------
                 //3. Read Recipe
