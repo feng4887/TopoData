@@ -1,12 +1,6 @@
 ﻿using auDASLib;
 using auDASLib.Model;
 using DevExpress.Data;
-using DevExpress.Data.Mask;
-using DevExpress.Utils;
-using DevExpress.XtraEditors;
-using DevExpress.XtraGrid;
-using DevExpress.XtraSpreadsheet.TileLayout;
-using DevExpress.XtraVerticalGrid;
 using DevExpress.XtraWaitForm;
 using SqlSugar;
 using System;
@@ -290,6 +284,9 @@ namespace TopoData.Page
                     // btSearch.Click += btSearch_Click;
                 }
             }
+
+            try { _sugarClient.Close(); db.Close();  }
+            catch { }
         }
 
         private void bindSheet(DataTable dt)
