@@ -61,6 +61,8 @@
             accordionControlSysCfg = new DevExpress.XtraBars.Navigation.AccordionControlElement();
             accordionControlAbout = new DevExpress.XtraBars.Navigation.AccordionControlElement();
             fluentDesignFormControl1 = new DevExpress.XtraBars.FluentDesignSystem.FluentDesignFormControl();
+            barButtonImport = new DevExpress.XtraBars.BarButtonItem();
+            barButtonExport = new DevExpress.XtraBars.BarButtonItem();
             fluentDesignFormContainer1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)navigationFrame1).BeginInit();
             navigationFrame1.SuspendLayout();
@@ -81,10 +83,10 @@
             // 
             fluentDesignFormContainer1.Controls.Add(navigationFrame1);
             fluentDesignFormContainer1.Dock = System.Windows.Forms.DockStyle.Fill;
-            fluentDesignFormContainer1.Location = new System.Drawing.Point(212, 46);
+            fluentDesignFormContainer1.Location = new System.Drawing.Point(212, 31);
             fluentDesignFormContainer1.Margin = new System.Windows.Forms.Padding(4);
             fluentDesignFormContainer1.Name = "fluentDesignFormContainer1";
-            fluentDesignFormContainer1.Size = new System.Drawing.Size(1408, 990);
+            fluentDesignFormContainer1.Size = new System.Drawing.Size(1408, 1005);
             fluentDesignFormContainer1.TabIndex = 0;
             // 
             // navigationFrame1
@@ -114,11 +116,11 @@
             // 
             // ucDiagnose1
             // 
-            ucDiagnose1.Location = new System.Drawing.Point(54, 16);
-            ucDiagnose1.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            ucDiagnose1.Location = new System.Drawing.Point(46, 14);
+            ucDiagnose1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             ucDiagnose1.Name = "ucDiagnose1";
-            ucDiagnose1.Padding = new System.Windows.Forms.Padding(13, 11, 13, 11);
-            ucDiagnose1.Size = new System.Drawing.Size(603, 363);
+            ucDiagnose1.Padding = new System.Windows.Forms.Padding(11, 9, 11, 9);
+            ucDiagnose1.Size = new System.Drawing.Size(517, 311);
             ucDiagnose1.TabIndex = 0;
             // 
             // PageCannelCfg
@@ -130,10 +132,10 @@
             // 
             // ucCannelCfg2
             // 
-            ucCannelCfg2.Location = new System.Drawing.Point(45, 26);
-            ucCannelCfg2.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            ucCannelCfg2.Location = new System.Drawing.Point(39, 22);
+            ucCannelCfg2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             ucCannelCfg2.Name = "ucCannelCfg2";
-            ucCannelCfg2.Size = new System.Drawing.Size(484, 357);
+            ucCannelCfg2.Size = new System.Drawing.Size(415, 306);
             ucCannelCfg2.TabIndex = 1;
             // 
             // PageHisQuery
@@ -145,11 +147,11 @@
             // 
             // ucHisQuery1
             // 
-            ucHisQuery1.Location = new System.Drawing.Point(61, 51);
-            ucHisQuery1.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            ucHisQuery1.Location = new System.Drawing.Point(52, 44);
+            ucHisQuery1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             ucHisQuery1.Name = "ucHisQuery1";
-            ucHisQuery1.Padding = new System.Windows.Forms.Padding(13, 11, 13, 11);
-            ucHisQuery1.Size = new System.Drawing.Size(592, 313);
+            ucHisQuery1.Padding = new System.Windows.Forms.Padding(11, 9, 11, 9);
+            ucHisQuery1.Size = new System.Drawing.Size(507, 268);
             ucHisQuery1.TabIndex = 0;
             // 
             // PageSysCfg
@@ -161,10 +163,10 @@
             // 
             // ucSystemCfg1
             // 
-            ucSystemCfg1.Location = new System.Drawing.Point(61, 15);
-            ucSystemCfg1.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            ucSystemCfg1.Location = new System.Drawing.Point(52, 13);
+            ucSystemCfg1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             ucSystemCfg1.Name = "ucSystemCfg1";
-            ucSystemCfg1.Size = new System.Drawing.Size(748, 474);
+            ucSystemCfg1.Size = new System.Drawing.Size(641, 406);
             ucSystemCfg1.TabIndex = 0;
             // 
             // PageDataTable
@@ -176,10 +178,10 @@
             // 
             // ucDataTableCfg1
             // 
-            ucDataTableCfg1.Location = new System.Drawing.Point(40, 21);
-            ucDataTableCfg1.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            ucDataTableCfg1.Location = new System.Drawing.Point(34, 18);
+            ucDataTableCfg1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             ucDataTableCfg1.Name = "ucDataTableCfg1";
-            ucDataTableCfg1.Size = new System.Drawing.Size(583, 351);
+            ucDataTableCfg1.Size = new System.Drawing.Size(500, 301);
             ucDataTableCfg1.TabIndex = 0;
             // 
             // PageAbout
@@ -191,10 +193,10 @@
             // 
             // ucAbout
             // 
-            ucAbout.Location = new System.Drawing.Point(5, 16);
-            ucAbout.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            ucAbout.Location = new System.Drawing.Point(4, 14);
+            ucAbout.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             ucAbout.Name = "ucAbout";
-            ucAbout.Size = new System.Drawing.Size(639, 352);
+            ucAbout.Size = new System.Drawing.Size(548, 302);
             ucAbout.TabIndex = 0;
             // 
             // PageRecipe
@@ -206,18 +208,18 @@
             // 
             // ucRecipe
             // 
-            ucRecipe.Location = new System.Drawing.Point(63, 17);
-            ucRecipe.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            ucRecipe.Location = new System.Drawing.Point(54, 15);
+            ucRecipe.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             ucRecipe.Name = "ucRecipe";
-            ucRecipe.Size = new System.Drawing.Size(572, 287);
+            ucRecipe.Size = new System.Drawing.Size(490, 246);
             ucRecipe.TabIndex = 0;
             // 
             // fluentFormDefaultManager1
             // 
             fluentFormDefaultManager1.DockWindowTabFont = new System.Drawing.Font("Microsoft YaHei UI", 9F);
             fluentFormDefaultManager1.Form = this;
-            fluentFormDefaultManager1.Items.AddRange(new DevExpress.XtraBars.BarItem[] { barButtonStart, barButtonEnd, toolStrip_ServiceStatus, cbLanguage });
-            fluentFormDefaultManager1.MaxItemId = 4;
+            fluentFormDefaultManager1.Items.AddRange(new DevExpress.XtraBars.BarItem[] { barButtonStart, barButtonEnd, toolStrip_ServiceStatus, cbLanguage, barButtonImport, barButtonExport });
+            fluentFormDefaultManager1.MaxItemId = 6;
             fluentFormDefaultManager1.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] { repositoryItemComboBox1 });
             // 
             // barButtonStart
@@ -267,11 +269,11 @@
             // 
             accordionControl1.Dock = System.Windows.Forms.DockStyle.Left;
             accordionControl1.Elements.AddRange(new DevExpress.XtraBars.Navigation.AccordionControlElement[] { accordionControlElement3, accordionControlDatatable, accordionControlRecipe, accordionControlucDiagnose, accordionControlHisQuery, accordionControlSysCfg, accordionControlAbout });
-            accordionControl1.Location = new System.Drawing.Point(0, 46);
+            accordionControl1.Location = new System.Drawing.Point(0, 31);
             accordionControl1.Margin = new System.Windows.Forms.Padding(4);
             accordionControl1.Name = "accordionControl1";
             accordionControl1.ScrollBarMode = DevExpress.XtraBars.Navigation.ScrollBarMode.Touch;
-            accordionControl1.Size = new System.Drawing.Size(212, 990);
+            accordionControl1.Size = new System.Drawing.Size(212, 1005);
             accordionControl1.TabIndex = 1;
             accordionControl1.ViewType = DevExpress.XtraBars.Navigation.AccordionControlViewType.HamburgerMenu;
             // 
@@ -332,24 +334,46 @@
             // fluentDesignFormControl1
             // 
             fluentDesignFormControl1.FluentDesignForm = this;
-            fluentDesignFormControl1.Items.AddRange(new DevExpress.XtraBars.BarItem[] { barButtonStart, barButtonEnd, toolStrip_ServiceStatus, cbLanguage });
+            fluentDesignFormControl1.Items.AddRange(new DevExpress.XtraBars.BarItem[] { barButtonStart, barButtonEnd, toolStrip_ServiceStatus, cbLanguage, barButtonImport, barButtonExport });
             fluentDesignFormControl1.Location = new System.Drawing.Point(0, 0);
             fluentDesignFormControl1.Manager = fluentFormDefaultManager1;
             fluentDesignFormControl1.Margin = new System.Windows.Forms.Padding(4);
             fluentDesignFormControl1.Name = "fluentDesignFormControl1";
             fluentDesignFormControl1.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] { repositoryItemComboBox1 });
-            fluentDesignFormControl1.Size = new System.Drawing.Size(1620, 46);
+            fluentDesignFormControl1.Size = new System.Drawing.Size(1620, 31);
             fluentDesignFormControl1.TabIndex = 2;
             fluentDesignFormControl1.TabStop = false;
             fluentDesignFormControl1.TitleItemLinks.Add(barButtonStart);
             fluentDesignFormControl1.TitleItemLinks.Add(barButtonEnd);
             fluentDesignFormControl1.TitleItemLinks.Add(toolStrip_ServiceStatus);
             fluentDesignFormControl1.TitleItemLinks.Add(cbLanguage);
+            fluentDesignFormControl1.TitleItemLinks.Add(barButtonImport);
+            fluentDesignFormControl1.TitleItemLinks.Add(barButtonExport);
+            // 
+            // barButtonImport
+            // 
+            barButtonImport.Caption = "ImPort";
+            barButtonImport.Id = 4;
+            barButtonImport.ImageOptions.Image = (System.Drawing.Image)resources.GetObject("barButtonImport.ImageOptions.Image");
+            barButtonImport.ImageOptions.LargeImage = (System.Drawing.Image)resources.GetObject("barButtonImport.ImageOptions.LargeImage");
+            barButtonImport.Name = "barButtonImport";
+            barButtonImport.PaintStyle = DevExpress.XtraBars.BarItemPaintStyle.CaptionGlyph;
+            barButtonImport.ItemClick += barButtonImport_ItemClick;
+            // 
+            // barButtonExport
+            // 
+            barButtonExport.Caption = "Export";
+            barButtonExport.Id = 5;
+            barButtonExport.ImageOptions.Image = (System.Drawing.Image)resources.GetObject("barButtonExport.ImageOptions.Image");
+            barButtonExport.ImageOptions.LargeImage = (System.Drawing.Image)resources.GetObject("barButtonExport.ImageOptions.LargeImage");
+            barButtonExport.Name = "barButtonExport";
+            barButtonExport.PaintStyle = DevExpress.XtraBars.BarItemPaintStyle.CaptionGlyph;
+            barButtonExport.ItemClick += barButtonExport_ItemClick;
             // 
             // frmMain
             // 
             Appearance.Options.UseFont = true;
-            AutoScaleDimensions = new System.Drawing.SizeF(9F, 18F);
+            AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             ClientSize = new System.Drawing.Size(1620, 1036);
             ControlContainer = fluentDesignFormContainer1;
@@ -415,6 +439,8 @@
         private SubPage.ucRecipe ucRecipe;
         private DevExpress.XtraBars.BarEditItem cbLanguage;
         private DevExpress.XtraEditors.Repository.RepositoryItemComboBox repositoryItemComboBox1;
+        private DevExpress.XtraBars.BarButtonItem barButtonImport;
+        private DevExpress.XtraBars.BarButtonItem barButtonExport;
     }
 }
 

@@ -21,7 +21,7 @@ using TopoData.Page;
 using TopoData.Properties;
 namespace TopoData
 {
-	
+
     /// <summary>
     /// Main Form of HiTopo Data Acquisition System
     /// </summary>
@@ -85,6 +85,111 @@ namespace TopoData
         #endregion [Form Constructor]
 
         #region [button click event]
+        /// <summary>
+        /// 强制关闭窗口，不需要询问
+        /// </summary>
+        protected bool ForceClose = false;
+
+        /// <summary>
+        /// Import Project
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+
+        private void barButtonImport_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            string fileName1 = "";
+            System.Windows.Forms.OpenFileDialog dlgOpenFile = new System.Windows.Forms.OpenFileDialog();
+            dlgOpenFile.Filter = "Project.cab|*.cab";
+
+            if (dlgOpenFile.ShowDialog() == DialogResult.OK)
+            {
+
+                if (File.Exists(pubDefine.TagDefine))
+                    File.Delete(pubDefine.TagDefine);
+
+                if (File.Exists(master_recipe.RecipePathDefine))
+                    File.Delete(master_recipe.RecipePathDefine);
+
+                ZipHelper.ImportZipArchive(dlgOpenFile.FileName, pubDefine.Folder);
+
+                if (MessageBox.Show("Import action sucessfully，Software will be restarted .", "成功", MessageBoxButtons.OK, MessageBoxIcon.Information) == DialogResult.OK)
+                {
+                    PubFunction.StartApp("TopoData.exe", 0);
+                    ForceClose = true;
+                    this.Close();
+                }
+            }
+        }
+
+        /// <summary>
+        /// Export Project
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void barButtonExport_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            List<DBTag> list = new List<DBTag>();
+            string localFilePath; //获得文件路径 
+            string fileNameExt;  //获取文件名，不带路径
+
+            System.Windows.Forms.SaveFileDialog sfd = new System.Windows.Forms.SaveFileDialog();
+            //设置文件类型 
+            sfd.Filter = "Project.cab|*.cab";
+
+            //设置默认文件类型显示顺序 
+            sfd.FilterIndex = 1;
+
+            //保存对话框是否记忆上次打开的目录 
+            sfd.RestoreDirectory = true;
+
+            //点了保存按钮进入 
+            if (sfd.ShowDialog() == DialogResult.OK)
+            {
+                localFilePath = sfd.FileName.ToString(); //获得文件路径 
+                fileNameExt = localFilePath.Substring(localFilePath.LastIndexOf("\\") + 1); //获取文件名，不带路径
+            }
+            else
+            {
+                localFilePath = ""; fileNameExt = "";
+            }
+
+            if (string.IsNullOrEmpty(localFilePath))
+                return;
+
+            try
+            {
+                if (!File.Exists(pubDefine.TagDefine))
+                    return;
+
+                // 创建一个测试文件夹
+                string folderPath = pubDefine.Folder + @"Temp";
+                Directory.CreateDirectory(folderPath);
+
+                File.Copy(pubDefine.Configuration, folderPath + @"\hiTopoCfg.xml", overwrite: true);
+    
+                if (File.Exists(pubDefine.TagDefine))
+                    File.Copy(pubDefine.TagDefine, folderPath + @"\hiTopoTagDef.xml", overwrite: true);
+
+                if (File.Exists(master_recipe.RecipePathDefine))
+                    File.Copy(master_recipe.RecipePathDefine, folderPath + @"\hiTopoRecipeDef.xml", overwrite: true);
+
+                string interfile = pubDefine.Folder + fileNameExt;
+
+                if (File.Exists(interfile))
+                    File.Delete(interfile);
+                ZipHelper.ExportZipArchive(folderPath, interfile);
+
+                File.Copy(interfile, localFilePath, true);
+
+                Directory.Delete(folderPath, true);
+                File.Delete(interfile);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Project export failed：" + ex.Message, "失败", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+        }
 
         private void accordionControlElement1_Click(object sender, EventArgs e)
         {
@@ -148,7 +253,7 @@ namespace TopoData
                 });
 
                 toolStrip_ServiceStatus.Caption = $" Service Status: Stopped ";
-                toolStrip_ServiceStatus.ItemAppearance.Normal.ForeColor = Color.Red;            
+                toolStrip_ServiceStatus.ItemAppearance.Normal.ForeColor = Color.Red;
             }
             catch (Exception ex)
             {
@@ -239,13 +344,12 @@ namespace TopoData
 
             //History Query
             accordionControlHisQuery.Text = Resources.MenHistory;
-
-            accordionControlSysCfg.Text = Resources.MenSystem;
-
-            accordionControlAbout.Text = Resources.MenAbout;
-
-            barButtonStart.Caption = Resources.Start;
-            barButtonEnd.Caption = Resources.Close;
+            accordionControlSysCfg.Text   = Resources.MenSystem;
+            accordionControlAbout.Text    = Resources.MenAbout;
+            barButtonStart.Caption  = Resources.Start;
+            barButtonEnd.Caption    = Resources.Close;
+            barButtonImport.Caption = Resources.Import;
+            barButtonExport.Caption = Resources.Export;
 
             ucCannelCfg2.ApplyLanguage();
             ucDiagnose1.ApplyLanguage();
