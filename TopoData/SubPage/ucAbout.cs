@@ -43,7 +43,7 @@ namespace TopoData.Page
 
         private void ucAbout_Load(object sender, EventArgs e)
         {
-            memoEdit1.Text = "版本号：TopoData V1.0.0\r\n\r\n" 
+            memoEdit1.Text = "版本号：TopoData V1.2.0\r\n\r\n" 
                              +"开发者：Topotech团队\r\n\r\n" 
                              +"说明：\r\n\r\n" 
                              +"1. 这是 TopoData技术预览版，完全免费，此版本通过了一定的测试，可以在生产环境中使用，目前仍存在一些已知问题/错误，如果对生产造成损失开发团队不负责，" 
