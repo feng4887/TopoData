@@ -15,6 +15,7 @@ The outstanding features of TopoData software are as follows:
 - Provides flexible recipe definition functionality, allowing users to select different recipes and download recipe parameters to PLCs or devices.
 - Historical data can be exported to Excel.
 - HMI Data acquisition and storage models for industry software engineers.
+- Project import and export function.
 
 <a id="_Toc222430977"></a>
 # 1 **Installation**
