@@ -572,7 +572,24 @@ namespace auDASLib
         /// <summary>Eventhandler to validate the server certificate forwards this event</summary>
         private void Notification_CertificateValidation(CertificateValidator certificate, CertificateValidationEventArgs e)
         {
-            CertificateValidationNotification(certificate, e);
+            //  
+            if (e == null)
+                return;
+
+            if (e.Certificate != null)
+            {
+                Console.WriteLine("Certificate Subject: " + e.Certificate.Subject);
+                Console.WriteLine("Certificate Thumbprint: " + e.Certificate.Thumbprint);
+                Console.WriteLine("Certificate KeySize: " + e.Certificate.PublicKey?.Key?.KeySize);
+                Console.WriteLine("Certificate Error: " + e.Error?.StatusCode);
+            }
+
+            // 测试阶段先接受证书
+            e.Accept = true;
+
+            // 如果外部注册了事件，就通知；没注册则不调用
+            CertificateValidationNotification?.Invoke(certificate, e);
+
         }
 
         /// <summary>Eventhandler for MonitoredItemNotifications forwards this event</summary>

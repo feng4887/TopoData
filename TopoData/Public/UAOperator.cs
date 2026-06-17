@@ -181,14 +181,24 @@ namespace auDASLib
                 {
                     foreach (string url in ad.DiscoveryUrls)
                     {
+                        if (!url.StartsWith("opc.tcp://", StringComparison.OrdinalIgnoreCase))
+                            continue;
+
                         EndpointDescriptionCollection endpoints = myClientHelperAPI.GetEndpoints(url);
                         foreach (EndpointDescription ep in endpoints)
                         {
+                            // 再过滤一次，只保留 UA TCP Binary
+                            if (!ep.TransportProfileUri.Contains("uatcp-uasc-uabinary"))
+                                continue;
+
                             UACfg cfg = new UACfg();
                             string securityPolicy = ep.SecurityPolicyUri.Remove(0, 42);
                             cfg.securityPolicy = securityPolicy;
                             cfg.SecurityMode = ep.SecurityMode.ToString();
                             cfg.ApplicationName = ad.ApplicationName.ToString();
+                            // 关键：必须保存
+                            cfg.EndpointUrl = ep.EndpointUrl;
+                            //cfg.Endpoint = ep;
                             lcfg.Add(cfg);
                             //endpointListView.Items.Add("[" + ad.ApplicationName + "] " + " [" + ep.SecurityMode + "] " + " [" + securityPolicy + "] " + " [" + ep.EndpointUrl + "]").Tag = ep;
                         }
