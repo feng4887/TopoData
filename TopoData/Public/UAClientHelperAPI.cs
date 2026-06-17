@@ -1,6 +1,6 @@
 ﻿//=============================================================================
-// Siemens AG
-// (c)Copyright (2022) All Rights Reserved
+// Siemens AG 
+// (c)Copyright (2026) All Rights Reserved
 //----------------------------------------------------------------------------- 
 // Tested with: Windows 10 Enterprise x64
 // Engineering: Visual Studio 2022
