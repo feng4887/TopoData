@@ -72,6 +72,8 @@ namespace TopoData
                     HiTopoServer.MainClass.Start();
                 });
 
+                StartMqttService();
+
                 toolStrip_ServiceStatus.Caption = $" Service Status: Running ";
                 toolStrip_ServiceStatus.ItemAppearance.Normal.ForeColor = Color.Green;
             }
@@ -82,6 +84,30 @@ namespace TopoData
                 DevExpress.XtraEditors.XtraMessageBox.Show($"Start fail:{ex.Message}");
             }
         }
+
+        MqttOperator? _mqttEngine;
+
+        /// <summary>
+        /// Pubish Mqqt items
+        /// </summary>
+        async void StartMqttService()
+        {
+            _mqttEngine = MqttOperator.Instance;
+            _mqttEngine.OnStatusChanged += msg => Console.WriteLine($"[状态] {msg}");
+            _mqttEngine.OnError += (msg, ex) => Console.WriteLine($"[错误] {msg}：{ex.Message}");
+
+            _mqttEngine.Start(Program._mqtt_configPath);
+        }
+
+        async void StopMqttService()
+        {
+            if (_mqttEngine != null)
+            {
+                _mqttEngine.Stop();
+                _mqttEngine = null;
+            }
+        }
+
         #endregion [Form Constructor]
 
         #region [button click event]
@@ -174,6 +200,9 @@ namespace TopoData
                 if (File.Exists(master_recipe.RecipePathDefine))
                     File.Copy(master_recipe.RecipePathDefine, folderPath + @"\hiTopoRecipeDef.xml", overwrite: true);
 
+                if (File.Exists(Program._mqtt_configPath))
+                    File.Copy(Program._mqtt_configPath, folderPath + @"\mqtt_config.xml", overwrite: true);
+
                 string interfile = pubDefine.Folder + fileNameExt;
 
                 if (File.Exists(interfile))
@@ -251,6 +280,8 @@ namespace TopoData
                 {
                     HiTopoServer.MainClass.Stop();
                 });
+
+                StopMqttService();
 
                 toolStrip_ServiceStatus.Caption = $" Service Status: Stopped ";
                 toolStrip_ServiceStatus.ItemAppearance.Normal.ForeColor = Color.Red;

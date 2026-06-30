@@ -780,4 +780,28 @@
   <data name="MenuGetSubItems" xml:space="preserve">
     <value>获取所有下一级子节点</value>
   </data>
+  <data name="Host" xml:space="preserve">
+    <value>服务</value>
+  </data>
+  <data name="MqttSecurityEnable" xml:space="preserve">
+    <value>启用安全</value>
+  </data>
+  <data name="MqttSecurityDisable" xml:space="preserve">
+    <value>禁用安全</value>
+  </data>
+  <data name="MqttTopic" xml:space="preserve">
+    <value>组发布订阅</value>
+  </data>
+  <data name="MqttPublishIntervalMs" xml:space="preserve">
+    <value>发布时间(sm)</value>
+  </data>
+  <data name="MqttConfig" xml:space="preserve">
+    <value>MQTT 配置</value>
+  </data>
+  <data name="EnableSingalTagOn" xml:space="preserve">
+    <value>单点发布</value>
+  </data>
+  <data name="EnableSingalTagOff" xml:space="preserve">
+    <value>组发布</value>
+  </data>
 </root>

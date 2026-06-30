@@ -782,4 +782,28 @@
   <data name="MenuGetSubItems" xml:space="preserve">
     <value>MenuGetSubItems</value>
   </data>
+  <data name="Host" xml:space="preserve">
+    <value>Host</value>
+  </data>
+  <data name="MqttSecurityEnable" xml:space="preserve">
+    <value>MqttSecurityEnable</value>
+  </data>
+  <data name="MqttSecurityDisable" xml:space="preserve">
+    <value>MqttSecurityDisable</value>
+  </data>
+  <data name="MqttTopic" xml:space="preserve">
+    <value>MqttTopic</value>
+  </data>
+  <data name="MqttPublishIntervalMs" xml:space="preserve">
+    <value>MqttPublishIntervalMs</value>
+  </data>
+  <data name="MqttConfig" xml:space="preserve">
+    <value>MqttConfig</value>
+  </data>
+  <data name="EnableSingalTagOn" xml:space="preserve">
+    <value>EnableSingalTagOn</value>
+  </data>
+  <data name="EnableSingalTagOff" xml:space="preserve">
+    <value>EnableSingalTagOff</value>
+  </data>
 </root>

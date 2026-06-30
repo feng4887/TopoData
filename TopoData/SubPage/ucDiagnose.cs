@@ -10,10 +10,12 @@ using System.ComponentModel;
 using System.Data;
 using System.Diagnostics;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Xml.Serialization;
 using TopoData.model;
 using TopoData.Properties;
 using TopoData.SubPage;
@@ -72,7 +74,8 @@ namespace TopoData.Page
                 if (TagIDs == null || TagIDs.Count == 0)
                     return;
 
-                TagIDs = FilterTagIDs(TagIDs);
+                TagIDs = PubFunction.FilterTagIDs(TagIDs, _strFilter);
+
                 if (TagIDs == null || TagIDs.Count == 0)
                     return;
 
@@ -94,8 +97,6 @@ namespace TopoData.Page
                     {
                         Debug.WriteLine(ex.Message);
                     }
-
-
                 }
 
                 // 首次初始化（仅一次）
@@ -166,36 +167,9 @@ namespace TopoData.Page
             }
         }
 
-        /// <summary>
-        /// 根据 strFilter 对 TagIDs 做模糊过滤（多关键词，AND 关系，忽略大小写）
-        /// </summary>
-        /// <param name="tagIds"></param>
-        /// <returns></returns>
-        private List<string> FilterTagIDs(List<string> tagIds)
-        {
-            if (tagIds == null || tagIds.Count == 0)
-                return tagIds ?? new List<string>();
 
-            var filter = strFilter?.Trim();
-            if (string.IsNullOrEmpty(filter))
-                return tagIds;
 
-            // 用空格分隔多个关键词，所有关键词都要匹配（可改为 Any 实现 OR）
-            var terms = filter.Split(new[] { ' ' }, StringSplitOptions.RemoveEmptyEntries)
-                              .Select(t => t.Trim())
-                              .Where(t => t.Length > 0)
-                              .ToArray();
-
-            if (terms.Length == 0)
-                return tagIds;
-
-            return tagIds
-                .Where(id => terms.All(term => id?.IndexOf(term, StringComparison.OrdinalIgnoreCase) >= 0))
-                .ToList();
-        }
-
-        private string strFilter = "";
-
+        string _strFilter = "";
         /// <summary>
         /// 过滤按钮
         /// </summary>
@@ -203,8 +177,9 @@ namespace TopoData.Page
         /// <param name="e"></param>
         private void btTnFilter_Click(object sender, EventArgs e)
         {
-            strFilter = tbTnFilter.Text.Trim();
+            _strFilter = tbTnFilter.Text.Trim();
         }
+
         #region [write]
         private void gridView1_DoubleClick(object sender, EventArgs e)
         {

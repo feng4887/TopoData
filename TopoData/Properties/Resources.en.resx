@@ -355,7 +355,7 @@
     <value>Test DB</value>
   </data>
   <data name="DBCfg" xml:space="preserve">
-    <value>DB configuration</value>
+    <value>DB Configuration</value>
   </data>
   <data name="DBType" xml:space="preserve">
     <value>DB Type</value>
@@ -779,5 +779,29 @@
   </data>
   <data name="MenuGetSubItems" xml:space="preserve">
     <value>Get all subItems</value>
+  </data>
+  <data name="Host" xml:space="preserve">
+    <value>Host</value>
+  </data>
+  <data name="MqttSecurityEnable" xml:space="preserve">
+    <value>Enable Security</value>
+  </data>
+  <data name="MqttSecurityDisable" xml:space="preserve">
+    <value>Disable Security</value>
+  </data>
+  <data name="MqttTopic" xml:space="preserve">
+    <value>Group Mqtt Topic</value>
+  </data>
+  <data name="MqttPublishIntervalMs" xml:space="preserve">
+    <value>Publ Time（sm）</value>
+  </data>
+  <data name="MqttConfig" xml:space="preserve">
+    <value>MQTT Configuration</value>
+  </data>
+  <data name="EnableSingalTagOn" xml:space="preserve">
+    <value>Singal Tag Publish</value>
+  </data>
+  <data name="EnableSingalTagOff" xml:space="preserve">
+    <value>Group Tags Publish</value>
   </data>
 </root>

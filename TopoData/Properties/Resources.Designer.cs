@@ -574,6 +574,24 @@ namespace TopoData.Properties {
         }
         
         /// <summary>
+        ///   查找类似 EnableSingalTagOff 的本地化字符串。
+        /// </summary>
+        internal static string EnableSingalTagOff {
+            get {
+                return ResourceManager.GetString("EnableSingalTagOff", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 EnableSingalTagOn 的本地化字符串。
+        /// </summary>
+        internal static string EnableSingalTagOn {
+            get {
+                return ResourceManager.GetString("EnableSingalTagOn", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   查找类似 EquipmentCfguration 的本地化字符串。
         /// </summary>
         internal static string EquipmentCfguration {
@@ -790,6 +808,15 @@ namespace TopoData.Properties {
         }
         
         /// <summary>
+        ///   查找类似 Host 的本地化字符串。
+        /// </summary>
+        internal static string Host {
+            get {
+                return ResourceManager.GetString("Host", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   查找类似 hour 的本地化字符串。
         /// </summary>
         internal static string hour {
@@ -912,6 +939,51 @@ namespace TopoData.Properties {
         internal static string Month {
             get {
                 return ResourceManager.GetString("Month", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 MqttConfig 的本地化字符串。
+        /// </summary>
+        internal static string MqttConfig {
+            get {
+                return ResourceManager.GetString("MqttConfig", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 MqttPublishIntervalMs 的本地化字符串。
+        /// </summary>
+        internal static string MqttPublishIntervalMs {
+            get {
+                return ResourceManager.GetString("MqttPublishIntervalMs", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 MqttSecurityDisable 的本地化字符串。
+        /// </summary>
+        internal static string MqttSecurityDisable {
+            get {
+                return ResourceManager.GetString("MqttSecurityDisable", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 MqttSecurityEnable 的本地化字符串。
+        /// </summary>
+        internal static string MqttSecurityEnable {
+            get {
+                return ResourceManager.GetString("MqttSecurityEnable", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 MqttTopic 的本地化字符串。
+        /// </summary>
+        internal static string MqttTopic {
+            get {
+                return ResourceManager.GetString("MqttTopic", resourceCulture);
             }
         }
         

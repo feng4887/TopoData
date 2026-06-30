@@ -136,8 +136,9 @@ namespace TopoData
                     catch { }
                 }
 
+
                 //-----------------------------------------------------------------------
-                //4. Initiall WebAPI Server
+                //3. Initiall WebAPI Server
                 try
                 {
                     //Start WebAPI Server
@@ -149,5 +150,9 @@ namespace TopoData
             }
         }
 
-     }
+
+        public static string _mqtt_configPath = System.IO.Path.Combine(pubDefine.Folder, "mqtt_config.xml");
+
+
+    }
 }

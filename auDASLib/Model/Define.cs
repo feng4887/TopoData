@@ -39,7 +39,7 @@ namespace auDASLib
             {
                 if (OSChecker.IsWindows())
                 {
-                    return @"C:\Users\Public\Documents\" + @"Config\"; ;
+                    return @"C:\Users\Public\Documents\Config\"; ;
                 }
                 else { return System.AppDomain.CurrentDomain.SetupInformation.ApplicationBase + @"Config//"; }
             }
@@ -402,6 +402,7 @@ namespace auDASLib
         public string EndpointUrl { get; set; } = "opc.tcp://127.0.0.1:49320/";
         public string SecurityMode { get; set; }   = ""; //None
         public string securityPolicy { get; set; } = "";//#None
+
         public string User { get; set; } = "";
         public string Psw { get; set; } = "";
         public bool UseUserLogIn { get; set; } = false;

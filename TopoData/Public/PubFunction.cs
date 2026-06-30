@@ -251,5 +251,33 @@ namespace auDASLib
             Process.Start(startInfo);
 
         }
+
+        /// <summary>
+        /// 根据 strFilter 对 TagIDs 做模糊过滤（多关键词，AND 关系，忽略大小写）
+        /// </summary>
+        /// <param name="tagIds"></param>
+        /// <returns></returns>
+        public static List<string> FilterTagIDs(List<string> tagIds, string strFilter)
+        {
+            if (tagIds == null || tagIds.Count == 0)
+                return tagIds ?? new List<string>();
+
+            var filter = strFilter?.Trim();
+            if (string.IsNullOrEmpty(filter))
+                return tagIds;
+
+            // 用空格分隔多个关键词，所有关键词都要匹配（可改为 Any 实现 OR）
+            var terms = filter.Split(new[] { ' ' }, StringSplitOptions.RemoveEmptyEntries)
+                              .Select(t => t.Trim())
+                              .Where(t => t.Length > 0)
+                              .ToArray();
+
+            if (terms.Length == 0)
+                return tagIds;
+
+            return tagIds
+                .Where(id => terms.All(term => id?.IndexOf(term, StringComparison.OrdinalIgnoreCase) >= 0))
+                .ToList();
+        }
     }
 }

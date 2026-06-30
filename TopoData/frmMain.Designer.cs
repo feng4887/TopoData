@@ -52,6 +52,8 @@
             toolStrip_ServiceStatus = new DevExpress.XtraBars.BarStaticItem();
             cbLanguage = new DevExpress.XtraBars.BarEditItem();
             repositoryItemComboBox1 = new DevExpress.XtraEditors.Repository.RepositoryItemComboBox();
+            barButtonImport = new DevExpress.XtraBars.BarButtonItem();
+            barButtonExport = new DevExpress.XtraBars.BarButtonItem();
             accordionControl1 = new DevExpress.XtraBars.Navigation.AccordionControl();
             accordionControlElement3 = new DevExpress.XtraBars.Navigation.AccordionControlElement();
             accordionControlDatatable = new DevExpress.XtraBars.Navigation.AccordionControlElement();
@@ -61,8 +63,6 @@
             accordionControlSysCfg = new DevExpress.XtraBars.Navigation.AccordionControlElement();
             accordionControlAbout = new DevExpress.XtraBars.Navigation.AccordionControlElement();
             fluentDesignFormControl1 = new DevExpress.XtraBars.FluentDesignSystem.FluentDesignFormControl();
-            barButtonImport = new DevExpress.XtraBars.BarButtonItem();
-            barButtonExport = new DevExpress.XtraBars.BarButtonItem();
             fluentDesignFormContainer1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)navigationFrame1).BeginInit();
             navigationFrame1.SuspendLayout();
@@ -117,7 +117,7 @@
             // ucDiagnose1
             // 
             ucDiagnose1.Location = new System.Drawing.Point(46, 14);
-            ucDiagnose1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            ucDiagnose1.Margin = new System.Windows.Forms.Padding(4);
             ucDiagnose1.Name = "ucDiagnose1";
             ucDiagnose1.Padding = new System.Windows.Forms.Padding(11, 9, 11, 9);
             ucDiagnose1.Size = new System.Drawing.Size(517, 311);
@@ -133,7 +133,7 @@
             // ucCannelCfg2
             // 
             ucCannelCfg2.Location = new System.Drawing.Point(39, 22);
-            ucCannelCfg2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            ucCannelCfg2.Margin = new System.Windows.Forms.Padding(4);
             ucCannelCfg2.Name = "ucCannelCfg2";
             ucCannelCfg2.Size = new System.Drawing.Size(415, 306);
             ucCannelCfg2.TabIndex = 1;
@@ -148,7 +148,7 @@
             // ucHisQuery1
             // 
             ucHisQuery1.Location = new System.Drawing.Point(52, 44);
-            ucHisQuery1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            ucHisQuery1.Margin = new System.Windows.Forms.Padding(4);
             ucHisQuery1.Name = "ucHisQuery1";
             ucHisQuery1.Padding = new System.Windows.Forms.Padding(11, 9, 11, 9);
             ucHisQuery1.Size = new System.Drawing.Size(507, 268);
@@ -164,7 +164,7 @@
             // ucSystemCfg1
             // 
             ucSystemCfg1.Location = new System.Drawing.Point(52, 13);
-            ucSystemCfg1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            ucSystemCfg1.Margin = new System.Windows.Forms.Padding(4);
             ucSystemCfg1.Name = "ucSystemCfg1";
             ucSystemCfg1.Size = new System.Drawing.Size(641, 406);
             ucSystemCfg1.TabIndex = 0;
@@ -179,7 +179,7 @@
             // ucDataTableCfg1
             // 
             ucDataTableCfg1.Location = new System.Drawing.Point(34, 18);
-            ucDataTableCfg1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            ucDataTableCfg1.Margin = new System.Windows.Forms.Padding(4);
             ucDataTableCfg1.Name = "ucDataTableCfg1";
             ucDataTableCfg1.Size = new System.Drawing.Size(500, 301);
             ucDataTableCfg1.TabIndex = 0;
@@ -194,7 +194,7 @@
             // ucAbout
             // 
             ucAbout.Location = new System.Drawing.Point(4, 14);
-            ucAbout.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            ucAbout.Margin = new System.Windows.Forms.Padding(4);
             ucAbout.Name = "ucAbout";
             ucAbout.Size = new System.Drawing.Size(548, 302);
             ucAbout.TabIndex = 0;
@@ -209,7 +209,7 @@
             // ucRecipe
             // 
             ucRecipe.Location = new System.Drawing.Point(54, 15);
-            ucRecipe.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            ucRecipe.Margin = new System.Windows.Forms.Padding(4);
             ucRecipe.Name = "ucRecipe";
             ucRecipe.Size = new System.Drawing.Size(490, 246);
             ucRecipe.TabIndex = 0;
@@ -264,6 +264,26 @@
             repositoryItemComboBox1.Items.AddRange(new object[] { "English", "简体中文" });
             repositoryItemComboBox1.Name = "repositoryItemComboBox1";
             repositoryItemComboBox1.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.DisableTextEditor;
+            // 
+            // barButtonImport
+            // 
+            barButtonImport.Caption = "ImPort";
+            barButtonImport.Id = 4;
+            barButtonImport.ImageOptions.Image = (System.Drawing.Image)resources.GetObject("barButtonImport.ImageOptions.Image");
+            barButtonImport.ImageOptions.LargeImage = (System.Drawing.Image)resources.GetObject("barButtonImport.ImageOptions.LargeImage");
+            barButtonImport.Name = "barButtonImport";
+            barButtonImport.PaintStyle = DevExpress.XtraBars.BarItemPaintStyle.CaptionGlyph;
+            barButtonImport.ItemClick += barButtonImport_ItemClick;
+            // 
+            // barButtonExport
+            // 
+            barButtonExport.Caption = "Export";
+            barButtonExport.Id = 5;
+            barButtonExport.ImageOptions.Image = (System.Drawing.Image)resources.GetObject("barButtonExport.ImageOptions.Image");
+            barButtonExport.ImageOptions.LargeImage = (System.Drawing.Image)resources.GetObject("barButtonExport.ImageOptions.LargeImage");
+            barButtonExport.Name = "barButtonExport";
+            barButtonExport.PaintStyle = DevExpress.XtraBars.BarItemPaintStyle.CaptionGlyph;
+            barButtonExport.ItemClick += barButtonExport_ItemClick;
             // 
             // accordionControl1
             // 
@@ -350,26 +370,6 @@
             fluentDesignFormControl1.TitleItemLinks.Add(barButtonImport);
             fluentDesignFormControl1.TitleItemLinks.Add(barButtonExport);
             // 
-            // barButtonImport
-            // 
-            barButtonImport.Caption = "ImPort";
-            barButtonImport.Id = 4;
-            barButtonImport.ImageOptions.Image = (System.Drawing.Image)resources.GetObject("barButtonImport.ImageOptions.Image");
-            barButtonImport.ImageOptions.LargeImage = (System.Drawing.Image)resources.GetObject("barButtonImport.ImageOptions.LargeImage");
-            barButtonImport.Name = "barButtonImport";
-            barButtonImport.PaintStyle = DevExpress.XtraBars.BarItemPaintStyle.CaptionGlyph;
-            barButtonImport.ItemClick += barButtonImport_ItemClick;
-            // 
-            // barButtonExport
-            // 
-            barButtonExport.Caption = "Export";
-            barButtonExport.Id = 5;
-            barButtonExport.ImageOptions.Image = (System.Drawing.Image)resources.GetObject("barButtonExport.ImageOptions.Image");
-            barButtonExport.ImageOptions.LargeImage = (System.Drawing.Image)resources.GetObject("barButtonExport.ImageOptions.LargeImage");
-            barButtonExport.Name = "barButtonExport";
-            barButtonExport.PaintStyle = DevExpress.XtraBars.BarItemPaintStyle.CaptionGlyph;
-            barButtonExport.ItemClick += barButtonExport_ItemClick;
-            // 
             // frmMain
             // 
             Appearance.Options.UseFont = true;
@@ -381,12 +381,11 @@
             Controls.Add(accordionControl1);
             Controls.Add(fluentDesignFormControl1);
             FluentDesignFormControl = fluentDesignFormControl1;
-            Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, 134);
             IconOptions.Icon = (System.Drawing.Icon)resources.GetObject("frmMain.IconOptions.Icon");
             Margin = new System.Windows.Forms.Padding(4);
             Name = "frmMain";
             NavigationControl = accordionControl1;
-            Text = "TopData V1.2";
+            Text = "TopData V1.2.1";
             Load += frmMain_Load;
             fluentDesignFormContainer1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)navigationFrame1).EndInit();

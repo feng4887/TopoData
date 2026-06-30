@@ -4,6 +4,8 @@
 
 TopoData provides data acquisition and storage capabilities for the industrial automation sector, along with data read/write interfaces for third-party software, aiming to help system integrators bridge the communication gap between IT and OT.
 
+This is a open project, welcome programers take part in this project to develop new features.
+
 The outstanding features of TopoData software are as follows:
 
 - Supports Siemens Profinet 、Modbus TCP and OPC UA protocol for communication with devices.

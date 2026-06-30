@@ -8,10 +8,12 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Xml.Serialization;
 using TopoData.model;
 using TopoData.Properties;
 
@@ -19,6 +21,8 @@ namespace TopoData
 {
     public partial class ucSystemCfg : DevExpress.XtraEditors.XtraUserControl
     {
+
+        #region Init
         public ucSystemCfg()
         {
             InitializeComponent();
@@ -32,7 +36,7 @@ namespace TopoData
             btSelectDbPath.Visible = true;
 
             if (AutoStart.IsAutoStartViaShortcutEnabled("TopoData"))
-            { 
+            {
                 cbActive.IsOn = true;
             }
             else
@@ -64,6 +68,22 @@ namespace TopoData
             label7.Text = Resources.port;
             cbEableLog4.Text = Resources.EnableLog4;
 
+            groupControl4.Text = Resources.MqttConfig;
+            btSaveMqtt.Text = Resources.Save;
+            btTestMqtt.Text = Resources.test;
+            tsEnableMqtt.Properties.OffText = Resources.Off;
+            tsEnableMqtt.Properties.OnText = Resources.On;
+            labelControl1.Text = Resources.Host;
+            labelControl4.Text = Resources.port;
+            tsEnableMqttSecurity.Properties.OnText = Resources.MqttSecurityEnable;
+            tsEnableMqttSecurity.Properties.OffText = Resources.MqttSecurityDisable;
+            labelControl2.Text = Resources.MqttTopic;
+            labelControl5.Text = Resources.User_user;
+            labelControl6.Text = Resources.User_psd;
+            labelControl3.Text = Resources.MqttPublishIntervalMs;
+
+            tsEnableSingalTag.Properties.OnText = Resources.EnableSingalTagOn;
+            tsEnableSingalTag.Properties.OffText = Resources.EnableSingalTagOff;
         }
 
         public void InitCfg()
@@ -84,8 +104,32 @@ namespace TopoData
                 panelRoot.Visible = false;
                 btSelectDbPath.Visible = false;
             }
-        }
 
+            MqttServerConfig mqtt = MqttOperator.Instance.LoadConfig(Program._mqtt_configPath);
+            if (mqtt != null)
+            {
+                tbMqttHost.Text = mqtt.Server;
+                tbMqttPort.Text = mqtt.Port.ToString();
+                tbMqttUser.Text = mqtt.Username;
+                tbMqttPsw.Text = mqtt.Password;
+                mqtt.ClientId = "RealTimePublisher";
+                tbMqttTopic.Text = mqtt.TopicPrefix;
+                tbPublishIntervalMs.Text = mqtt.PublishIntervalMs.ToString();
+                tsEnableMqttSecurity.IsOn = mqtt.UseSecurity;
+                tsEnableMqtt.IsOn = mqtt.EnableMqtt;
+                tsEnableSingalTag.IsOn = mqtt.PublishSingleTag;
+
+                if (tsEnableSingalTag.IsOn)
+                {
+                    tbMqttTopic.Enabled = false;
+                }
+                else
+                    tbMqttTopic.Enabled = true;
+            }
+        }
+        #endregion //Init
+
+        #region WebAPI
         private void btSaveRestURI_Click(object sender, EventArgs e)
         {
             try
@@ -101,7 +145,9 @@ namespace TopoData
 
             XmlHelper.XmlSerializeToFile(ServerCfg.Instance, pubDefine.Configuration, Encoding.UTF8);
         }
+        #endregion //WebAPI
 
+        #region SQL Cfg
         private void btSaveSQL_Click(object sender, EventArgs e)
         {
             try
@@ -330,7 +376,7 @@ namespace TopoData
                     //    i.StartPosition = FormStartPosition.CenterParent;
                     //    i.ShowDialog(owner);  // 明确指定 Owner
                     //}
-                    DialogResult dialogResult = DevExpress.XtraEditors.XtraMessageBox.Show("Database communication is normal", "Communication Test", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    DialogResult dialogResult = DevExpress.XtraEditors.XtraMessageBox.Show("Database communication is good.", "Communication Test", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
                 else
                 {
@@ -472,7 +518,9 @@ namespace TopoData
                 DevExpress.XtraEditors.XtraMessageBox.Show(ex.Message, "Information", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
+        #endregion //SQL Cfg
 
+        #region Aotomatic start switch event.
         /// <summary>
         /// Aotomatic start switch event.
         /// </summary>
@@ -512,5 +560,135 @@ namespace TopoData
                 //AutoStart2.Instance.SetDesktopQuick(true);
             }
         }
+        #endregion //Aotomatic start switch event.
+
+        #region MQTT Configuration
+        /// <summary>
+        /// Save Mqtt configuration
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void btSaveMqtt_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                string configPath = System.IO.Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "mqtt_config.xml");
+                var serializer = new XmlSerializer(typeof(MqttServerConfig));
+                int port = 0;
+                try
+                {
+                    port = int.Parse(tbMqttPort.Text);
+                }
+                catch
+                {
+                    MessageBox.Show("Mqtt Port should be number.");
+                    return;
+                }
+                int PublishIntervalMs = 1000;
+                try
+                {
+                    PublishIntervalMs = int.Parse(tbPublishIntervalMs.Text);
+                }
+                catch
+                {
+                    MessageBox.Show("Mqtt Publish Interval should be number.");
+                    return;
+                }
+                var config = new MqttServerConfig
+                {
+                    Server = tbMqttHost.Text,
+                    Port = port,
+                    Username = tbMqttUser.Text,
+                    Password = tbMqttPsw.Text,
+                    ClientId = "RealTimePublisher",
+                    TopicPrefix = tbMqttTopic.Text,
+                    PublishIntervalMs = PublishIntervalMs,
+                    PublishSingleTag = tsEnableSingalTag.IsOn,
+                    Retain = false,
+                    EnableMqtt = tsEnableMqtt.IsOn,
+                    UseSecurity = tsEnableMqttSecurity.IsOn,
+                };
+
+                using var writer = new StreamWriter(Program._mqtt_configPath);
+                serializer.Serialize(writer, config);
+            }
+            catch (Exception ex)
+            { }
+
+        }
+
+        private async void btTestMqtt_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                int port = 0;
+                try
+                {
+                    port = int.Parse(tbMqttPort.Text);
+                }
+                catch
+                {
+                    MessageBox.Show("Mqtt Port should be number.");
+                    return;
+                }
+                int PublishIntervalMs = 1000;
+                try
+                {
+                    PublishIntervalMs = int.Parse(tbPublishIntervalMs.Text);
+                }
+                catch
+                {
+                    MessageBox.Show("Mqtt Publish Interval should be number.");
+                    return;
+                }
+                var config = new MqttServerConfig
+                {
+                    Server = tbMqttHost.Text,
+                    Port = port,
+                    Username = tbMqttUser.Text,
+                    Password = tbMqttPsw.Text,
+                    ClientId = "RealTimePublisher",
+                    TopicPrefix = tbMqttTopic.Text,
+                    PublishIntervalMs = PublishIntervalMs,
+                    PublishSingleTag = false,
+                    Retain = false,
+                    EnableMqtt = tsEnableMqtt.IsOn,
+                    UseSecurity = tsEnableMqttSecurity.IsOn,
+                };
+
+                MqttHelper _mqtt = new();
+                var ok = await _mqtt.ConnectAsync(config);
+
+                // 获取当前窗口作为父窗口
+                Form owner = this.FindForm() ?? Application.OpenForms[0];
+
+                if (ok)
+                {
+                    DialogResult dialogResult = DevExpress.XtraEditors.XtraMessageBox.Show("MQTT server is good.", "Communication Test", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    await _mqtt.DisconnectAsync();
+                }
+                else
+                {
+                    DialogResult dialogResult = DevExpress.XtraEditors.XtraMessageBox.Show("MQTT server communication failed", "Communication Test", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    await _mqtt.DisposeAsync();
+                }
+            }
+            catch (Exception ex)
+            {
+                DialogResult dialogResult = DevExpress.XtraEditors.XtraMessageBox.Show(ex.Message + "\r\n" + ex.InnerException, "Information", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void tsEnableSingalTag_Toggled(object sender, EventArgs e)
+        {
+            if (tsEnableSingalTag.IsOn)
+            {
+                tbMqttTopic.Enabled = false;
+            }
+            else
+                tbMqttTopic.Enabled = true;
+        }
+
+        #endregion //MQTT Configuration
     }
 }

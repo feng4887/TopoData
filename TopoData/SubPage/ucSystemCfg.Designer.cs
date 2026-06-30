@@ -60,6 +60,24 @@
             groupControl2 = new DevExpress.XtraEditors.GroupControl();
             groupControl3 = new DevExpress.XtraEditors.GroupControl();
             cbActive = new DevExpress.XtraEditors.ToggleSwitch();
+            groupControl4 = new DevExpress.XtraEditors.GroupControl();
+            tsEnableSingalTag = new DevExpress.XtraEditors.ToggleSwitch();
+            labelControl3 = new DevExpress.XtraEditors.LabelControl();
+            tbPublishIntervalMs = new DevExpress.XtraEditors.TextEdit();
+            labelControl2 = new DevExpress.XtraEditors.LabelControl();
+            tbMqttTopic = new DevExpress.XtraEditors.TextEdit();
+            tsEnableMqtt = new DevExpress.XtraEditors.ToggleSwitch();
+            tsEnableMqttSecurity = new DevExpress.XtraEditors.ToggleSwitch();
+            labelControl5 = new DevExpress.XtraEditors.LabelControl();
+            labelControl1 = new DevExpress.XtraEditors.LabelControl();
+            labelControl6 = new DevExpress.XtraEditors.LabelControl();
+            btSaveMqtt = new DevExpress.XtraEditors.SimpleButton();
+            tbMqttUser = new DevExpress.XtraEditors.TextEdit();
+            tbMqttPsw = new DevExpress.XtraEditors.TextEdit();
+            btTestMqtt = new DevExpress.XtraEditors.SimpleButton();
+            tbMqttHost = new DevExpress.XtraEditors.TextEdit();
+            tbMqttPort = new DevExpress.XtraEditors.TextEdit();
+            labelControl4 = new DevExpress.XtraEditors.LabelControl();
             ((System.ComponentModel.ISupportInitialize)tbRestURI.Properties).BeginInit();
             ((System.ComponentModel.ISupportInitialize)cbDB.Properties).BeginInit();
             ((System.ComponentModel.ISupportInitialize)tbDBPath.Properties).BeginInit();
@@ -80,19 +98,30 @@
             ((System.ComponentModel.ISupportInitialize)groupControl3).BeginInit();
             groupControl3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)cbActive.Properties).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)groupControl4).BeginInit();
+            groupControl4.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)tsEnableSingalTag.Properties).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)tbPublishIntervalMs.Properties).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)tbMqttTopic.Properties).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)tsEnableMqtt.Properties).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)tsEnableMqttSecurity.Properties).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)tbMqttUser.Properties).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)tbMqttPsw.Properties).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)tbMqttHost.Properties).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)tbMqttPort.Properties).BeginInit();
             SuspendLayout();
             // 
             // tbRestURI
             // 
             tbRestURI.EditValue = "http://0.0.0.0:8083/";
-            tbRestURI.Location = new System.Drawing.Point(105, 32);
+            tbRestURI.Location = new System.Drawing.Point(105, 37);
             tbRestURI.Name = "tbRestURI";
             tbRestURI.Size = new System.Drawing.Size(152, 18);
             tbRestURI.TabIndex = 27;
             // 
             // label2
             // 
-            label2.Location = new System.Drawing.Point(29, 34);
+            label2.Location = new System.Drawing.Point(29, 40);
             label2.Name = "label2";
             label2.Size = new System.Drawing.Size(66, 12);
             label2.TabIndex = 26;
@@ -106,9 +135,9 @@
             btSaveRestURI.Appearance.Options.UseBackColor = true;
             btSaveRestURI.Appearance.Options.UseFont = true;
             btSaveRestURI.Appearance.Options.UseForeColor = true;
-            btSaveRestURI.Location = new System.Drawing.Point(314, 23);
+            btSaveRestURI.Location = new System.Drawing.Point(325, 28);
             btSaveRestURI.Name = "btSaveRestURI";
-            btSaveRestURI.Size = new System.Drawing.Size(64, 36);
+            btSaveRestURI.Size = new System.Drawing.Size(78, 36);
             btSaveRestURI.TabIndex = 25;
             btSaveRestURI.Text = "保存配置";
             btSaveRestURI.Click += btSaveRestURI_Click;
@@ -284,7 +313,7 @@
             btCreateDB.Appearance.ForeColor = System.Drawing.SystemColors.ControlText;
             btCreateDB.Appearance.Options.UseFont = true;
             btCreateDB.Appearance.Options.UseForeColor = true;
-            btCreateDB.Location = new System.Drawing.Point(318, 74);
+            btCreateDB.Location = new System.Drawing.Point(325, 74);
             btCreateDB.Name = "btCreateDB";
             btCreateDB.Size = new System.Drawing.Size(78, 36);
             btCreateDB.TabIndex = 24;
@@ -329,7 +358,7 @@
             btTestSQL.Appearance.ForeColor = System.Drawing.SystemColors.ControlText;
             btTestSQL.Appearance.Options.UseFont = true;
             btTestSQL.Appearance.Options.UseForeColor = true;
-            btTestSQL.Location = new System.Drawing.Point(318, 115);
+            btTestSQL.Location = new System.Drawing.Point(325, 115);
             btTestSQL.Name = "btTestSQL";
             btTestSQL.Size = new System.Drawing.Size(78, 36);
             btTestSQL.TabIndex = 13;
@@ -344,7 +373,7 @@
             btSaveSQL.Appearance.Options.UseBackColor = true;
             btSaveSQL.Appearance.Options.UseFont = true;
             btSaveSQL.Appearance.Options.UseForeColor = true;
-            btSaveSQL.Location = new System.Drawing.Point(318, 33);
+            btSaveSQL.Location = new System.Drawing.Point(325, 33);
             btSaveSQL.Name = "btSaveSQL";
             btSaveSQL.Size = new System.Drawing.Size(78, 36);
             btSaveSQL.TabIndex = 14;
@@ -368,9 +397,9 @@
             groupControl1.Controls.Add(btCreateDB);
             groupControl1.Controls.Add(label4);
             groupControl1.Controls.Add(panelDb);
-            groupControl1.Location = new System.Drawing.Point(43, 106);
+            groupControl1.Location = new System.Drawing.Point(43, 369);
             groupControl1.Name = "groupControl1";
-            groupControl1.Size = new System.Drawing.Size(415, 268);
+            groupControl1.Size = new System.Drawing.Size(431, 268);
             groupControl1.TabIndex = 28;
             groupControl1.Text = "数据库配置";
             // 
@@ -379,20 +408,21 @@
             groupControl2.Controls.Add(tbRestURI);
             groupControl2.Controls.Add(btSaveRestURI);
             groupControl2.Controls.Add(label2);
-            groupControl2.Location = new System.Drawing.Point(43, 31);
+            groupControl2.Location = new System.Drawing.Point(43, 23);
             groupControl2.Name = "groupControl2";
-            groupControl2.Size = new System.Drawing.Size(412, 62);
+            groupControl2.Size = new System.Drawing.Size(431, 70);
             groupControl2.TabIndex = 29;
             groupControl2.Text = "WebAPI接口";
             // 
             // groupControl3
             // 
             groupControl3.Controls.Add(cbActive);
-            groupControl3.Location = new System.Drawing.Point(43, 390);
+            groupControl3.Location = new System.Drawing.Point(43, 648);
             groupControl3.Name = "groupControl3";
-            groupControl3.Size = new System.Drawing.Size(412, 62);
+            groupControl3.Size = new System.Drawing.Size(431, 62);
             groupControl3.TabIndex = 30;
             groupControl3.Text = "自动启动";
+            groupControl3.Visible = false;
             // 
             // cbActive
             // 
@@ -406,15 +436,197 @@
             cbActive.TabIndex = 36;
             cbActive.Toggled += cbActive_Toggled;
             // 
+            // groupControl4
+            // 
+            groupControl4.Controls.Add(tsEnableSingalTag);
+            groupControl4.Controls.Add(labelControl3);
+            groupControl4.Controls.Add(tbPublishIntervalMs);
+            groupControl4.Controls.Add(labelControl2);
+            groupControl4.Controls.Add(tbMqttTopic);
+            groupControl4.Controls.Add(tsEnableMqtt);
+            groupControl4.Controls.Add(tsEnableMqttSecurity);
+            groupControl4.Controls.Add(labelControl5);
+            groupControl4.Controls.Add(labelControl1);
+            groupControl4.Controls.Add(labelControl6);
+            groupControl4.Controls.Add(btSaveMqtt);
+            groupControl4.Controls.Add(tbMqttUser);
+            groupControl4.Controls.Add(tbMqttPsw);
+            groupControl4.Controls.Add(btTestMqtt);
+            groupControl4.Controls.Add(tbMqttHost);
+            groupControl4.Controls.Add(tbMqttPort);
+            groupControl4.Controls.Add(labelControl4);
+            groupControl4.Location = new System.Drawing.Point(43, 104);
+            groupControl4.Name = "groupControl4";
+            groupControl4.Size = new System.Drawing.Size(431, 252);
+            groupControl4.TabIndex = 31;
+            groupControl4.Text = "MQTT配置";
+            // 
+            // tsEnableSingalTag
+            // 
+            tsEnableSingalTag.Location = new System.Drawing.Point(110, 128);
+            tsEnableSingalTag.Name = "tsEnableSingalTag";
+            tsEnableSingalTag.Properties.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.Default;
+            tsEnableSingalTag.Properties.OffText = "组订阅";
+            tsEnableSingalTag.Properties.OnText = "单点订阅";
+            tsEnableSingalTag.Size = new System.Drawing.Size(175, 18);
+            tsEnableSingalTag.TabIndex = 43;
+            tsEnableSingalTag.Toggled += tsEnableSingalTag_Toggled;
+            // 
+            // labelControl3
+            // 
+            labelControl3.Location = new System.Drawing.Point(20, 185);
+            labelControl3.Name = "labelControl3";
+            labelControl3.Size = new System.Drawing.Size(72, 12);
+            labelControl3.TabIndex = 41;
+            labelControl3.Text = "发布间隔(sm)";
+            // 
+            // tbPublishIntervalMs
+            // 
+            tbPublishIntervalMs.EditValue = "2000";
+            tbPublishIntervalMs.Location = new System.Drawing.Point(110, 179);
+            tbPublishIntervalMs.Name = "tbPublishIntervalMs";
+            tbPublishIntervalMs.Size = new System.Drawing.Size(152, 18);
+            tbPublishIntervalMs.TabIndex = 42;
+            // 
+            // labelControl2
+            // 
+            labelControl2.Location = new System.Drawing.Point(20, 157);
+            labelControl2.Name = "labelControl2";
+            labelControl2.Size = new System.Drawing.Size(60, 12);
+            labelControl2.TabIndex = 39;
+            labelControl2.Text = "组发布订阅";
+            // 
+            // tbMqttTopic
+            // 
+            tbMqttTopic.EditValue = "industrial/realtime";
+            tbMqttTopic.Location = new System.Drawing.Point(110, 153);
+            tbMqttTopic.Name = "tbMqttTopic";
+            tbMqttTopic.Size = new System.Drawing.Size(152, 18);
+            tbMqttTopic.TabIndex = 40;
+            // 
+            // tsEnableMqtt
+            // 
+            tsEnableMqtt.Location = new System.Drawing.Point(110, 34);
+            tsEnableMqtt.Name = "tsEnableMqtt";
+            tsEnableMqtt.Properties.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.Default;
+            tsEnableMqtt.Properties.OffText = "禁用MQTT";
+            tsEnableMqtt.Properties.OnText = "启用MQTT";
+            tsEnableMqtt.Size = new System.Drawing.Size(100, 18);
+            tsEnableMqtt.TabIndex = 38;
+            // 
+            // tsEnableMqttSecurity
+            // 
+            tsEnableMqttSecurity.Location = new System.Drawing.Point(110, 106);
+            tsEnableMqttSecurity.Name = "tsEnableMqttSecurity";
+            tsEnableMqttSecurity.Properties.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.Default;
+            tsEnableMqttSecurity.Properties.OffText = "禁用安全";
+            tsEnableMqttSecurity.Properties.OnText = "启用安全";
+            tsEnableMqttSecurity.Size = new System.Drawing.Size(175, 18);
+            tsEnableMqttSecurity.TabIndex = 37;
+            // 
+            // labelControl5
+            // 
+            labelControl5.Location = new System.Drawing.Point(20, 207);
+            labelControl5.Name = "labelControl5";
+            labelControl5.Size = new System.Drawing.Size(36, 12);
+            labelControl5.TabIndex = 26;
+            labelControl5.Text = "用户名";
+            // 
+            // labelControl1
+            // 
+            labelControl1.Location = new System.Drawing.Point(20, 60);
+            labelControl1.Name = "labelControl1";
+            labelControl1.Size = new System.Drawing.Size(42, 12);
+            labelControl1.TabIndex = 28;
+            labelControl1.Text = "IP 地址";
+            // 
+            // labelControl6
+            // 
+            labelControl6.Location = new System.Drawing.Point(20, 233);
+            labelControl6.Name = "labelControl6";
+            labelControl6.Size = new System.Drawing.Size(24, 12);
+            labelControl6.TabIndex = 27;
+            labelControl6.Text = "密码";
+            // 
+            // btSaveMqtt
+            // 
+            btSaveMqtt.Appearance.BackColor = DevExpress.LookAndFeel.DXSkinColors.FillColors.Primary;
+            btSaveMqtt.Appearance.Font = new System.Drawing.Font("Microsoft YaHei UI", 9F);
+            btSaveMqtt.Appearance.ForeColor = System.Drawing.Color.White;
+            btSaveMqtt.Appearance.Options.UseBackColor = true;
+            btSaveMqtt.Appearance.Options.UseFont = true;
+            btSaveMqtt.Appearance.Options.UseForeColor = true;
+            btSaveMqtt.Location = new System.Drawing.Point(325, 33);
+            btSaveMqtt.Name = "btSaveMqtt";
+            btSaveMqtt.Size = new System.Drawing.Size(78, 36);
+            btSaveMqtt.TabIndex = 14;
+            btSaveMqtt.Text = "保存配置";
+            btSaveMqtt.Click += btSaveMqtt_Click;
+            // 
+            // tbMqttUser
+            // 
+            tbMqttUser.EditValue = "admin";
+            tbMqttUser.Location = new System.Drawing.Point(110, 203);
+            tbMqttUser.Name = "tbMqttUser";
+            tbMqttUser.Size = new System.Drawing.Size(152, 18);
+            tbMqttUser.TabIndex = 29;
+            // 
+            // tbMqttPsw
+            // 
+            tbMqttPsw.EditValue = "password";
+            tbMqttPsw.Location = new System.Drawing.Point(110, 227);
+            tbMqttPsw.Name = "tbMqttPsw";
+            tbMqttPsw.Properties.PasswordChar = '*';
+            tbMqttPsw.Size = new System.Drawing.Size(152, 18);
+            tbMqttPsw.TabIndex = 30;
+            // 
+            // btTestMqtt
+            // 
+            btTestMqtt.Appearance.Font = new System.Drawing.Font("Microsoft YaHei UI", 9F);
+            btTestMqtt.Appearance.ForeColor = System.Drawing.SystemColors.ControlText;
+            btTestMqtt.Appearance.Options.UseFont = true;
+            btTestMqtt.Appearance.Options.UseForeColor = true;
+            btTestMqtt.Location = new System.Drawing.Point(325, 75);
+            btTestMqtt.Name = "btTestMqtt";
+            btTestMqtt.Size = new System.Drawing.Size(78, 36);
+            btTestMqtt.TabIndex = 13;
+            btTestMqtt.Text = "MQTT测试";
+            btTestMqtt.Click += btTestMqtt_Click;
+            // 
+            // tbMqttHost
+            // 
+            tbMqttHost.EditValue = "127.0.0.1";
+            tbMqttHost.Location = new System.Drawing.Point(110, 58);
+            tbMqttHost.Name = "tbMqttHost";
+            tbMqttHost.Size = new System.Drawing.Size(152, 18);
+            tbMqttHost.TabIndex = 20;
+            // 
+            // tbMqttPort
+            // 
+            tbMqttPort.EditValue = "1883";
+            tbMqttPort.Location = new System.Drawing.Point(110, 82);
+            tbMqttPort.Name = "tbMqttPort";
+            tbMqttPort.Size = new System.Drawing.Size(50, 18);
+            tbMqttPort.TabIndex = 6;
+            // 
+            // labelControl4
+            // 
+            labelControl4.Location = new System.Drawing.Point(20, 85);
+            labelControl4.Name = "labelControl4";
+            labelControl4.Size = new System.Drawing.Size(24, 12);
+            labelControl4.TabIndex = 5;
+            labelControl4.Text = "端口";
+            // 
             // ucSystemCfg
             // 
             AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            Controls.Add(groupControl4);
             Controls.Add(groupControl3);
             Controls.Add(groupControl2);
             Controls.Add(groupControl1);
             Name = "ucSystemCfg";
-            Size = new System.Drawing.Size(633, 505);
+            Size = new System.Drawing.Size(958, 798);
             Load += ucSystemCfg_Load;
             ((System.ComponentModel.ISupportInitialize)tbRestURI.Properties).EndInit();
             ((System.ComponentModel.ISupportInitialize)cbDB.Properties).EndInit();
@@ -440,6 +652,18 @@
             ((System.ComponentModel.ISupportInitialize)groupControl3).EndInit();
             groupControl3.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)cbActive.Properties).EndInit();
+            ((System.ComponentModel.ISupportInitialize)groupControl4).EndInit();
+            groupControl4.ResumeLayout(false);
+            groupControl4.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)tsEnableSingalTag.Properties).EndInit();
+            ((System.ComponentModel.ISupportInitialize)tbPublishIntervalMs.Properties).EndInit();
+            ((System.ComponentModel.ISupportInitialize)tbMqttTopic.Properties).EndInit();
+            ((System.ComponentModel.ISupportInitialize)tsEnableMqtt.Properties).EndInit();
+            ((System.ComponentModel.ISupportInitialize)tsEnableMqttSecurity.Properties).EndInit();
+            ((System.ComponentModel.ISupportInitialize)tbMqttUser.Properties).EndInit();
+            ((System.ComponentModel.ISupportInitialize)tbMqttPsw.Properties).EndInit();
+            ((System.ComponentModel.ISupportInitialize)tbMqttHost.Properties).EndInit();
+            ((System.ComponentModel.ISupportInitialize)tbMqttPort.Properties).EndInit();
             ResumeLayout(false);
         }
 
@@ -476,5 +700,23 @@
         private DevExpress.XtraEditors.LabelControl label8;
         private DevExpress.XtraEditors.GroupControl groupControl3;
         private DevExpress.XtraEditors.ToggleSwitch cbActive;
+        private DevExpress.XtraEditors.GroupControl groupControl4;
+        private DevExpress.XtraEditors.LabelControl labelControl1;
+        private DevExpress.XtraEditors.SimpleButton btSaveMqtt;
+        private DevExpress.XtraEditors.SimpleButton btTestMqtt;
+        private DevExpress.XtraEditors.TextEdit tbMqttHost;
+        private DevExpress.XtraEditors.TextEdit tbMqttPort;
+        private DevExpress.XtraEditors.LabelControl labelControl4;
+        private DevExpress.XtraEditors.LabelControl labelControl5;
+        private DevExpress.XtraEditors.LabelControl labelControl6;
+        private DevExpress.XtraEditors.TextEdit tbMqttUser;
+        private DevExpress.XtraEditors.TextEdit tbMqttPsw;
+        private DevExpress.XtraEditors.ToggleSwitch tsEnableMqtt;
+        private DevExpress.XtraEditors.ToggleSwitch tsEnableMqttSecurity;
+        private DevExpress.XtraEditors.LabelControl labelControl2;
+        private DevExpress.XtraEditors.TextEdit tbMqttTopic;
+        private DevExpress.XtraEditors.LabelControl labelControl3;
+        private DevExpress.XtraEditors.TextEdit tbPublishIntervalMs;
+        private DevExpress.XtraEditors.ToggleSwitch tsEnableSingalTag;
     }
 }

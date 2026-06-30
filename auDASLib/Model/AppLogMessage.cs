@@ -50,7 +50,7 @@ namespace auDASLib.Model
         public string app_name { get; set; }
         //[SqlSugar.SugarColumn(ColumnDataType = "varchar(max)", IsNullable = true)]
 
-        [SqlSugar.SugarColumn(Length = 300, IsNullable = true)]
+        [SqlSugar.SugarColumn(Length =2500, IsNullable = true)]
 
         public string description { get; set; }
 
