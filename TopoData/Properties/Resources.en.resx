@@ -793,7 +793,7 @@
     <value>Group Mqtt Topic</value>
   </data>
   <data name="MqttPublishIntervalMs" xml:space="preserve">
-    <value>Publ Time（sm）</value>
+    <value>Publish Time（sm）</value>
   </data>
   <data name="MqttConfig" xml:space="preserve">
     <value>MQTT Configuration</value>

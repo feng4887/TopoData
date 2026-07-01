@@ -463,7 +463,7 @@
             // 
             // tsEnableSingalTag
             // 
-            tsEnableSingalTag.Location = new System.Drawing.Point(110, 128);
+            tsEnableSingalTag.Location = new System.Drawing.Point(133, 130);
             tsEnableSingalTag.Name = "tsEnableSingalTag";
             tsEnableSingalTag.Properties.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.Default;
             tsEnableSingalTag.Properties.OffText = "组订阅";
@@ -483,7 +483,7 @@
             // tbPublishIntervalMs
             // 
             tbPublishIntervalMs.EditValue = "2000";
-            tbPublishIntervalMs.Location = new System.Drawing.Point(110, 179);
+            tbPublishIntervalMs.Location = new System.Drawing.Point(133, 181);
             tbPublishIntervalMs.Name = "tbPublishIntervalMs";
             tbPublishIntervalMs.Size = new System.Drawing.Size(152, 18);
             tbPublishIntervalMs.TabIndex = 42;
@@ -499,14 +499,14 @@
             // tbMqttTopic
             // 
             tbMqttTopic.EditValue = "industrial/realtime";
-            tbMqttTopic.Location = new System.Drawing.Point(110, 153);
+            tbMqttTopic.Location = new System.Drawing.Point(133, 155);
             tbMqttTopic.Name = "tbMqttTopic";
             tbMqttTopic.Size = new System.Drawing.Size(152, 18);
             tbMqttTopic.TabIndex = 40;
             // 
             // tsEnableMqtt
             // 
-            tsEnableMqtt.Location = new System.Drawing.Point(110, 34);
+            tsEnableMqtt.Location = new System.Drawing.Point(133, 36);
             tsEnableMqtt.Name = "tsEnableMqtt";
             tsEnableMqtt.Properties.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.Default;
             tsEnableMqtt.Properties.OffText = "禁用MQTT";
@@ -516,7 +516,7 @@
             // 
             // tsEnableMqttSecurity
             // 
-            tsEnableMqttSecurity.Location = new System.Drawing.Point(110, 106);
+            tsEnableMqttSecurity.Location = new System.Drawing.Point(133, 108);
             tsEnableMqttSecurity.Name = "tsEnableMqttSecurity";
             tsEnableMqttSecurity.Properties.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.Default;
             tsEnableMqttSecurity.Properties.OffText = "禁用安全";
@@ -566,7 +566,7 @@
             // tbMqttUser
             // 
             tbMqttUser.EditValue = "admin";
-            tbMqttUser.Location = new System.Drawing.Point(110, 203);
+            tbMqttUser.Location = new System.Drawing.Point(133, 205);
             tbMqttUser.Name = "tbMqttUser";
             tbMqttUser.Size = new System.Drawing.Size(152, 18);
             tbMqttUser.TabIndex = 29;
@@ -574,7 +574,7 @@
             // tbMqttPsw
             // 
             tbMqttPsw.EditValue = "password";
-            tbMqttPsw.Location = new System.Drawing.Point(110, 227);
+            tbMqttPsw.Location = new System.Drawing.Point(133, 229);
             tbMqttPsw.Name = "tbMqttPsw";
             tbMqttPsw.Properties.PasswordChar = '*';
             tbMqttPsw.Size = new System.Drawing.Size(152, 18);
@@ -596,7 +596,7 @@
             // tbMqttHost
             // 
             tbMqttHost.EditValue = "127.0.0.1";
-            tbMqttHost.Location = new System.Drawing.Point(110, 58);
+            tbMqttHost.Location = new System.Drawing.Point(133, 60);
             tbMqttHost.Name = "tbMqttHost";
             tbMqttHost.Size = new System.Drawing.Size(152, 18);
             tbMqttHost.TabIndex = 20;
@@ -604,7 +604,7 @@
             // tbMqttPort
             // 
             tbMqttPort.EditValue = "1883";
-            tbMqttPort.Location = new System.Drawing.Point(110, 82);
+            tbMqttPort.Location = new System.Drawing.Point(133, 84);
             tbMqttPort.Name = "tbMqttPort";
             tbMqttPort.Size = new System.Drawing.Size(50, 18);
             tbMqttPort.TabIndex = 6;

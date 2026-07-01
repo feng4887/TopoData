@@ -1,15 +1,14 @@
 **HiTopo**
 
-**V1.2 Readme**
+**V1.2.1 Readme**
 
 TopoData provides data acquisition and storage capabilities for the industrial automation sector, along with data read/write interfaces for third-party software, aiming to help system integrators bridge the communication gap between IT and OT.
 
-This is a open project, welcome programers take part in this project to develop new features.
-
 The outstanding features of TopoData software are as follows:
 
-- Supports Siemens Profinet 、Modbus TCP and OPC UA protocol for communication with devices.
+- Supports Siemens Profinet , Modbus TCP and OPC UA protocol for communication with devices.
 - Provides HTTP WebAPI interfaces for IT systems to read and write PLC or device data.
+- Provides Mqtt interfaces for IT systems to read PLC or device data.
 - Offers system diagnostics functionality, allowing engineers to view PLC communication status, read/write data, and download recipe parameters.
 - Provides relational database data storage functionality with a flexible storage mechanism; data storage triggering conditions can be configured as cyclic storage, event-based storage, or expression-based storage.
 - Flexible definition of binding relationships between database table structures and communication points; engineers do not need to understand SQL statements, as the system can generate database table structures with one click.
@@ -17,7 +16,6 @@ The outstanding features of TopoData software are as follows:
 - Provides flexible recipe definition functionality, allowing users to select different recipes and download recipe parameters to PLCs or devices.
 - Historical data can be exported to Excel.
 - HMI Data acquisition and storage models for industry software engineers.
-- Project import and export function.
 
 <a id="_Toc222430977"></a>
 # 1 **Installation**
@@ -35,15 +33,19 @@ The outstanding features of TopoData software are as follows:
 <a id="_Toc222430982"></a>
 # 2 **System configuration**
 
-![](images/05e88ddc92e45f90cb7ee982865743ab38a988707319752032e75fbe4a5ab439.jpg)
+![](images/707305aa31bb6b1ad076f161121e97a3596a2e1ed76106b14ab3abe053f52040.jpg)
 
 <a id="_Toc222430983"></a>
 ## 2.1 **WebAPI Configuration**
 
 Third-party IT software can access real-time data of the data acquisition channel through the HTTP WebAPI and also perform write operations.
 
+## 2.2 **Mqtt Configuration**
+
+Third-party IT software can access real-time data of the data acquisition channel through the Mqtt, for details please refer to section 9.
+
 <a id="_Toc222430984"></a>
-## 2.2 **Database configuration**
+## 2.3 **Database configuration**
 
 - Database Type: A drop-down list of database types, allowing you to select the type of database to store, including Microsoft SQL Server, PostgreSQL, and MySQL.
 - Database keep Time: In months, with a minimum of 1 month. Data older than this period will be automatically deleted by the service software, and only data within this period will be retained.
@@ -57,11 +59,6 @@ Third-party IT software can access real-time data of the data acquisition channe
 - Create DB Button: Create the database based on account, password, port, and other information.
 - Test DB Button: Test the database connection status based on the configuration.
 - Save Button: Save configuration.
-
-<a id="_Toc222430985"></a>
-## 2.3 **Automatic Start**
-
-By creating shortcuts in the startup folder, the software can be made to start automatically upon windows booting.
 
 # 3 **Equipment Management**
 
@@ -343,8 +340,39 @@ Request Body:
 
 "多肽配方"
 
+<a id="_Ref233795285"></a>
+# 9 **Mqtt**
+
+If external Mqtt functionality is required, please reading following.
+
+## 9.1 **Enable Mqtt**
+
+Open the switch to on to enable Mqtt function:
+
+![](images/eaf31e275ed8896a9fc6fd19613e88e2f286d5c679b5bf5a44d4888cbd50df9e.jpg)
+
+## 9.2 **Enable Mqtt Security**
+
+Host and port are necessary configuration whenever use mqtt functionality. If use security, please fill out user and and password text box and then open security switch:
+
+## 9.3 **Mqtt Item Subscription** 
+
+TopoData have 2 kinds off subscription, one is by each tag item, the other is subscribe by all device.
+
+![](images/37ab9cb93a87434c944b9793e2b01a2aa52cd6e209e31637abb28f236a380db1.jpg)
+
+- Group Subscription
+
+Whole device tags will be published together with item “Group Mqtt Topic” configuration, e.g.  “industrial/realtime”.
+
+- Tag Subscription
+
+Mqtt consumer client can subscribe item by Tag Name as shown in below figure, e.g. “R021.A20”
+
+![](images/2e981a933c1703b4ce33a9c1c857b1b82e749e82ebbbf13039b08205820e03f6.jpg)
+
 <a id="_Toc222430997"></a>
-# 9 **License**
+# 10 **License**
 
 MIT License
 
