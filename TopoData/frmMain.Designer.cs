@@ -46,6 +46,8 @@
             ucAbout = new TopoData.Page.ucAbout();
             PageRecipe = new DevExpress.XtraBars.Navigation.NavigationPage();
             ucRecipe = new TopoData.SubPage.ucRecipe();
+            PageScript = new DevExpress.XtraBars.Navigation.NavigationPage();
+            ucScripts1 = new TopoData.SubPage.ucScripts();
             fluentFormDefaultManager1 = new DevExpress.XtraBars.FluentDesignSystem.FluentFormDefaultManager(components);
             barButtonStart = new DevExpress.XtraBars.BarButtonItem();
             barButtonEnd = new DevExpress.XtraBars.BarButtonItem();
@@ -58,6 +60,7 @@
             accordionControlElement3 = new DevExpress.XtraBars.Navigation.AccordionControlElement();
             accordionControlDatatable = new DevExpress.XtraBars.Navigation.AccordionControlElement();
             accordionControlRecipe = new DevExpress.XtraBars.Navigation.AccordionControlElement();
+            accordionControSceipt = new DevExpress.XtraBars.Navigation.AccordionControlElement();
             accordionControlucDiagnose = new DevExpress.XtraBars.Navigation.AccordionControlElement();
             accordionControlHisQuery = new DevExpress.XtraBars.Navigation.AccordionControlElement();
             accordionControlSysCfg = new DevExpress.XtraBars.Navigation.AccordionControlElement();
@@ -73,6 +76,7 @@
             PageDataTable.SuspendLayout();
             PageAbout.SuspendLayout();
             PageRecipe.SuspendLayout();
+            PageScript.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)fluentFormDefaultManager1).BeginInit();
             ((System.ComponentModel.ISupportInitialize)repositoryItemComboBox1).BeginInit();
             ((System.ComponentModel.ISupportInitialize)accordionControl1).BeginInit();
@@ -86,7 +90,7 @@
             fluentDesignFormContainer1.Location = new System.Drawing.Point(212, 31);
             fluentDesignFormContainer1.Margin = new System.Windows.Forms.Padding(4);
             fluentDesignFormContainer1.Name = "fluentDesignFormContainer1";
-            fluentDesignFormContainer1.Size = new System.Drawing.Size(1408, 1005);
+            fluentDesignFormContainer1.Size = new System.Drawing.Size(1408, 911);
             fluentDesignFormContainer1.TabIndex = 0;
             // 
             // navigationFrame1
@@ -98,10 +102,11 @@
             navigationFrame1.Controls.Add(PageDataTable);
             navigationFrame1.Controls.Add(PageAbout);
             navigationFrame1.Controls.Add(PageRecipe);
+            navigationFrame1.Controls.Add(PageScript);
             navigationFrame1.Location = new System.Drawing.Point(8, 63);
             navigationFrame1.Margin = new System.Windows.Forms.Padding(4);
             navigationFrame1.Name = "navigationFrame1";
-            navigationFrame1.Pages.AddRange(new DevExpress.XtraBars.Navigation.NavigationPageBase[] { PageCannelCfg, PageSysCfg, PageDiagnose, PageHisQuery, PageDataTable, PageAbout, PageRecipe });
+            navigationFrame1.Pages.AddRange(new DevExpress.XtraBars.Navigation.NavigationPageBase[] { PageCannelCfg, PageSysCfg, PageDiagnose, PageHisQuery, PageDataTable, PageAbout, PageRecipe, PageScript });
             navigationFrame1.SelectedPage = PageSysCfg;
             navigationFrame1.Size = new System.Drawing.Size(872, 501);
             navigationFrame1.TabIndex = 2;
@@ -214,6 +219,19 @@
             ucRecipe.Size = new System.Drawing.Size(490, 246);
             ucRecipe.TabIndex = 0;
             // 
+            // PageScript
+            // 
+            PageScript.Controls.Add(ucScripts1);
+            PageScript.Name = "PageScript";
+            PageScript.Size = new System.Drawing.Size(872, 501);
+            // 
+            // ucScripts1
+            // 
+            ucScripts1.Location = new System.Drawing.Point(231, 227);
+            ucScripts1.Name = "ucScripts1";
+            ucScripts1.Size = new System.Drawing.Size(261, 171);
+            ucScripts1.TabIndex = 0;
+            // 
             // fluentFormDefaultManager1
             // 
             fluentFormDefaultManager1.DockWindowTabFont = new System.Drawing.Font("Microsoft YaHei UI", 9F);
@@ -288,12 +306,12 @@
             // accordionControl1
             // 
             accordionControl1.Dock = System.Windows.Forms.DockStyle.Left;
-            accordionControl1.Elements.AddRange(new DevExpress.XtraBars.Navigation.AccordionControlElement[] { accordionControlElement3, accordionControlDatatable, accordionControlRecipe, accordionControlucDiagnose, accordionControlHisQuery, accordionControlSysCfg, accordionControlAbout });
+            accordionControl1.Elements.AddRange(new DevExpress.XtraBars.Navigation.AccordionControlElement[] { accordionControlElement3, accordionControlDatatable, accordionControlRecipe, accordionControSceipt, accordionControlucDiagnose, accordionControlHisQuery, accordionControlSysCfg, accordionControlAbout });
             accordionControl1.Location = new System.Drawing.Point(0, 31);
             accordionControl1.Margin = new System.Windows.Forms.Padding(4);
             accordionControl1.Name = "accordionControl1";
             accordionControl1.ScrollBarMode = DevExpress.XtraBars.Navigation.ScrollBarMode.Touch;
-            accordionControl1.Size = new System.Drawing.Size(212, 1005);
+            accordionControl1.Size = new System.Drawing.Size(212, 911);
             accordionControl1.TabIndex = 1;
             accordionControl1.ViewType = DevExpress.XtraBars.Navigation.AccordionControlViewType.HamburgerMenu;
             // 
@@ -318,6 +336,13 @@
             accordionControlRecipe.Style = DevExpress.XtraBars.Navigation.ElementStyle.Item;
             accordionControlRecipe.Text = "配方编辑";
             accordionControlRecipe.Click += accordionControlRecipe_Click;
+            // 
+            // accordionControSceipt
+            // 
+            accordionControSceipt.Name = "accordionControSceipt";
+            accordionControSceipt.Style = DevExpress.XtraBars.Navigation.ElementStyle.Item;
+            accordionControSceipt.Text = "脚本";
+            accordionControSceipt.Click += accordionControSceipt_Click;
             // 
             // accordionControlucDiagnose
             // 
@@ -375,7 +400,7 @@
             Appearance.Options.UseFont = true;
             AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            ClientSize = new System.Drawing.Size(1620, 1036);
+            ClientSize = new System.Drawing.Size(1620, 942);
             ControlContainer = fluentDesignFormContainer1;
             Controls.Add(fluentDesignFormContainer1);
             Controls.Add(accordionControl1);
@@ -385,7 +410,7 @@
             Margin = new System.Windows.Forms.Padding(4);
             Name = "frmMain";
             NavigationControl = accordionControl1;
-            Text = "TopData V1.2.1";
+            Text = "TopData V1.2.2";
             Load += frmMain_Load;
             fluentDesignFormContainer1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)navigationFrame1).EndInit();
@@ -397,6 +422,7 @@
             PageDataTable.ResumeLayout(false);
             PageAbout.ResumeLayout(false);
             PageRecipe.ResumeLayout(false);
+            PageScript.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)fluentFormDefaultManager1).EndInit();
             ((System.ComponentModel.ISupportInitialize)repositoryItemComboBox1).EndInit();
             ((System.ComponentModel.ISupportInitialize)accordionControl1).EndInit();
@@ -440,6 +466,9 @@
         private DevExpress.XtraEditors.Repository.RepositoryItemComboBox repositoryItemComboBox1;
         private DevExpress.XtraBars.BarButtonItem barButtonImport;
         private DevExpress.XtraBars.BarButtonItem barButtonExport;
+        private DevExpress.XtraBars.Navigation.AccordionControlElement accordionControSceipt;
+        private DevExpress.XtraBars.Navigation.NavigationPage PageScript;
+        private SubPage.ucScripts ucScripts1;
     }
 }
 

@@ -804,4 +804,19 @@
   <data name="EnableSingalTagOff" xml:space="preserve">
     <value>组发布</value>
   </data>
+  <data name="ScriptCfg" xml:space="preserve">
+    <value>脚本配置</value>
+  </data>
+  <data name="BasicInfo" xml:space="preserve">
+    <value>基本信息</value>
+  </data>
+  <data name="ScriptName" xml:space="preserve">
+    <value>脚本名</value>
+  </data>
+  <data name="ScriptTrig" xml:space="preserve">
+    <value>脚本触发条件配置</value>
+  </data>
+  <data name="Disable" xml:space="preserve">
+    <value>禁用</value>
+  </data>
 </root>

@@ -9,7 +9,6 @@ using DevExpress.XtraGauges.Core.Model;
 using DevExpress.XtraGrid.Views.Grid;
 using DevExpress.XtraNavBar;
 using DevExpress.XtraPrinting.HtmlExport.Native;
-using DevExpress.XtraRichEdit.Import.Html;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -70,8 +69,8 @@ namespace TopoData.Page
             labelControl2.Text = Resources.DriverType;
             labelControl3.Text = Resources.Description;
             navBarControl1.ActiveGroup.Caption = Resources.Equipments;
-            cbActive.Properties.OffText = Resources.Off;
-            cbActive.Properties.OnText = Resources.On;
+            cbActive.Properties.OffText = Resources.Disable;
+            cbActive.Properties.OnText = Resources.Enable;
             groupControl1.Text = Resources.EquipmentCfguration;
             groupControl2.Text = Resources.TagList;
             //groupBox1.Text = Resources.CannelCfg;

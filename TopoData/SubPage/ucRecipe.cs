@@ -42,8 +42,8 @@ namespace TopoData.SubPage
         public void ApplyLanguage()
         {
             navBarControl1.ActiveGroup.Caption = Resources.Recipe;
-            cbActive.Properties.OffText = Resources.Off;
-            cbActive.Properties.OnText = Resources.On;
+            cbActive.Properties.OffText = Resources.Disable;
+            cbActive.Properties.OnText = Resources.Enable;
             label1.Text = Resources.Recipe;
             label2.Text = Resources.Description;
             btColumnAdd.Text    = Resources.Add;

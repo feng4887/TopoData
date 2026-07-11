@@ -804,4 +804,19 @@
   <data name="EnableSingalTagOff" xml:space="preserve">
     <value>Group Tags Publish</value>
   </data>
+  <data name="ScriptCfg" xml:space="preserve">
+    <value>Script Configuration</value>
+  </data>
+  <data name="BasicInfo" xml:space="preserve">
+    <value>Basic Information</value>
+  </data>
+  <data name="ScriptName" xml:space="preserve">
+    <value>Script Name</value>
+  </data>
+  <data name="ScriptTrig" xml:space="preserve">
+    <value>Script trig configuration</value>
+  </data>
+  <data name="Disable" xml:space="preserve">
+    <value>Disable</value>
+  </data>
 </root>

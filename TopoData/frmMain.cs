@@ -44,6 +44,7 @@ namespace TopoData
             ucDataTableCfg1.Dock = DockStyle.Fill;
             ucAbout.Dock = DockStyle.Fill;
             ucRecipe.Dock = DockStyle.Fill;
+            ucScripts1.Dock = DockStyle.Fill;
             barButtonEnd.Visibility = BarItemVisibility.Never;
 
             ApplyDefaultLanguage();
@@ -73,6 +74,7 @@ namespace TopoData
                 });
 
                 StartMqttService();
+                StartPythonScriptService();
 
                 toolStrip_ServiceStatus.Caption = $" Service Status: Running ";
                 toolStrip_ServiceStatus.ItemAppearance.Normal.ForeColor = Color.Green;
@@ -86,6 +88,7 @@ namespace TopoData
         }
 
         MqttOperator? _mqttEngine;
+        PythonScriptOperater? _pythonScriptEngine;
 
         /// <summary>
         /// Pubish Mqqt items
@@ -106,6 +109,27 @@ namespace TopoData
                 _mqttEngine.Stop();
                 _mqttEngine = null;
             }
+        }
+
+        /// <summary>
+        /// Starts the configured Python script monitor jobs.
+        /// </summary>
+        void StartPythonScriptService()
+        {
+            _pythonScriptEngine = PythonScriptOperater.Instance;
+            _pythonScriptEngine.Start();
+        }
+
+        /// <summary>
+        /// Stops all Python script monitor jobs.
+        /// </summary>
+        void StopPythonScriptService()
+        {
+            if (_pythonScriptEngine == null)
+                return;
+
+            _pythonScriptEngine.Stop();
+            _pythonScriptEngine = null;
         }
 
         #endregion [Form Constructor]
@@ -136,6 +160,9 @@ namespace TopoData
 
                 if (File.Exists(master_recipe.RecipePathDefine))
                     File.Delete(master_recipe.RecipePathDefine);
+
+                if (File.Exists(PythonScriptConfig.ScriptPathDefine))
+                    File.Delete(PythonScriptConfig.ScriptPathDefine);
 
                 ZipHelper.ImportZipArchive(dlgOpenFile.FileName, pubDefine.Folder);
 
@@ -193,12 +220,15 @@ namespace TopoData
                 Directory.CreateDirectory(folderPath);
 
                 File.Copy(pubDefine.Configuration, folderPath + @"\hiTopoCfg.xml", overwrite: true);
-    
+
                 if (File.Exists(pubDefine.TagDefine))
                     File.Copy(pubDefine.TagDefine, folderPath + @"\hiTopoTagDef.xml", overwrite: true);
 
                 if (File.Exists(master_recipe.RecipePathDefine))
                     File.Copy(master_recipe.RecipePathDefine, folderPath + @"\hiTopoRecipeDef.xml", overwrite: true);
+
+                if (File.Exists(PythonScriptConfig.ScriptPathDefine))
+                    File.Copy(PythonScriptConfig.ScriptPathDefine, folderPath + @"\hiTopoPythonScriptDef.xml", overwrite: true);
 
                 if (File.Exists(Program._mqtt_configPath))
                     File.Copy(Program._mqtt_configPath, folderPath + @"\mqtt_config.xml", overwrite: true);
@@ -264,6 +294,10 @@ namespace TopoData
             navigationFrame1.SelectedPage = PageAbout;
         }
 
+        private void accordionControSceipt_Click(object sender, EventArgs e)
+        {
+            navigationFrame1.SelectedPage = PageScript;
+        }
         /// <summary>
         /// Stop Service 服务停止事件
         /// </summary>
@@ -278,6 +312,7 @@ namespace TopoData
 
                 await Task.Run(() =>
                 {
+                    StopPythonScriptService();
                     HiTopoServer.MainClass.Stop();
                 });
 
@@ -373,12 +408,14 @@ namespace TopoData
             //Diagnose
             accordionControlucDiagnose.Text = Resources.MenDiagnose;
 
+            accordionControSceipt.Text = Resources.ScriptCfg;
+
             //History Query
             accordionControlHisQuery.Text = Resources.MenHistory;
-            accordionControlSysCfg.Text   = Resources.MenSystem;
-            accordionControlAbout.Text    = Resources.MenAbout;
-            barButtonStart.Caption  = Resources.Start;
-            barButtonEnd.Caption    = Resources.Close;
+            accordionControlSysCfg.Text = Resources.MenSystem;
+            accordionControlAbout.Text = Resources.MenAbout;
+            barButtonStart.Caption = Resources.Start;
+            barButtonEnd.Caption = Resources.Close;
             barButtonImport.Caption = Resources.Import;
             barButtonExport.Caption = Resources.Export;
 
@@ -388,8 +425,11 @@ namespace TopoData
             ucSystemCfg1.ApplyLanguage();
             ucDataTableCfg1.ApplyLanguage();
             ucRecipe.ApplyLanguage();
+            ucScripts1.ApplyLanguage();
             ucAbout.ApplyLanguage();
         }
         #endregion //[Localization]
+
+
     }
 }

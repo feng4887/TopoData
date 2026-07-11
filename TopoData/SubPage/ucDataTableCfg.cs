@@ -44,8 +44,8 @@ namespace TopoData.SubPage
         {
             navBarControl1.ActiveGroup.Caption = Resources.DataTable;
 
-            cbActive.Properties.OffText = Resources.Off;
-            cbActive.Properties.OnText = Resources.On;
+            cbActive.Properties.OffText = Resources.Disable;
+            cbActive.Properties.OnText = Resources.Enable;
             cbRealTimeTable.Text = Resources.TimeScaleTable;
             cbExpress.Text = Resources.Expression;
             //cbUpdate.Text = Resources.Update;

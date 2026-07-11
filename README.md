@@ -1,6 +1,6 @@
 **HiTopo**
 
-**V1.2.1 Readme**
+**V1.2.2 Readme**
 
 TopoData provides data acquisition and storage capabilities for the industrial automation sector, along with data read/write interfaces for third-party software, aiming to help system integrators bridge the communication gap between IT and OT.
 
@@ -9,6 +9,7 @@ The outstanding features of TopoData software are as follows:
 - Supports Siemens Profinet , Modbus TCP and OPC UA protocol for communication with devices.
 - Provides HTTP WebAPI interfaces for IT systems to read and write PLC or device data.
 - Provides Mqtt interfaces for IT systems to read PLC or device data.
+- Provides powerful python script function.
 - Offers system diagnostics functionality, allowing engineers to view PLC communication status, read/write data, and download recipe parameters.
 - Provides relational database data storage functionality with a flexible storage mechanism; data storage triggering conditions can be configured as cyclic storage, event-based storage, or expression-based storage.
 - Flexible definition of binding relationships between database table structures and communication points; engineers do not need to understand SQL statements, as the system can generate database table structures with one click.
@@ -372,7 +373,71 @@ Mqtt consumer client can subscribe item by Tag Name as shown in below figure, e.
 ![](images/2e981a933c1703b4ce33a9c1c857b1b82e749e82ebbbf13039b08205820e03f6.jpg)
 
 <a id="_Toc222430997"></a>
-# 10 **License**
+# 10 **Python Scripts**
+
+TopoData provides a Python script module for users who need custom logic with python's ablity. Scripts can be created, edited, saved  and enabled from the "Script" page in the main application.
+![](images/ScriptMain.png)
+
+## 10.1 **Script Configuration**
+
+Each Python script item contains the following configuration:
+
+- Script Name: The unique script name. It is also used to generate the runtime `.py` file.
+- Description: Optional notes for the script.
+- Enable Switch: Enables or disables the script when the service starts.
+- Trigger Tag: A bool-type communication point used to trigger script execution on a rising edge.
+- Expression Trigger: An optional expression-based trigger. When enabled, the script runs when the expression changes from false to true.
+- Python Script: The Python code to execute. The field can also contain a path to an external `.py` file.
+
+The script configuration is stored in `hiTopoPythonScriptDef.xml` under the TopoData configuration folder. On Windows, the default configuration folder is:
+
+`C:\Users\Public\Documents\Config\`
+
+Project import and export include the Python script configuration file.
+
+## 10.2 **Running Scripts**
+
+When the TopoData service starts, all enabled scripts are loaded and monitored. A script is executed only when its bool trigger or expression trigger has a rising edge, which helps prevent repeated execution while the condition remains true.
+
+Before execution, TopoData generates a runtime `.py` file under:
+
+`C:\Users\Public\Documents\Config\PythonScripts\`
+
+The Python executable is resolved in the following order:
+
+- The `HITOPO_PYTHON_EXE` environment variable.
+- `python\python.exe` under the application directory.
+- `python.exe` on Windows, or `python3` on other systems.
+
+## 10.3 **Reading Realtime Values**
+
+Scripts can read realtime tag values by using the following expression format:
+
+```python
+temperature = Read[R0021.Temperature]
+pressure = Read[R0021.Pressure]
+```
+
+Before the Python code is executed, TopoData resolves each `Read[channel.tag]` expression to a Python literal value. Supported resolved value types include bool, number, string, and `None`.
+
+If the tag cannot be found, or if the tag quality is invalid, the script will not be executed and an error will be written to the log.
+
+## 10.5 **Example**
+
+```python
+a = Read[R0021.pH] #Read data to a
+text_to_add = message = f"Current value is：{a}，please confirm。\n"
+file_path = r"D:\xxx.txt" 
+
+try:
+    with open(file_path, 'a', encoding='utf-8') as file:
+        file.write(text_to_add)
+    print(f"write to {file_path}")
+except Exception as e:
+    print(f"error: {e}")
+```
+
+# 11 **License**
 
 MIT License
 

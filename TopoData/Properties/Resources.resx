@@ -806,4 +806,19 @@
   <data name="EnableSingalTagOff" xml:space="preserve">
     <value>EnableSingalTagOff</value>
   </data>
+  <data name="ScriptCfg" xml:space="preserve">
+    <value>ScriptCfg</value>
+  </data>
+  <data name="BasicInfo" xml:space="preserve">
+    <value>BasicInfo</value>
+  </data>
+  <data name="ScriptName" xml:space="preserve">
+    <value>ScriptName</value>
+  </data>
+  <data name="ScriptTrig" xml:space="preserve">
+    <value>ScriptTrig</value>
+  </data>
+  <data name="Disable" xml:space="preserve">
+    <value>Disable</value>
+  </data>
 </root>

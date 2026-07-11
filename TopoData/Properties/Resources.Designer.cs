@@ -115,6 +115,15 @@ namespace TopoData.Properties {
         }
         
         /// <summary>
+        ///   查找类似 BasicInfo 的本地化字符串。
+        /// </summary>
+        internal static string BasicInfo {
+            get {
+                return ResourceManager.GetString("BasicInfo", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   查找类似 batch number 的本地化字符串。
         /// </summary>
         internal static string batch {
@@ -507,6 +516,15 @@ namespace TopoData.Properties {
         internal static string diaTitle {
             get {
                 return ResourceManager.GetString("diaTitle", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 Disable 的本地化字符串。
+        /// </summary>
+        internal static string Disable {
+            get {
+                return ResourceManager.GetString("Disable", resourceCulture);
             }
         }
         
@@ -1587,6 +1605,33 @@ namespace TopoData.Properties {
         internal static string Save_Restart {
             get {
                 return ResourceManager.GetString("Save_Restart", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 ScriptCfg 的本地化字符串。
+        /// </summary>
+        internal static string ScriptCfg {
+            get {
+                return ResourceManager.GetString("ScriptCfg", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 ScriptName 的本地化字符串。
+        /// </summary>
+        internal static string ScriptName {
+            get {
+                return ResourceManager.GetString("ScriptName", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 ScriptTrig 的本地化字符串。
+        /// </summary>
+        internal static string ScriptTrig {
+            get {
+                return ResourceManager.GetString("ScriptTrig", resourceCulture);
             }
         }
         

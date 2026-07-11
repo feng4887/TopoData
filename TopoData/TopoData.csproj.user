@@ -31,6 +31,9 @@
     <Compile Update="SubPage\ucRecipe.cs">
       <SubType>UserControl</SubType>
     </Compile>
+    <Compile Update="SubPage\ucScripts.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
     <Compile Update="SubPage\ucSystemCfg.cs">
       <SubType>UserControl</SubType>
     </Compile>
