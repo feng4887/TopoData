@@ -45,25 +45,10 @@ namespace auDAManager.DriverPanel
 
         public string ParseData
         {
-            get
-            {
-
-                if (cbParseData.SelectedIndex == 0)
-                    return "CDAB";
-                else if (cbParseData.SelectedIndex == 1)
-                {
-                    return "ABCD";
-                }
-                else
-                { return "CDAB"; }
-            }
-            set
-            {
-                if (value == "CDAB")
-                    cbParseData.SelectedIndex = 0;
-                else if(value == "ABCD")
-                    cbParseData.SelectedIndex = 1;
-            }
+            get => cbParseData.SelectedItem?.ToString() ?? "CDAB";
+            set => cbParseData.SelectedIndex = cbParseData.Items.IndexOf(value) >= 0
+                ? cbParseData.Items.IndexOf(value)
+                : 0;
         }
 
         public int DeviceAddress

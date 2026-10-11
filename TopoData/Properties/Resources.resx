@@ -821,4 +821,7 @@
   <data name="Disable" xml:space="preserve">
     <value>Disable</value>
   </data>
+  <data name="IsSimulator" xml:space="preserve">
+    <value>Simulator Mode</value>
+  </data>
 </root>

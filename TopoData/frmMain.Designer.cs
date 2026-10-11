@@ -410,7 +410,7 @@
             Margin = new System.Windows.Forms.Padding(4);
             Name = "frmMain";
             NavigationControl = accordionControl1;
-            Text = "TopData V1.2.2";
+            Text = "TopData V1.3.0";
             Load += frmMain_Load;
             fluentDesignFormContainer1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)navigationFrame1).EndInit();

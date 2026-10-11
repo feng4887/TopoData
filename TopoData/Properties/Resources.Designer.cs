@@ -527,7 +527,16 @@ namespace TopoData.Properties {
                 return ResourceManager.GetString("Disable", resourceCulture);
             }
         }
-        
+
+        /// <summary>
+        ///   查找类似 Simulator Mode 的本地化字符串。
+        /// </summary>
+        internal static string IsSimulator {
+            get {
+                return ResourceManager.GetString("IsSimulator", resourceCulture);
+            }
+        }
+
         /// <summary>
         ///   查找类似 Down 的本地化字符串。
         /// </summary>

@@ -79,7 +79,7 @@ namespace auDAManager.DriverPanel
             // 
             cbParseData.DropDownStyle = ComboBoxStyle.DropDownList;
             cbParseData.FormattingEnabled = true;
-            cbParseData.Items.AddRange(new object[] { "CDAB", "ABCD" });
+            cbParseData.Items.AddRange(new object[] { "CDAB", "ABCD", "BADC", "DCBA" });
             cbParseData.Location = new Point(86, 91);
             cbParseData.Name = "cbParseData";
             cbParseData.Size = new Size(110, 25);

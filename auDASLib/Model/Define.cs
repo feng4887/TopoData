@@ -332,6 +332,18 @@ namespace auDASLib
     }
 
     /// <summary>
+    /// Modbus multi-register byte order.
+    /// Existing configuration values 0 and 1 are retained for compatibility.
+    /// </summary>
+    public enum ModbusByteOrder
+    {
+        CDAB = 0,
+        ABCD = 1,
+        BADC = 2,
+        DCBA = 3
+    }
+
+    /// <summary>
     /// 读写类型 WR 读写，ReadOnly 只读，WriteOnly 只写
     /// </summary>
     public enum RwType
@@ -395,6 +407,11 @@ namespace auDASLib
         /// 通讯/设备的备注
         /// </summary>
         public string Description = "";
+
+        /// <summary>
+        /// 是否仿真模式。true 时不连设备，只读写内存缓存。
+        /// </summary>
+        public bool IsSimulator { get; set; } = false;
     }
 
     public class UACfg

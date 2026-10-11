@@ -33,12 +33,27 @@ namespace TopoData.Page
         private ucDriverOPCUA ucOPCUA = new ucDriverOPCUA();
         private ucDriverEmpty ucDriverEmpty = new ucDriverEmpty();
         private ucDriverModbusTCP ucModbusTCP = new ucDriverModbusTCP();
+        private ucDriverModbusRTU ucModbusRTU = new ucDriverModbusRTU();
 
         /// <summary>
         /// 默认设备
         /// </summary>
         private string _CannelID { get; set; }
         private DeviceType _devType = DeviceType.OPCUA;
+
+        private static string GetModbusByteOrderName(int configuredValue)
+        {
+            return Enum.IsDefined(typeof(ModbusByteOrder), configuredValue)
+                ? ((ModbusByteOrder)configuredValue).ToString()
+                : ModbusByteOrder.CDAB.ToString();
+        }
+
+        private static int GetModbusByteOrderValue(string selectedValue)
+        {
+            return Enum.TryParse(selectedValue, out ModbusByteOrder byteOrder)
+                ? (int)byteOrder
+                : (int)ModbusByteOrder.CDAB;
+        }
         #endregion //[定义]
 
         #region [form]
@@ -75,6 +90,7 @@ namespace TopoData.Page
             groupControl2.Text = Resources.TagList;
             //groupBox1.Text = Resources.CannelCfg;
             cbActive.Text = Resources.Enable;
+            cbIsSimulator.Properties.Caption = Resources.IsSimulator;
             //btClear.Text = Resources.Clear;
             btConfirm.Text = Resources.Save;
             btExport.Text = Resources.Export;
@@ -92,6 +108,10 @@ namespace TopoData.Page
             {
                 ucModbusTCP.ApplyLanguage();
             }
+            else if (cbCannel.SelectedItem?.ToString() == "Modbus RTU")
+            {
+                ucModbusRTU.ApplyLanguage();
+            }
         }
 
         /// <summary>
@@ -103,10 +123,12 @@ namespace TopoData.Page
             ucProfinet.Parent = pnCannel;
             ucOPCUA.Parent = pnCannel;
             ucModbusTCP.Parent = pnCannel;
+            ucModbusRTU.Parent = pnCannel;
             //ucDriverEmpty.Parent = pnCannel;
             //ucDriverEmpty.Visible = false;
             ucProfinet.Visible  = false;
             ucModbusTCP.Visible = false;
+            ucModbusRTU.Visible = false;
             ucOPCUA.Visible     = true;
             ucOPCUA.TagEvent += UcOPCUA_TagEvent;
         }
@@ -169,18 +191,27 @@ namespace TopoData.Page
                                 ucModbusTCP.Host = cd.IpCfg.Host.ToString();
                                 ucModbusTCP.Port = cd.IpCfg.Port;
                                 ucModbusTCP.DeviceAddress = cd.IpCfg.Slot;
-
-                                if (cd.IpCfg.Rack == 0)
-                                    ucModbusTCP.ParseData = "CDAB";
-                                else if (cd.IpCfg.Rack == 1)
-                                    ucModbusTCP.ParseData = "ABCD";
+                                ucModbusTCP.ParseData = GetModbusByteOrderName(cd.IpCfg.Rack); //解析顺序
                                 //ucModbusTCP.InitControl();
 
                                 cbCannel.SelectedItem = "Modbus TCP";
                             }
+                            else if (cd.devType == DeviceType.ModbusRTU)
+                            {
+                                ucModbusRTU.ComPort = cd.ComCfg.PortName;
+                                ucModbusRTU.BaudRate = cd.ComCfg.BaudRate;
+                                ucModbusRTU.Parity = cd.ComCfg.Parity;
+                                ucModbusRTU.DataBitsSetting = cd.ComCfg.DataBits;
+                                ucModbusRTU.StopBits = cd.ComCfg.StopBits;
+                                ucModbusRTU.DeviceAddress = cd.IpCfg.Slot;
+                                ucModbusRTU.ParseData = GetModbusByteOrderName(cd.IpCfg.Rack); //解析顺序
+
+                                cbCannel.SelectedItem = "Modbus RTU";
+                            }
                             navBarItem1.Caption = cd.CannelID; // 更新导航栏名称
                             tbDescription.Text = cd.Description;
                             cbActive.IsOn = cd.iActive == 1? true : false;
+                            cbIsSimulator.Checked = cd.IsSimulator;
                             UpdateSheet(cd.CannelID);
                             break;
                         }
@@ -598,6 +629,7 @@ namespace TopoData.Page
                     cd.CannelID    = tbCannelID.Text;
                     cd.Description = tbDescription.Text;
                     cd.iActive    = cbActive.IsOn ? 1 : 0;
+                    cd.IsSimulator = cbIsSimulator.Checked;
 
                     //<更改点表>
                     if (!DataImport.dicCannelTags.ContainsKey(_CannelID))
@@ -712,11 +744,7 @@ namespace TopoData.Page
                         cd.SampleInterval = 20;
                         cd.SampleQty = 10;
 
-                        int parseData = 0;
-                        if (ucModbusTCP.ParseData == "ABCD")
-                            parseData = 1;
-                        else if (ucModbusTCP.ParseData == "CDAB")
-                            parseData = 0;
+                        int parseData = GetModbusByteOrderValue(ucModbusTCP.ParseData); //解析顺序
 
                         bool v = PubFunction.IsValidIP(ucProfinet.Host);
                         if (!v)
@@ -732,6 +760,33 @@ namespace TopoData.Page
                             Port = ucModbusTCP.Port,
                             Rack = parseData, //解析顺序
                             Slot = ucModbusTCP.DeviceAddress
+                        };
+                    }
+
+                    //6. 保存 Modbus RTU配置
+                    else if (cbCannel.SelectedItem != null &&
+                            cbCannel.SelectedItem.ToString() == "Modbus RTU")
+                    {
+                        cd.Address = "1";
+                        cd.devType = DeviceType.ModbusRTU;
+                        cd.SampleInterval = 20;
+                        cd.SampleQty = 10;
+
+                        int parseData = GetModbusByteOrderValue(ucModbusRTU.ParseData);
+
+                        cd.IpCfg = new IpCfg()
+                        {
+                            Rack = parseData, //解析顺序
+                            Slot = ucModbusRTU.DeviceAddress
+                        };
+
+                        cd.ComCfg = new ComCfg()
+                        {
+                            PortName = ucModbusRTU.ComPort,
+                            BaudRate = ucModbusRTU.BaudRate,
+                            Parity   = ucModbusRTU.Parity,
+                            DataBits = ucModbusRTU.DataBitsSetting,
+                            StopBits = ucModbusRTU.StopBits,
                         };
                     }
 
@@ -800,7 +855,8 @@ namespace TopoData.Page
                         //驱动不同，添加更多代码
                         //**************************************
                         if (cbCannel.SelectedItem.ToString() == "Siemens Profinet"
-                            || cbCannel.SelectedItem.ToString() == "Modbus TCP")
+                            || cbCannel.SelectedItem.ToString() == "Modbus TCP"
+                            || cbCannel.SelectedItem.ToString() == "Modbus RTU")
                         {
                             foreach (DataRow x in dtt.Rows)
                             {
@@ -1043,7 +1099,8 @@ namespace TopoData.Page
                         dtl.Rows.Add("pkg_Bucket", "ns=2;s=模拟器示例.函数.Sine1", "-", "");
                     }
                 }
-                else if (cbCannel.SelectedItem.ToString() == "Modbus TCP")
+                else if (cbCannel.SelectedItem.ToString() == "Modbus TCP"
+                    || cbCannel.SelectedItem.ToString() == "Modbus RTU")
                 {
                     dtl.Columns.Add("TagId", typeof(string));
                     dtl.Columns.Add("Address", typeof(string));
@@ -1141,28 +1198,40 @@ namespace TopoData.Page
 
                 if (cbCannel.SelectedItem.ToString() == "Siemens Profinet")
                 {
-                    ucModbusTCP.Visible = false;
                     ucDriverEmpty.Visible = false;
-                    ucProfinet.Visible = true;
-                    ucOPCUA.Visible = false;
+                    ucProfinet.Visible    = true;
+                    ucOPCUA.Visible       = false;
+                    ucModbusTCP.Visible   = false;
+                    ucModbusRTU.Visible   = false;
                     ucProfinet.ApplyLanguage();
                 }
 
                 else if (cbCannel.SelectedItem.ToString() == "OPC UA")
                 {
-                    ucModbusTCP.Visible = false;
                     ucDriverEmpty.Visible = false;
-                    ucProfinet.Visible = false;
-                    ucOPCUA.Visible = true;
+                    ucProfinet.Visible    = false;
+                    ucOPCUA.Visible       = true;
+                    ucModbusTCP.Visible   = false;
+                    ucModbusRTU.Visible   = false;
                     ucOPCUA.ApplyLanguage();
                 }
                 else if (cbCannel.SelectedItem.ToString() == "Modbus TCP")
                 {
                     ucDriverEmpty.Visible = false;
-                    ucProfinet.Visible = false;
-                    ucOPCUA.Visible = false;
-                    ucModbusTCP.Visible = true;
+                    ucProfinet.Visible    = false;
+                    ucOPCUA.Visible       = false;
+                    ucModbusTCP.Visible   = true;
+                    ucModbusRTU.Visible   = false;
                     ucModbusTCP.ApplyLanguage();
+                }
+                else if (cbCannel.SelectedItem.ToString() == "Modbus RTU")
+                {
+                    ucDriverEmpty.Visible = false;
+                    ucProfinet.Visible    = false;
+                    ucOPCUA.Visible       = false;
+                    ucModbusTCP.Visible   = false;
+                    ucModbusRTU.Visible   = true;
+                    ucModbusRTU.ApplyLanguage();
                 }
                 
             }

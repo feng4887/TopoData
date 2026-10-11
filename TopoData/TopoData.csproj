@@ -7,7 +7,7 @@
     <ApplicationIcon>Resource\2.ico</ApplicationIcon>
     <Authors>Topotech团队</Authors>
     <BaseOutputPath>..\bin\</BaseOutputPath>
-    <Version>1.2.1</Version>
+    <Version>1.3.0</Version>
   </PropertyGroup>
 
   <ItemGroup>
@@ -118,5 +118,22 @@
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
   </ItemGroup>
+
+  <!--
+    引用程序集同步：hiLib/Log4 是项目引用、hiServer 是本地 dll 引用，
+    增量构建不会刷新输出目录里的旧副本，运行时会优先加载 exe 同目录的旧文件
+    （Costura 嵌入的新版没有机会生效），导致 TypeLoadException。
+    每次构建后强制用最新编译产物覆盖，保证 exe 旁的程序集始终新鲜。
+  -->
+  <Target Name="SyncReferencedProjectDlls" AfterTargets="Build">
+    <ItemGroup>
+      <_SyncFile Include="$(BaseOutputPath)$(Configuration)\net8.0\hiLib.dll" Condition="Exists('$(BaseOutputPath)$(Configuration)\net8.0\hiLib.dll')" />
+      <_SyncFile Include="$(BaseOutputPath)$(Configuration)\net8.0\hiLib.pdb" Condition="Exists('$(BaseOutputPath)$(Configuration)\net8.0\hiLib.pdb')" />
+      <_SyncFile Include="$(BaseOutputPath)$(Configuration)\netstandard2.0\Log4.dll" Condition="Exists('$(BaseOutputPath)$(Configuration)\netstandard2.0\Log4.dll')" />
+      <_SyncFile Include="$(BaseOutputPath)$(Configuration)\netstandard2.0\Log4.pdb" Condition="Exists('$(BaseOutputPath)$(Configuration)\netstandard2.0\Log4.pdb')" />
+      <_SyncFile Include="$(MSBuildProjectDirectory)\..\packages\hiServer.dll" Condition="Exists('$(MSBuildProjectDirectory)\..\packages\hiServer.dll')" />
+    </ItemGroup>
+    <Copy SourceFiles="@(_SyncFile)" DestinationFolder="$(OutDir)" SkipUnchangedFiles="true" />
+  </Target>
 
 </Project>

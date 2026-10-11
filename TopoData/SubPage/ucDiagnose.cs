@@ -52,8 +52,9 @@ namespace TopoData.Page
             label2.Text = Resources.Recipe;
         }
 
-        ObservableCollection<RealTimeValue> _RealtimeValues;
-        DevExpress.Data.RealTimeSource _myRealTimeSource = new DevExpress.Data.RealTimeSource();
+        //BindingList 实现 IBindingList(ListChanged)，WinForms 网格原生支持，
+        //增删改直接刷新网格；ObservableCollection 只有 WPF 通知机制，网格收不到
+        BindingList<RealTimeValue> _RealtimeValues;
 
         private async void timer1_Tick(object sender, EventArgs e)
         {
@@ -85,13 +86,16 @@ namespace TopoData.Page
                 {
                     try
                     { 
-                         foreach (var item in TagIDs)
-                        {
-                            RealTimeValue realTimeValue = new RealTimeValue();
-                            var vl = auDAServer.ItemPool.ValuePool.TryGetValue(item, out realTimeValue);
-                            if (vl && realTimeValue != null)
-                                rtvs.Add(realTimeValue);
-                        }                   
+                 foreach (var item in TagIDs)
+                {
+                    if (string.IsNullOrEmpty(item))
+                        continue;   //空 TagId 会让 TryGetValue 抛异常并中断整个循环
+
+                    RealTimeValue realTimeValue = new RealTimeValue();
+                    var vl = auDAServer.ItemPool.ValuePool.TryGetValue(item, out realTimeValue);
+                    if (vl && realTimeValue != null)
+                        rtvs.Add(realTimeValue);
+                }
                     }
                     catch (Exception ex)
                     {
@@ -102,13 +106,13 @@ namespace TopoData.Page
                 // 首次初始化（仅一次）
                 if (_RealtimeValues == null)
                 {
-                    _RealtimeValues = new ObservableCollection<RealTimeValue>();
+                    _RealtimeValues = new BindingList<RealTimeValue>();
                     foreach (var item in rtvs)
                     {
                         _RealtimeValues.Add(item);
                     }
-                    _myRealTimeSource.DataSource = _RealtimeValues;
-                    gridControl1.DataSource = _myRealTimeSource.DataSource;
+                    //直接绑定 BindingList：ListChanged 通知直达网格，增删改实时刷新
+                    gridControl1.DataSource = _RealtimeValues;
                 }
                 else
                 {
@@ -149,18 +153,24 @@ namespace TopoData.Page
             // 构建新值的查找字典（按 ValueName 作为 key）
             var newDict = newValues.ToDictionary(v => v.ValueName, v => v);
 
-            // 1：仅更新现有项的值，不改变顺序
-            for (int i = 0; i < _RealtimeValues.Count; i++)
+            // 1：更新命中的行；删除不再命中的行（过滤生效的关键）。
+            //    从后往前遍历，RemoveAt 不影响未处理行的索引
+            for (int i = _RealtimeValues.Count - 1; i >= 0; i--)
             {
                 if (newDict.TryGetValue(_RealtimeValues[i].ValueName, out var newVal))
                 {
-                    // 替换整个对象或逐字段更新
+                    // 替换整个对象，值随之刷新
                     _RealtimeValues[i] = newVal;
                     newDict.Remove(_RealtimeValues[i].ValueName);
                 }
+                else
+                {
+                    // 不在过滤结果里的行移除，网格经 ListChanged 实时收缩
+                    _RealtimeValues.RemoveAt(i);
+                }
             }
 
-            // 2：追加新增的项到末尾
+            // 2：追加新增的项到末尾（如清除过滤后恢复的行）
             foreach (var newVal in newDict.Values)
             {
                 _RealtimeValues.Add(newVal);
@@ -177,7 +187,7 @@ namespace TopoData.Page
         /// <param name="e"></param>
         private void btTnFilter_Click(object sender, EventArgs e)
         {
-            _strFilter = tbTnFilter.Text.Trim();
+            _strFilter = tbTnFilter.Text;
         }
 
         #region [write]
@@ -203,6 +213,9 @@ namespace TopoData.Page
             //}
 
             var row = gridView1.GetRow(rowHandles[0]) as RealTimeValue;
+            if (row == null)
+                return;
+
             string value = "";
             diaWrite fw = new diaWrite();
             fw.TagName = row.ValueName;
@@ -213,10 +226,16 @@ namespace TopoData.Page
                 List<WriteValue> values = new List<WriteValue>();
                 value = fw.strValue;
 
+                //点表字典可能滞后于点表编辑，直接索引会抛 KeyNotFoundException；
+                //缺失时按 TagId 规则（CannelID.TagName）解析通道名兜底，服务端会再按点表补全
+                DataImport.dicTagPool.TryGetValue(fw.TagName, out DBTag wtag);
+                int dot = fw.TagName.IndexOf('.');
+                string cannel = dot > 0 ? fw.TagName.Substring(0, dot) : "";
+
                 values.Add(new WriteValue()
                 {
-                    CannelID = DataImport.dicTagPool[fw.TagName].CannelID,
-                    Address = DataImport.dicTagPool[fw.TagName].Address,
+                    CannelID = wtag?.CannelID ?? cannel,
+                    Address = wtag?.Address ?? "",
                     ValueName = fw.TagName,
                     value = value,
                     DataType = 0

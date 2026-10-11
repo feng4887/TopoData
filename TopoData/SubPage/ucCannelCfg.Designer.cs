@@ -56,6 +56,7 @@
             tbCannelID = new DevExpress.XtraEditors.TextEdit();
             groupControl1 = new DevExpress.XtraEditors.GroupControl();
             cbActive = new DevExpress.XtraEditors.ToggleSwitch();
+            cbIsSimulator = new DevExpress.XtraEditors.CheckEdit();
             btDelete = new DevExpress.XtraEditors.SimpleButton();
             panelControl1 = new DevExpress.XtraEditors.PanelControl();
             ((System.ComponentModel.ISupportInitialize)navBarControl1).BeginInit();
@@ -73,6 +74,7 @@
             ((System.ComponentModel.ISupportInitialize)groupControl1).BeginInit();
             groupControl1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)cbActive.Properties).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)cbIsSimulator.Properties).BeginInit();
             ((System.ComponentModel.ISupportInitialize)panelControl1).BeginInit();
             panelControl1.SuspendLayout();
             SuspendLayout();
@@ -122,7 +124,7 @@
             panelControl2.Dock = System.Windows.Forms.DockStyle.Fill;
             panelControl2.Location = new System.Drawing.Point(110, 246);
             panelControl2.Name = "panelControl2";
-            panelControl2.Padding = new System.Windows.Forms.Padding(9);
+            panelControl2.Padding = new System.Windows.Forms.Padding(9, 9, 9, 9);
             panelControl2.Size = new System.Drawing.Size(826, 262);
             panelControl2.TabIndex = 8;
             // 
@@ -264,7 +266,7 @@
             pnCannel.Location = new System.Drawing.Point(316, 35);
             pnCannel.Margin = new System.Windows.Forms.Padding(0);
             pnCannel.Name = "pnCannel";
-            pnCannel.Padding = new System.Windows.Forms.Padding(10);
+            pnCannel.Padding = new System.Windows.Forms.Padding(10, 10, 10, 10);
             pnCannel.Size = new System.Drawing.Size(482, 150);
             pnCannel.TabIndex = 5;
             // 
@@ -273,7 +275,7 @@
             cbCannel.Location = new System.Drawing.Point(98, 58);
             cbCannel.Name = "cbCannel";
             cbCannel.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] { new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo) });
-            cbCannel.Properties.Items.AddRange(new object[] { "OPC UA", "Siemens Profinet", "Modbus TCP" });
+            cbCannel.Properties.Items.AddRange(new object[] { "OPC UA", "Siemens Profinet", "Modbus TCP", "Modbus RTU" });
             cbCannel.Properties.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.DisableTextEditor;
             cbCannel.Size = new System.Drawing.Size(187, 18);
             cbCannel.TabIndex = 4;
@@ -306,6 +308,7 @@
             // groupControl1
             // 
             groupControl1.Controls.Add(cbActive);
+            groupControl1.Controls.Add(cbIsSimulator);
             groupControl1.Controls.Add(btDelete);
             groupControl1.Controls.Add(btExport);
             groupControl1.Controls.Add(btImport);
@@ -335,6 +338,14 @@
             cbActive.Size = new System.Drawing.Size(100, 18);
             cbActive.TabIndex = 36;
             // 
+            // cbIsSimulator
+            // 
+            cbIsSimulator.Location = new System.Drawing.Point(130, 144);
+            cbIsSimulator.Name = "cbIsSimulator";
+            cbIsSimulator.Properties.Caption = "仿真模式";
+            cbIsSimulator.Size = new System.Drawing.Size(100, 20);
+            cbIsSimulator.TabIndex = 37;
+            // 
             // btDelete
             // 
             btDelete.Location = new System.Drawing.Point(223, 179);
@@ -350,7 +361,7 @@
             panelControl1.Dock = System.Windows.Forms.DockStyle.Top;
             panelControl1.Location = new System.Drawing.Point(110, 0);
             panelControl1.Name = "panelControl1";
-            panelControl1.Padding = new System.Windows.Forms.Padding(9);
+            panelControl1.Padding = new System.Windows.Forms.Padding(9, 9, 9, 9);
             panelControl1.Size = new System.Drawing.Size(826, 246);
             panelControl1.TabIndex = 7;
             // 
@@ -380,6 +391,7 @@
             groupControl1.ResumeLayout(false);
             groupControl1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)cbActive.Properties).EndInit();
+            ((System.ComponentModel.ISupportInitialize)cbIsSimulator.Properties).EndInit();
             ((System.ComponentModel.ISupportInitialize)panelControl1).EndInit();
             panelControl1.ResumeLayout(false);
             ResumeLayout(false);
@@ -415,5 +427,6 @@
         private DevExpress.XtraGrid.Columns.GridColumn Description;
         private DevExpress.XtraEditors.Repository.RepositoryItemComboBox repositoryItemComboBox1;
         private DevExpress.XtraEditors.ToggleSwitch cbActive;
+        private DevExpress.XtraEditors.CheckEdit cbIsSimulator;
     }
 }

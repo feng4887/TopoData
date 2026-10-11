@@ -35,7 +35,7 @@ namespace TopoData
         {
             string _filerout = pubDefine.Configuration;
             string folderPath = pubDefine.Folder;
-
+            StdLog4.LogRetentionPolicy.Start();
             if (!Directory.Exists(folderPath))
             {
                 Directory.CreateDirectory(folderPath);
@@ -117,7 +117,7 @@ namespace TopoData
                 }
 
                 DataImport.ImportCannelTags(tags);
-                ItemPool.Instance.Start(DataImport.dicTagPool.Values.ToList());
+                //ItemPool.Instance.Start(DataImport.dicTagPool.Values.ToList());
 
                 //----------------------------------------------------------------------
                 //3. Read Recipe

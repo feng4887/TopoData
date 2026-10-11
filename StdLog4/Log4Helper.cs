@@ -24,6 +24,7 @@ namespace StdLog4
         /// </summary>
         private Log4Helper()
         {
+            LogRetentionPolicy.Start();
         }
 
         /// <summary>

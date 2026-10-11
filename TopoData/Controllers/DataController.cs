@@ -54,6 +54,33 @@ namespace auDAServer.Controllers
         }
 
         /// <summary>
+        /// 安全查找点表：内存 TagPool 只在引擎启动时构建，点表在UI增删改后会过期，
+        /// 直接索引会抛 KeyNotFoundException。查不到时从点表定义文件重载一次再试。
+        /// </summary>
+        private static bool TryGetTag(string tagId, out DBTag tag)
+        {
+            tag = null;
+            if (string.IsNullOrEmpty(tagId))
+                return false;
+
+            if (ItemPool.TagPool.TryGetValue(tagId, out tag))
+                return true;
+
+            if (!System.IO.File.Exists(pubDefine.TagDefine))
+                return false;
+
+            List<DBTag> tags = XmlHelper.XmlDeserializeFromFile<List<DBTag>>(pubDefine.TagDefine, Encoding.UTF8);
+            if (tags != null)
+            {
+                DataImport.dicCannelTags.Clear();
+                DataImport.ImportCannelTags(tags);
+                ItemPool.TagPool = new System.Collections.Concurrent.ConcurrentDictionary<string, DBTag>(DataImport.dicTagPool);
+            }
+
+            return ItemPool.TagPool.TryGetValue(tagId, out tag);
+        }
+
+        /// <summary>
         /// 写数据函数
         /// </summary>
         /// <param name="TagID">写参数清单</param>
@@ -73,28 +100,34 @@ namespace auDAServer.Controllers
                     {
                         WriteValueQueue wvq = new WriteValueQueue();
                         foreach (var item in rvs)
-                        { 
+                        {
+                            if (item == null || string.IsNullOrWhiteSpace(item.ValueName))
+                                continue;
+
                             wvq.Cannel = item.CannelID;
                             wvq.Datetime = System.DateTime.Now;
-                            int datatype = 10;
-                            if (ItemPool.ValuePool.ContainsKey(item.ValueName))
+
+                            int datatype = 1;
+                            string address = item.Address ?? "";
+                            if (TryGetTag(item.ValueName, out DBTag tg) && tg != null)
                             {
-                                datatype = ItemPool.TagPool[item.ValueName].DataType;
+                                datatype = tg.DataType;
+                                address = tg.Address;
+                                if (string.IsNullOrEmpty(item.CannelID))
+                                    item.CannelID = tg.CannelID;
                             }
-                            else
-                                datatype = 1;
+
                             wvq.WriteValues.Add(new WriteValue()
                             {
                                 CannelID = item.CannelID,
                                 value = item.value,
-                                //Address = item.Address,
-                                Address = ItemPool.TagPool[item.ValueName].Address,
+                                Address = address,
                                 DataType = datatype,
                                 ValueName = item.ValueName
                             });
                         }
 
-                        ItemPool.Instance.WriteData(wvq);   
+                        ItemPool.Instance.WriteData(wvq);
                     }
                     return Ok(rtvs);
 

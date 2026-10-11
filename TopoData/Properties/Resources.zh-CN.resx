@@ -819,4 +819,7 @@
   <data name="Disable" xml:space="preserve">
     <value>禁用</value>
   </data>
+  <data name="IsSimulator" xml:space="preserve">
+    <value>仿真模式</value>
+  </data>
 </root>
