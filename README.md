@@ -1,6 +1,6 @@
 **HiTopo**
 
-**V1.2.2 Readme**
+**V1.3.0 Readme**
 
 TopoData provides data acquisition and storage capabilities for the industrial automation sector, along with data read/write interfaces for third-party software, aiming to help system integrators bridge the communication gap between IT and OT.
 
@@ -120,7 +120,7 @@ As shown in the figure below, TopoData also supports configuring the point table
 - *For the first time, users can click the "Export" button. The software will provide an example address format, which users can edit based on, then import and save.*
 - *The "On-Off switch" allows users to enable or disable the device communication function.*
 
-## 3.3 **Modbus TCP Equipment**
+## 3.3 **Modbus TCP/RTU Equipment**
 
 User select “Modbus TCP” Driver Type, this driver provides communication functionality with devices via Modbus TCP communication type.
 
