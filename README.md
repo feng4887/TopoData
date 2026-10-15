@@ -6,7 +6,7 @@ TopoData provides data acquisition and storage capabilities for the industrial a
 
 The outstanding features of TopoData software are as follows:
 
-- Supports Siemens Profinet , Modbus TCP and OPC UA protocol for communication with devices.
+- Supports Siemens Profinet , Modbus TCP/RTU and OPC UA/DA protocol for communication with devices.
 - Provides HTTP WebAPI interfaces for IT systems to read and write PLC or device data.
 - Provides Mqtt interfaces for IT systems to read PLC or device data.
 - Provides powerful python script function.
