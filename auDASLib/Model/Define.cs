@@ -372,6 +372,8 @@ namespace auDASLib
 
         public UACfg UAParamter = new UACfg();
 
+        public DACfg DAParamter = new DACfg();
+
         public IpCfg IpCfg = new IpCfg();
 
         public ComCfg ComCfg = new ComCfg();
@@ -432,6 +434,20 @@ namespace auDASLib
         /// true-订阅模式（8000点以下）；false-注册tag模式（大点数，但某些PLC不支持）
         /// </summary>
         public bool Subscribe { get; set; } = true;
+    }
+
+    public class DACfg
+    {
+        public string HostName { get; set; } = "localhost";
+        public string Endpoint { get; set; } = "";
+
+        public string GUID { get; set; } = "";
+
+        /// <summary>
+        /// Get from OPC DA server, 不是一个必须的参数
+        /// </summary>
+        public string ApplicationName { get; set; } = "";
+
     }
 
     /// <summary>

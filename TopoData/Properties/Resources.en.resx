@@ -1,4 +1,4 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <root>
   <!-- 
     Microsoft ResX Schema 
@@ -677,6 +677,9 @@
   </data>
   <data name="GetTag" xml:space="preserve">
     <value>Brows Tag</value>
+  </data>
+  <data name="HostName" xml:space="preserve">
+    <value>Host Address</value>
   </data>
   <data name="TableName" xml:space="preserve">
     <value>Table Name</value>

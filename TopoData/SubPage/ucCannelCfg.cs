@@ -31,6 +31,7 @@ namespace TopoData.Page
         #region [定义]
         private ucDriverProfinet ucProfinet = new ucDriverProfinet();
         private ucDriverOPCUA ucOPCUA = new ucDriverOPCUA();
+        private ucDriverOPCDA ucOPCDA = new ucDriverOPCDA();
         private ucDriverEmpty ucDriverEmpty = new ucDriverEmpty();
         private ucDriverModbusTCP ucModbusTCP = new ucDriverModbusTCP();
         private ucDriverModbusRTU ucModbusRTU = new ucDriverModbusRTU();
@@ -104,6 +105,10 @@ namespace TopoData.Page
             {
                 ucOPCUA.ApplyLanguage();
             }
+            else if (cbCannel.SelectedItem?.ToString() == "OPC DA")
+            {
+                ucOPCDA.ApplyLanguage();
+            }
             else if (cbCannel.SelectedItem?.ToString() == "Modbus TCP")
             {
                 ucModbusTCP.ApplyLanguage();
@@ -122,6 +127,7 @@ namespace TopoData.Page
             cbCannel.SelectedIndex = 0;
             ucProfinet.Parent = pnCannel;
             ucOPCUA.Parent = pnCannel;
+            ucOPCDA.Parent = pnCannel;
             ucModbusTCP.Parent = pnCannel;
             ucModbusRTU.Parent = pnCannel;
             //ucDriverEmpty.Parent = pnCannel;
@@ -129,8 +135,10 @@ namespace TopoData.Page
             ucProfinet.Visible  = false;
             ucModbusTCP.Visible = false;
             ucModbusRTU.Visible = false;
+            ucOPCDA.Visible     = false;
             ucOPCUA.Visible     = true;
             ucOPCUA.TagEvent += UcOPCUA_TagEvent;
+            ucOPCDA.TagEvent  += UcOPCUA_TagEvent;
         }
         #endregion //[form]
 
@@ -185,6 +193,13 @@ namespace TopoData.Page
                                 ucOPCUA.ApplicationName = cd.UAParamter.ApplicationName;
                                 ucOPCUA.InitControl();
                                 cbCannel.SelectedItem = "OPC UA";
+                            }
+                            else if (cd.devType == DeviceType.OPCDA)
+                            {
+                                ucOPCDA.Endpoint = cd.DAParamter.Endpoint.ToString();
+                                ucOPCDA.HostName = cd.DAParamter.HostName.ToString();
+                                ucOPCDA.InitControl();
+                                cbCannel.SelectedItem = "OPC DA";
                             }
                             else if (cd.devType == DeviceType.ModbusTCP)
                             {
@@ -735,6 +750,22 @@ namespace TopoData.Page
                         };
                     }
 
+                    //4.1 保存 OPC DA 配置
+                    else if (cbCannel.SelectedItem != null &&
+                            cbCannel.SelectedItem.ToString() == "OPC DA")
+                    {
+                        cd.Address = "2";
+                        cd.devType = DeviceType.OPCDA;
+                        cd.SampleInterval = 20;
+                        cd.SampleQty = 10;
+                        cd.IpCfg = null;
+                        cd.DAParamter = new DACfg()
+                        {
+                            Endpoint = ucOPCDA.Endpoint,
+                            HostName = ucOPCDA.HostName,
+                        };
+                    }
+
                     //5. 保存 Modbus TCP配置
                     if (cbCannel.SelectedItem != null &&
                         cbCannel.SelectedItem.ToString() == "Modbus TCP")
@@ -1214,6 +1245,16 @@ namespace TopoData.Page
                     ucModbusTCP.Visible   = false;
                     ucModbusRTU.Visible   = false;
                     ucOPCUA.ApplyLanguage();
+                }
+                else if (cbCannel.SelectedItem.ToString() == "OPC DA")
+                {
+                    ucDriverEmpty.Visible = false;
+                    ucProfinet.Visible    = false;
+                    ucOPCUA.Visible       = false;
+                    ucOPCDA.Visible       = true;
+                    ucModbusTCP.Visible   = false;
+                    ucModbusRTU.Visible   = false;
+                    ucOPCDA.ApplyLanguage();
                 }
                 else if (cbCannel.SelectedItem.ToString() == "Modbus TCP")
                 {

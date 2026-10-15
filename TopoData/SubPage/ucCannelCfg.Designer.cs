@@ -275,7 +275,7 @@
             cbCannel.Location = new System.Drawing.Point(98, 58);
             cbCannel.Name = "cbCannel";
             cbCannel.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] { new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo) });
-            cbCannel.Properties.Items.AddRange(new object[] { "OPC UA", "Siemens Profinet", "Modbus TCP", "Modbus RTU" });
+            cbCannel.Properties.Items.AddRange(new object[] { "OPC UA", "OPC DA", "Siemens Profinet", "Modbus TCP", "Modbus RTU" });
             cbCannel.Properties.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.DisableTextEditor;
             cbCannel.Size = new System.Drawing.Size(187, 18);
             cbCannel.TabIndex = 4;

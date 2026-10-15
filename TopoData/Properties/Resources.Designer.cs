@@ -842,7 +842,16 @@ namespace TopoData.Properties {
                 return ResourceManager.GetString("Host", resourceCulture);
             }
         }
-        
+
+        /// <summary>
+        ///   查找类似 HostName 的本地化字符串。
+        /// </summary>
+        internal static string HostName {
+            get {
+                return ResourceManager.GetString("HostName", resourceCulture);
+            }
+        }
+
         /// <summary>
         ///   查找类似 hour 的本地化字符串。
         /// </summary>

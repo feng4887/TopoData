@@ -8,6 +8,7 @@
     <Authors>Topotech团队</Authors>
     <BaseOutputPath>..\bin\</BaseOutputPath>
     <Version>1.3.0</Version>
+    <PlatformTarget>x86</PlatformTarget>
   </PropertyGroup>
 
   <ItemGroup>
@@ -45,6 +46,7 @@
     <PackageReference Include="Microsoft.Graph" Version="5.102.0" />
     <PackageReference Include="MQTTnet" Version="5.1.0.1559" />
     <PackageReference Include="NModbus" Version="3.0.83" />
+    <PackageReference Include="OpcDaNetCore" Version="2.0.0" />
     <PackageReference Include="OPCFoundation.NetStandard.Opc.Ua.Client" Version="1.5.374.118" />
     <PackageReference Include="OPCFoundation.NetStandard.Opc.Ua.Core" Version="1.5.374.118" />
     <PackageReference Include="pythonnet" Version="3.1.0" />
@@ -66,10 +68,16 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Compile Update="DriverPanel\diaOPCDATagSelect.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Update="DriverPanel\diaOPCUATagSelect.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Update="DriverPanel\ucDriverEmpty.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Update="DriverPanel\ucDriverOPCDA.cs">
       <SubType>UserControl</SubType>
     </Compile>
     <Compile Update="DriverPanel\ucDriverOPCUA.cs">
