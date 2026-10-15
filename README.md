@@ -165,6 +165,10 @@ Data Type：bool
 Read/Write: Read only
 
 <a id="_Toc222430986"></a>
+
+## 3.4 **Simulation Mode**
+If check the “Simulator Mod” check-box ,click save and restart, the equipment will change to be a simulator. Tag values will not come from PLC or DCS, and user can change value from Diagnose page, 3rd part application such as MES can read from simulator.
+
 # 4 **DataTable storage**
 
 This functional module is mainly used for data storage configuration. Users can utilize a fixed database table structure or create their own, bind corresponding PLC communication points, and store the data.
