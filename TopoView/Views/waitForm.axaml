@@ -1,0 +1,11 @@
+<!-- Progress window corresponding to TopoData/SubPage/waitForm.Designer.cs. -->
+<Window xmlns="https://github.com/avaloniaui" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        x:Class="TopoView.Views.waitForm" Width="320" Height="140"
+        CanResize="False" WindowStartupLocation="CenterOwner" ShowInTaskbar="False"
+        SystemDecorations="None">
+  <Grid x:Name="tableLayoutPanel1" Margin="20">
+    <HeaderedContentControl x:Name="progressPanel1" Header="请稍候…" Classes="legacyGroup">
+      <ProgressBar IsIndeterminate="True" Height="6" />
+    </HeaderedContentControl>
+  </Grid>
+</Window>

@@ -1,0 +1,13 @@
+[Desktop Entry]
+Type=Application
+Version=1.0
+Name=TopoView
+Name[zh_CN]=TopoView 采集监控
+Comment=HiTopo cross-platform acquisition and monitoring client
+Comment[zh_CN]=HiTopo 跨平台采集与监控客户端
+Exec=@INSTALL_DIR@/TopoView
+Icon=topoview
+Terminal=false
+Categories=Utility;Science;Engineering;
+StartupNotify=true
+StartupWMClass=TopoView

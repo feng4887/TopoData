@@ -1,0 +1,55 @@
+<!-- Business controls follow TopoData/ucDataTableCfg.Designer.cs. -->
+<views:BusinessPage xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:views="using:TopoView.Views"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        x:Class="TopoView.Views.ucDataTableCfg" mc:Ignorable="d"
+        d:DesignWidth="1080" d:DesignHeight="690" >
+<Grid ColumnDefinitions="200,*" ColumnSpacing="16">
+  <HeaderedContentControl x:Name="DataTableList" Header="存储列表" Classes="legacyGroup" >
+<ListBox x:Name="navBarControl1" SelectedIndex="0" Classes="entityList"><ListBoxItem x:Name="Task1" Content="我的存储" /></ListBox>
+</HeaderedContentControl>
+  <ScrollViewer Grid.Column="1"><StackPanel Spacing="14">
+    <Border x:Name="panelControl1"><HeaderedContentControl x:Name="groupControl1" Header="" Classes="legacyGroup" >
+<StackPanel Spacing="12">
+  <WrapPanel ItemSpacing="16">
+    <StackPanel Spacing="6"><TextBlock x:Name="label8" Text="任务名" Classes="formLabel" />
+<TextBox x:Name="tbTaskName"  /></StackPanel><StackPanel Spacing="6"><TextBlock x:Name="label1" Text="数据库表名" Classes="formLabel" />
+<TextBox x:Name="tbTableName"  /></StackPanel><StackPanel Spacing="6"><TextBlock x:Name="label9" Text="设备名" Classes="formLabel" />
+<TextBox x:Name="tbEquipment"  /></StackPanel>
+  </WrapPanel>
+  <WrapPanel ItemSpacing="14">
+    <CheckBox x:Name="cbActive" Content="启用" />
+    <CheckBox x:Name="cbRealTimeTable" Content="时序存储表" />
+    <Button x:Name="btSave" Content="保存" Click="btSave_Click" Classes="primary" /><Button x:Name="btTableCreate" Content="同步表结构" Click="btTableCreate_Click" />
+  </WrapPanel>
+</StackPanel>
+</HeaderedContentControl></Border>
+    <Border x:Name="panelControl2"><HeaderedContentControl x:Name="groupControl2" Header="" Classes="legacyGroup" >
+<StackPanel Spacing="12">
+  <ComboBox x:Name="radioGroup1" Width="180" SelectionChanged="radioGroup1_SelectedIndexChanged" />
+  <StackPanel x:Name="panel2" Orientation="Horizontal" Spacing="10">
+    <TextBlock x:Name="label3" Text="bool触发点" Classes="formLabel" /><TextBox x:Name="tbTagName1" MinWidth="200" /><Button x:Name="btTagSelect1" Content="..." Click="btTagSelect1_Click" />
+  </StackPanel>
+  <StackPanel x:Name="panel3" Orientation="Horizontal" Spacing="10">
+    <TextBlock x:Name="label4" Text="bool触发点" Classes="formLabel" /><TextBox x:Name="tbTagName2" MinWidth="200" /><Button x:Name="btTagSelect2" Content="..." Click="btTagSelect2_Click" /><TextBox x:Name="tbTimeWindow" Text="1000" Width="100" /><TextBlock x:Name="label5" Text="ms" Classes="formLabel" />
+  </StackPanel>
+  <WrapPanel ItemSpacing="10"><CheckBox x:Name="cbExpress" Content="使用表达式" Click="cbExpress_Click" /><Button x:Name="btExpress" Content="表达式" Click="btExpress_Click" /></WrapPanel>
+  <WrapPanel ItemSpacing="10"><TextBlock x:Name="label2" Text="批次号通讯点" Classes="formLabel" /><TextBox x:Name="tbWoTagName" MinWidth="240" /><Button x:Name="btTagSelectWo" Content="..." Click="btTagSelectWo_Click" /></WrapPanel>
+</StackPanel>
+</HeaderedContentControl></Border>
+    <Border x:Name="panelControl3"><HeaderedContentControl x:Name="groupControl3" Header="" Classes="legacyGroup" >
+<StackPanel Spacing="12"><WrapPanel ItemSpacing="10"><Button x:Name="btColumnAdd" Content="添加" Click="btColumnAdd_Click" /><Button x:Name="btColumnUpdate" Content="更新" Click="btColumnUpdate_Click" /><Button x:Name="btColumnDelete" Content="删除" Click="btColumnDelete_Click" /><Button x:Name="btRemoeDBDate" Content="删除DB列" Click="btRemoeDBDate_Click" /></WrapPanel><DataGrid x:Name="gridControl1" AutoGenerateColumns="False" CanUserResizeColumns="True"
+              HorizontalScrollBarVisibility="Auto" SelectionMode="Extended" Height="260" IsReadOnly="True">
+  <DataGrid.Columns><views:LegacyTextColumn Name="Column" Header="Column" Binding="{Binding Column, Mode=TwoWay}" Width="*" />
+<views:LegacyTextColumn Name="DataType" Header="DataType" Binding="{Binding DataType, Mode=TwoWay}" Width="100" />
+<views:LegacyTextColumn Name="TagName" Header="TagName" Binding="{Binding TagID, Mode=TwoWay}" Width="2*" />
+<views:LegacyTextColumn Name="UOM" Header="UOM" Binding="{Binding UOM, Mode=TwoWay}" Width="70" />
+<views:LegacyTextColumn Name="Internal" Header="Internal" Binding="{Binding isInternalValue, Mode=TwoWay}" Width="90" />
+<views:LegacyTextColumn Name="DefaultValue" Header="DefaultValue" Binding="{Binding DefaultValue, Mode=TwoWay}" Width="*" /></DataGrid.Columns>
+</DataGrid></StackPanel>
+</HeaderedContentControl></Border>
+  </StackPanel></ScrollViewer>
+</Grid>
+</views:BusinessPage>

@@ -1,0 +1,147 @@
+<?xml version="1.0"?>
+<!-- Python colors and keyword lists mirror TopoData/TopoData/SubPage/ucScripts.cs
+     ConfigurePythonEditor (Scintilla lexer "python"). -->
+<SyntaxDefinition name="Python" extensions=".py" xmlns="http://icsharpcode.net/sharpdevelop/syntaxdefinition/2008">
+  <Color name="Comment" foreground="#008000" />
+  <Color name="String" foreground="#A31515" />
+  <Color name="Keyword" foreground="#0000FF" fontWeight="bold" />
+  <Color name="Builtin" foreground="#795E26" />
+  <Color name="Number" foreground="#098658" />
+  <Color name="Decorator" foreground="#800080" />
+
+  <RuleSet>
+    <Span color="Comment">
+      <Begin>\#</Begin>
+    </Span>
+    <Span color="String" multiline="true">
+      <Begin>'''</Begin>
+      <End>'''</End>
+    </Span>
+    <Span color="String" multiline="true">
+      <Begin>"""</Begin>
+      <End>"""</End>
+    </Span>
+    <Span color="String">
+      <Begin>"</Begin>
+      <End>"</End>
+      <RuleSet>
+        <Span begin="\\" end="."/>
+      </RuleSet>
+    </Span>
+    <Span color="String">
+      <Begin>'</Begin>
+      <End>'</End>
+      <RuleSet>
+        <Span begin="\\" end="."/>
+      </RuleSet>
+    </Span>
+
+    <Rule color="Decorator">\@[a-zA-Z_][a-zA-Z0-9_.]*</Rule>
+    <Rule color="Number">\b0[xX][0-9a-fA-F]+\b|\b(\d+\.?\d*|\.\d+)([eE][+-]?\d+)?</Rule>
+
+    <Keywords color="Keyword">
+      <Word>and</Word>
+      <Word>as</Word>
+      <Word>assert</Word>
+      <Word>async</Word>
+      <Word>await</Word>
+      <Word>break</Word>
+      <Word>class</Word>
+      <Word>continue</Word>
+      <Word>def</Word>
+      <Word>del</Word>
+      <Word>elif</Word>
+      <Word>else</Word>
+      <Word>except</Word>
+      <Word>False</Word>
+      <Word>finally</Word>
+      <Word>for</Word>
+      <Word>from</Word>
+      <Word>global</Word>
+      <Word>if</Word>
+      <Word>import</Word>
+      <Word>in</Word>
+      <Word>is</Word>
+      <Word>lambda</Word>
+      <Word>None</Word>
+      <Word>nonlocal</Word>
+      <Word>not</Word>
+      <Word>or</Word>
+      <Word>pass</Word>
+      <Word>raise</Word>
+      <Word>return</Word>
+      <Word>True</Word>
+      <Word>try</Word>
+      <Word>while</Word>
+      <Word>with</Word>
+      <Word>yield</Word>
+    </Keywords>
+    <Keywords color="Builtin">
+      <Word>abs</Word>
+      <Word>all</Word>
+      <Word>any</Word>
+      <Word>bin</Word>
+      <Word>bool</Word>
+      <Word>bytearray</Word>
+      <Word>bytes</Word>
+      <Word>callable</Word>
+      <Word>chr</Word>
+      <Word>classmethod</Word>
+      <Word>compile</Word>
+      <Word>complex</Word>
+      <Word>delattr</Word>
+      <Word>dict</Word>
+      <Word>dir</Word>
+      <Word>divmod</Word>
+      <Word>enumerate</Word>
+      <Word>eval</Word>
+      <Word>filter</Word>
+      <Word>float</Word>
+      <Word>format</Word>
+      <Word>frozenset</Word>
+      <Word>getattr</Word>
+      <Word>globals</Word>
+      <Word>hasattr</Word>
+      <Word>hash</Word>
+      <Word>help</Word>
+      <Word>hex</Word>
+      <Word>id</Word>
+      <Word>input</Word>
+      <Word>int</Word>
+      <Word>isinstance</Word>
+      <Word>issubclass</Word>
+      <Word>iter</Word>
+      <Word>len</Word>
+      <Word>list</Word>
+      <Word>locals</Word>
+      <Word>map</Word>
+      <Word>max</Word>
+      <Word>memoryview</Word>
+      <Word>min</Word>
+      <Word>next</Word>
+      <Word>object</Word>
+      <Word>oct</Word>
+      <Word>open</Word>
+      <Word>ord</Word>
+      <Word>pow</Word>
+      <Word>print</Word>
+      <Word>property</Word>
+      <Word>range</Word>
+      <Word>repr</Word>
+      <Word>reversed</Word>
+      <Word>round</Word>
+      <Word>set</Word>
+      <Word>setattr</Word>
+      <Word>slice</Word>
+      <Word>sorted</Word>
+      <Word>staticmethod</Word>
+      <Word>str</Word>
+      <Word>sum</Word>
+      <Word>super</Word>
+      <Word>tuple</Word>
+      <Word>type</Word>
+      <Word>vars</Word>
+      <Word>zip</Word>
+    </Keywords>
+  </RuleSet>
+</SyntaxDefinition>

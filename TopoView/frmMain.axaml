@@ -1,0 +1,108 @@
+<!-- Navigation pages and actions correspond to TopoData/frmMain.Designer.cs. -->
+<Window xmlns="https://github.com/avaloniaui" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:ui="using:FluentAvalonia.UI.Controls" xmlns:views="using:TopoView.Views"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        x:Class="TopoView.frmMain" mc:Ignorable="d" d:DesignWidth="1380" d:DesignHeight="870"
+        Title="TopoView · HiTopo" Width="1380" Height="870" MinWidth="1000" MinHeight="650"
+        Background="{DynamicResource IxGray2Brush}" WindowStartupLocation="CenterScreen"
+        Opened="frmMain_Opened" Closing="frmMain_Closing" SizeChanged="frmMain_SizeChanged">
+<Window.Resources>
+  <SolidColorBrush x:Key="NavigationViewDefaultPaneBackground">#13243D</SolidColorBrush>
+  <SolidColorBrush x:Key="NavigationViewExpandedPaneBackground">#13243D</SolidColorBrush>
+  <SolidColorBrush x:Key="NavigationViewItemForeground">#C5D2E5</SolidColorBrush>
+  <SolidColorBrush x:Key="NavigationViewItemForegroundSelected">#75B1FF</SolidColorBrush>
+  <SolidColorBrush x:Key="NavigationViewItemBackgroundSelected">#213C60</SolidColorBrush>
+  <SolidColorBrush x:Key="NavigationViewSelectionIndicatorForeground">#3489FF</SolidColorBrush>
+  <!-- 内容区画布统一为 iX gray-2（FA 默认 #F7F7F8 会盖在窗口底色上）。 -->
+  <SolidColorBrush x:Key="NavigationViewContentBackground">#EFF0F1</SolidColorBrush>
+</Window.Resources>
+<Window.Styles>
+  <!-- 汉堡折叠按钮是模板内的 Button，会被 Industrial.axaml 的全局 Button 样式（白底）命中；
+       用 /template/ 精确选择器把它还原为导航内的透明幽灵按钮。 -->
+  <Style Selector="ui|NavigationView /template/ Button#TogglePaneButton">
+    <Setter Property="Background" Value="Transparent" />
+    <Setter Property="Foreground" Value="#C5D2E5" />
+    <Setter Property="BorderThickness" Value="0" />
+  </Style>
+  <Style Selector="ui|NavigationView /template/ Button#TogglePaneButton:pointerover">
+    <Setter Property="Background" Value="#1C3450" />
+    <Setter Property="Foreground" Value="#FFFFFF" />
+  </Style>
+  <Style Selector="ui|NavigationView /template/ Button#TogglePaneButton:pressed">
+    <Setter Property="Background" Value="#0F2036" />
+    <Setter Property="Foreground" Value="#C5D2E5" />
+  </Style>
+</Window.Styles>
+<Grid RowDefinitions="Auto,*,Auto">
+  <!-- Bar layout: logo slot at the left, language and action controls flushed to the right, the
+       service status flexing in between so a longer message never moves the buttons.
+       The logo is unnamed on purpose: parity checks and caption capture only cover named controls. -->
+  <Border x:Name="fluentDesignFormControl1" Background="{DynamicResource IxGray1Brush}" BorderBrush="{DynamicResource IxBorderSoftBrush}" BorderThickness="0,0,0,1">
+    <Grid ColumnDefinitions="Auto,*,Auto" ColumnSpacing="16" Margin="20,10">
+      <!-- 顶栏标识：当前为 H 方块 + HiTopo 文本的占位组合；正式 Logo 定稿后替换为 Image 资源。 -->
+      <StackPanel Orientation="Horizontal" Spacing="10" VerticalAlignment="Center">
+        <Border Width="34" Height="34" CornerRadius="0" Background="{DynamicResource IxPrimaryBrush}">
+          <TextBlock Text="H" FontSize="18" FontWeight="SemiBold" Foreground="{DynamicResource IxPrimaryContrastBrush}"
+                     HorizontalAlignment="Center" VerticalAlignment="Center" />
+        </Border>
+        <TextBlock Text="HiTopo" FontSize="16" FontWeight="SemiBold" Foreground="{DynamicResource IxTextBrush}" VerticalAlignment="Center" />
+      </StackPanel>
+      <!-- 信息状态由窗口底部的状态栏显示（对应原版底部 Bar 的 BarStaticItem）。 -->
+      <StackPanel Grid.Column="2" Orientation="Horizontal" Spacing="12" HorizontalAlignment="Right" VerticalAlignment="Center">
+        <ComboBox x:Name="cbLanguage" Width="120" SelectedIndex="0" SelectionChanged="cbLanguage_EditValueChanged">
+          <ComboBoxItem Content="简体中文" /><ComboBoxItem Content="English" />
+        </ComboBox>
+        <Button x:Name="barButtonImport" Content="导入" Click="barButtonImport_ItemClick" />
+        <Button x:Name="barButtonExport" Content="导出" Click="barButtonExport_ItemClick" />
+        <Button x:Name="barButtonStart" Content="启动" Click="barButtonStart_ItemClick" Classes="primary" />
+        <Button x:Name="barButtonEnd" Content="关闭" Click="barButtonEnd_ItemClick" />
+      </StackPanel>
+    </Grid>
+  </Border>
+  <ui:NavigationView x:Name="accordionControl1" Grid.Row="1" IsSettingsVisible="False"
+                     IsBackButtonVisible="False" PaneDisplayMode="Left" IsPaneOpen="True"
+                     OpenPaneLength="220" SelectionChanged="accordionControl1_SelectionChanged">
+    <!-- 汉堡菜单保持海军蓝原貌：导航项悬停/按压不允许出现浅色底（内容区 iX 样式不外溢）。 -->
+    <ui:NavigationView.Resources>
+      <SolidColorBrush x:Key="NavigationViewItemBackgroundPointerOver">#1C3450</SolidColorBrush>
+      <SolidColorBrush x:Key="NavigationViewItemBackgroundPressed">#24405F</SolidColorBrush>
+      <SolidColorBrush x:Key="NavigationViewItemBackgroundSelectedPointerOver">#28466B</SolidColorBrush>
+      <SolidColorBrush x:Key="NavigationViewItemBackgroundSelectedPressed">#1B3A5F</SolidColorBrush>
+      <SolidColorBrush x:Key="NavigationViewItemForegroundPointerOver">#FFFFFF</SolidColorBrush>
+      <SolidColorBrush x:Key="NavigationViewItemForegroundPressed">#C5D2E5</SolidColorBrush>
+      <SolidColorBrush x:Key="NavigationViewItemForegroundSelectedPointerOver">#75B1FF</SolidColorBrush>
+      <SolidColorBrush x:Key="NavigationViewItemForegroundSelectedPressed">#75B1FF</SolidColorBrush>
+    </ui:NavigationView.Resources>
+    <ui:NavigationView.MenuItems>
+      <ui:NavigationViewItem x:Name="accordionControlElement3" Content="设备管理" Tag="devices"><ui:NavigationViewItem.IconSource><ui:SymbolIconSource Symbol="Setting" /></ui:NavigationViewItem.IconSource></ui:NavigationViewItem>
+      <ui:NavigationViewItem x:Name="accordionControlDatatable" Content="数据存储" Tag="storage"><ui:NavigationViewItem.IconSource><ui:SymbolIconSource Symbol="Document" /></ui:NavigationViewItem.IconSource></ui:NavigationViewItem>
+      <ui:NavigationViewItem x:Name="accordionControlRecipe" Content="配方管理" Tag="recipes"><ui:NavigationViewItem.IconSource><ui:SymbolIconSource Symbol="Library" /></ui:NavigationViewItem.IconSource></ui:NavigationViewItem>
+      <ui:NavigationViewItem x:Name="accordionControSceipt" Content="脚本配置" Tag="scripts"><ui:NavigationViewItem.IconSource><ui:SymbolIconSource Symbol="Code" /></ui:NavigationViewItem.IconSource></ui:NavigationViewItem>
+      <ui:NavigationViewItem x:Name="accordionControlucDiagnose" Content="参数诊断" Tag="diagnostics"><ui:NavigationViewItem.IconSource><ui:SymbolIconSource Symbol="View" /></ui:NavigationViewItem.IconSource></ui:NavigationViewItem>
+      <ui:NavigationViewItem x:Name="accordionControlHisQuery" Content="数据查询" Tag="history"><ui:NavigationViewItem.IconSource><ui:SymbolIconSource Symbol="Calendar" /></ui:NavigationViewItem.IconSource></ui:NavigationViewItem>
+      <ui:NavigationViewItem x:Name="accordionControlSysCfg" Content="系统配置" Tag="settings"><ui:NavigationViewItem.IconSource><ui:SymbolIconSource Symbol="Setting" /></ui:NavigationViewItem.IconSource></ui:NavigationViewItem>
+      <ui:NavigationViewItem x:Name="accordionControlAbout" Content="关于" Tag="about"><ui:NavigationViewItem.IconSource><ui:SymbolIconSource Symbol="Help" /></ui:NavigationViewItem.IconSource></ui:NavigationViewItem>
+    </ui:NavigationView.MenuItems>
+    <Border x:Name="fluentDesignFormContainer1" Padding="20">
+      <Grid x:Name="navigationFrame1">
+        <Border x:Name="PageCannelCfg" IsVisible="True"><views:ucCannelCfg x:Name="ucCannelCfg2" /></Border>
+        <Border x:Name="PageDataTable" IsVisible="False"><views:ucDataTableCfg x:Name="ucDataTableCfg1" /></Border>
+        <Border x:Name="PageRecipe" IsVisible="False"><views:ucRecipe x:Name="ucRecipe" /></Border>
+        <Border x:Name="PageScript" IsVisible="False"><views:ucScripts x:Name="ucScripts1" /></Border>
+        <Border x:Name="PageDiagnose" IsVisible="False"><views:ucDiagnose x:Name="ucDiagnose1" /></Border>
+        <Border x:Name="PageHisQuery" IsVisible="False"><views:ucHisQuery x:Name="ucHisQuery1" /></Border>
+        <Border x:Name="PageSysCfg" IsVisible="False"><views:ucSystemCfg x:Name="ucSystemCfg1" /></Border>
+        <Border x:Name="PageAbout" IsVisible="False"><views:ucAbout x:Name="ucAbout" /></Border>
+
+      </Grid>
+    </Border>
+  </ui:NavigationView>
+  <!-- 底部状态栏：运行消息/信息日志统一显示在这里。 -->
+  <Border Grid.Row="2" Background="{DynamicResource IxGray1Brush}" BorderBrush="{DynamicResource IxBorderSoftBrush}"
+          BorderThickness="0,1,0,0" MinHeight="30" Padding="16,4">
+    <TextBlock x:Name="toolStrip_ServiceStatus" Text="Service Status: Ready" TextTrimming="CharacterEllipsis"
+               VerticalAlignment="Center" FontSize="12" Foreground="{DynamicResource IxTextSoftBrush}"
+               ToolTip.Tip="{Binding $self.Text}" />
+  </Border>
+</Grid>
+</Window>

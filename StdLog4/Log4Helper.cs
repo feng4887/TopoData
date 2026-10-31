@@ -46,25 +46,31 @@ namespace StdLog4
 
         #region [ 参数 ]
 
+        /// <summary>
+        /// Optional in-process consumer (desktop host) receiving every log entry. Null keeps the
+        /// original file/appender behaviour for existing applications untouched.
+        /// </summary>
+        public static Action<string> Sink { get; set; }
+
         public bool IsDebugEnabled
         {
-            get { return _Logger4net.IsDebugEnabled; }
+            get { return Sink != null || _Logger4net.IsDebugEnabled; }
         }
         public bool IsInfoEnabled
         {
-            get { return _Logger4net.IsInfoEnabled; }
+            get { return Sink != null || _Logger4net.IsInfoEnabled; }
         }
         public bool IsWarnEnabled
         {
-            get { return _Logger4net.IsWarnEnabled; }
+            get { return Sink != null || _Logger4net.IsWarnEnabled; }
         }
         public bool IsErrorEnabled
         {
-            get { return _Logger4net.IsErrorEnabled; }
+            get { return Sink != null || _Logger4net.IsErrorEnabled; }
         }
         public bool IsFatalEnabled
         {
-            get { return _Logger4net.IsFatalEnabled; }
+            get { return Sink != null || _Logger4net.IsFatalEnabled; }
         }
 
         #endregion
@@ -260,6 +266,12 @@ namespace StdLog4
         /// <param name="args"></param>
         private void Log(LogLevel level, string format, params object[] args)
         {
+            var sink = Sink;
+            if (sink != null)
+            {
+                try { sink(args == null || args.Length == 0 ? format : string.Format(format, args)); }
+                catch { /* a failing sink must never affect logging */ }
+            }
             switch (level)
             {
                 case LogLevel.Debug:
@@ -288,6 +300,12 @@ namespace StdLog4
         /// <param name="exception"></param>
         private void Log(LogLevel level, string message, Exception exception)
         {
+            var sink = Sink;
+            if (sink != null)
+            {
+                try { sink(message + ": " + exception.Message); }
+                catch { /* a failing sink must never affect logging */ }
+            }
             switch (level)
             {
                 case LogLevel.Debug:

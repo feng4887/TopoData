@@ -1,0 +1,47 @@
+<!-- Business controls follow TopoData/ucSystemCfg.Designer.cs. -->
+<views:BusinessPage xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:views="using:TopoView.Views"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        x:Class="TopoView.Views.ucSystemCfg" mc:Ignorable="d"
+        d:DesignWidth="1080" d:DesignHeight="690" >
+<ScrollViewer><StackPanel Spacing="14">
+  <HeaderedContentControl x:Name="groupControl1" Header="数据库配置" Classes="legacyGroup" >
+<StackPanel Spacing="12">
+  <WrapPanel ItemSpacing="16"><StackPanel Spacing="6"><TextBlock x:Name="label9" Text="数据库类型" Classes="formLabel" />
+<ComboBox x:Name="cbDB" MinWidth="180" SelectionChanged="cbDB_SelectedIndexChanged" /></StackPanel><StackPanel Spacing="6"><TextBlock x:Name="label3" Text="数据库" Classes="formLabel" />
+<TextBox x:Name="tbWdSQLDBName" MinWidth="220" /></StackPanel><Button x:Name="btSelectSqLiteDbFile" Content="..." Click="btSelectSqLiteDbFile_Click" /></WrapPanel>
+  <WrapPanel x:Name="panelDb" ItemSpacing="16" LineSpacing="10"><StackPanel Spacing="6"><TextBlock x:Name="label14" Text="SQL Host" Classes="formLabel" />
+<TextBox x:Name="tbWdSQLName"  /></StackPanel><StackPanel Spacing="6"><TextBlock x:Name="label5" Text="用户" Classes="formLabel" />
+<TextBox x:Name="tbWdSQLUserName"  /></StackPanel><StackPanel Spacing="6"><TextBlock x:Name="label6" Text="密码" Classes="formLabel" />
+<TextBox x:Name="tbWdSQLDPsw" PasswordChar="●" /></StackPanel><StackPanel Spacing="6"><TextBlock x:Name="label7" Text="端口" Classes="formLabel" />
+<TextBox x:Name="tbWdSQLPort" Width="100" /></StackPanel></WrapPanel>
+  <WrapPanel x:Name="panelRoot" ItemSpacing="10"><StackPanel Spacing="6"><TextBlock x:Name="label8" Text="数据库位置" Classes="formLabel" />
+<TextBox x:Name="tbDBPath" MinWidth="280" /></StackPanel><Button x:Name="btSelectDbPath" Content="..." Click="btSelectDbPath_Click" /></WrapPanel>
+  <WrapPanel ItemSpacing="12"><StackPanel Spacing="6"><TextBlock x:Name="label10" Text="数据存储时间" Classes="formLabel" />
+<TextBox x:Name="tbMonth" Width="100" /></StackPanel><TextBlock x:Name="label4" Text="月" Classes="formLabel" /><CheckBox x:Name="cbEableLog4" Content="本地Log日志" /><Button x:Name="btSaveSQL" Content="保存" Click="btSaveSQL_Click" Classes="primary" /><Button x:Name="btTestSQL" Content="测试DB" Click="btTestSQL_Click" /><Button x:Name="btCreateDB" Content="创建DB" Click="btCreateDB_Click" /></WrapPanel>
+</StackPanel>
+</HeaderedContentControl>
+  <HeaderedContentControl x:Name="groupControl2" Header="WebAPI 配置" Classes="legacyGroup" >
+<WrapPanel ItemSpacing="12"><StackPanel Spacing="6"><TextBlock x:Name="label2" Text="Restful URI" Classes="formLabel" />
+<TextBox x:Name="tbRestURI" MinWidth="380" /></StackPanel><Button x:Name="btSaveRestURI" Content="保存" Click="btSaveRestURI_Click" Classes="primary" /></WrapPanel>
+</HeaderedContentControl>
+  <HeaderedContentControl x:Name="groupControl3" Header="软件自动启动" Classes="legacyGroup" >
+<CheckBox x:Name="cbActive" Content="自动启动" IsCheckedChanged="cbActive_IsCheckedChanged" />
+</HeaderedContentControl>
+  <HeaderedContentControl x:Name="groupControl4" Header="MQTT 配置" Classes="legacyGroup" >
+<StackPanel Spacing="12">
+  <WrapPanel ItemSpacing="14"><CheckBox x:Name="tsEnableMqtt" Content="启用 MQTT" /><CheckBox x:Name="tsEnableMqttSecurity" Content="用户名认证" /><CheckBox x:Name="tsEnableSingalTag" Content="单点发布" IsCheckedChanged="tsEnableSingalTag_IsCheckedChanged" /></WrapPanel>
+  <WrapPanel ItemSpacing="16" LineSpacing="10"><StackPanel Spacing="6"><TextBlock x:Name="labelControl1" Text="服务" Classes="formLabel" />
+<TextBox x:Name="tbMqttHost"  /></StackPanel><StackPanel Spacing="6"><TextBlock x:Name="labelControl4" Text="端口" Classes="formLabel" />
+<TextBox x:Name="tbMqttPort"  /></StackPanel><StackPanel Spacing="6"><TextBlock x:Name="labelControl5" Text="用户" Classes="formLabel" />
+<TextBox x:Name="tbMqttUser"  /></StackPanel><StackPanel Spacing="6"><TextBlock x:Name="labelControl6" Text="密码" Classes="formLabel" />
+<TextBox x:Name="tbMqttPsw" PasswordChar="●" /></StackPanel><StackPanel Spacing="6"><TextBlock x:Name="labelControl2" Text="组发布订阅" Classes="formLabel" />
+<TextBox x:Name="tbMqttTopic"  /></StackPanel><StackPanel Spacing="6"><TextBlock x:Name="labelControl3" Text="发布时间(sm)" Classes="formLabel" />
+<TextBox x:Name="tbPublishIntervalMs"  /></StackPanel></WrapPanel>
+  <StackPanel Orientation="Horizontal" Spacing="10"><Button x:Name="btSaveMqtt" Content="保存" Click="btSaveMqtt_Click" Classes="primary" /><Button x:Name="btTestMqtt" Content="测试" Click="btTestMqtt_Click" /></StackPanel>
+</StackPanel>
+</HeaderedContentControl>
+</StackPanel></ScrollViewer>
+</views:BusinessPage>

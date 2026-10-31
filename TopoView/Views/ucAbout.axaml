@@ -1,0 +1,13 @@
+<!-- Business controls follow TopoData/ucAbout.Designer.cs. -->
+<views:BusinessPage xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:views="using:TopoView.Views"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        x:Class="TopoView.Views.ucAbout" mc:Ignorable="d"
+        d:DesignWidth="1080" d:DesignHeight="690" >
+<ScrollViewer><StackPanel Spacing="16" MaxWidth="720" HorizontalAlignment="Left">
+  <Image x:Name="pictureEdit1" Source="avares://TopoView/Assets/topodata-about.png" Stretch="Uniform" MaxHeight="230" />
+  <TextBox x:Name="memoEdit1" IsReadOnly="True" AcceptsReturn="True" TextWrapping="Wrap" MinHeight="340" />
+</StackPanel></ScrollViewer>
+</views:BusinessPage>

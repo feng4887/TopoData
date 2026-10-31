@@ -1,0 +1,37 @@
+<!-- Business controls follow TopoData/ucScripts.Designer.cs. -->
+<views:BusinessPage xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:views="using:TopoView.Views"
+        xmlns:avaloniaEdit="using:AvaloniaEdit"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        x:Class="TopoView.Views.ucScripts" mc:Ignorable="d"
+        d:DesignWidth="1080" d:DesignHeight="690" >
+<Grid RowDefinitions="Auto,*" RowSpacing="16">
+  <StackPanel x:Name="bar2" Orientation="Horizontal" Spacing="10"><Button x:Name="barButtonAdd" Content="添加" Click="barButtonAdd_ItemClick" /><Button x:Name="barButtonRemove" Content="删除" Click="barButtonRemove_ItemClick" /><Button x:Name="barButtonItemSave" Content="保存" Click="barButtonItemSave_ItemClick" Classes="primary" /><Button x:Name="barButtonRun" Content="Run" Click="barButtonRun_ItemClick" /></StackPanel>
+  <Grid Grid.Row="1" ColumnDefinitions="200,*" ColumnSpacing="16">
+    <HeaderedContentControl x:Name="DataTableList" Header="Scripts" Classes="legacyGroup" >
+<ListBox x:Name="navBarControl1" Classes="entityList" SelectionChanged="NavBarControl1_LinkClicked" />
+</HeaderedContentControl>
+    <ScrollViewer Grid.Column="1"><StackPanel Spacing="14">
+      <Border x:Name="panelControl1"><HeaderedContentControl x:Name="groupControl1" Header="基本信息" Classes="legacyGroup" >
+<StackPanel Spacing="12"><StackPanel Spacing="6"><TextBlock x:Name="label1" Text="脚本名" Classes="formLabel" />
+<TextBox x:Name="tbTaskName"  /></StackPanel><StackPanel Spacing="6"><TextBlock x:Name="labelControl1" Text="备注" Classes="formLabel" />
+<TextBox x:Name="tbDescription" AcceptsReturn="True" MinHeight="60" /></StackPanel><CheckBox x:Name="cbActive" Content="启用" /></StackPanel>
+</HeaderedContentControl></Border>
+      <Border x:Name="panelControl2"><HeaderedContentControl x:Name="groupControl2" Header="脚本触发条件配置" Classes="legacyGroup" >
+<StackPanel Spacing="12">
+        <StackPanel x:Name="panel2" Orientation="Horizontal" Spacing="10"><TextBlock x:Name="label3" Text="bool触发点" Classes="formLabel" /><TextBox x:Name="tbTagName1" MinWidth="230" /><Button x:Name="btTagSelect1" Content="..." Click="btTagSelect1_Click" /></StackPanel>
+        <WrapPanel ItemSpacing="10"><CheckBox x:Name="cbExpress" Content="使用表达式" Click="cbExpress_Click" /><Button x:Name="btExpress" Content="表达式" Click="btExpress_Click" /></WrapPanel>
+        <StackPanel x:Name="panelControl3" Orientation="Horizontal" Spacing="10"><Button x:Name="btAddReadTag" Content="+ Read" Click="btAddReadTag_Click" /></StackPanel>
+        <avaloniaEdit:TextEditor x:Name="memoEditScriptText" MinHeight="280" Height="380"
+                 FontFamily="Cascadia Code, Consolas, DejaVu Sans Mono, monospace"
+                 Background="{DynamicResource IxGray1Brush}" Foreground="{DynamicResource IxTextBrush}"
+                 ShowLineNumbers="True" WordWrap="False"
+                 HorizontalScrollBarVisibility="Auto" VerticalScrollBarVisibility="Auto" />
+      </StackPanel>
+</HeaderedContentControl></Border>
+    </StackPanel></ScrollViewer>
+  </Grid>
+</Grid>
+</views:BusinessPage>

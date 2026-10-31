@@ -1,0 +1,19 @@
+<!-- Business controls follow TopoData/ucDriverProfinet.Designer.cs. -->
+<UserControl xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:views="using:TopoView.Views"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        x:Class="TopoView.Views.ucDriverProfinet" mc:Ignorable="d"
+        d:DesignWidth="1080" d:DesignHeight="690" >
+
+<StackPanel Spacing="10">
+  <WrapPanel ItemSpacing="14">
+    <StackPanel Spacing="6"><TextBlock x:Name="label8" Text="IP" Classes="formLabel" />
+<TextBox x:Name="tbStationIPMain" Text="192.168.0.1" MinWidth="180" /></StackPanel><StackPanel Spacing="6"><TextBlock x:Name="label1" Text="Rack" Classes="formLabel" />
+<TextBox x:Name="tbStationRackMain" Text="0" Width="90" /></StackPanel><StackPanel Spacing="6"><TextBlock x:Name="label3" Text="Slot" Classes="formLabel" />
+<TextBox x:Name="tbStationSlotMain" Text="2" Width="90" /></StackPanel>
+  </WrapPanel>
+  <TextBlock x:Name="label16" Text="PLC配置注意事项：" Classes="formLabel" /><TextBlock x:Name="label11" Text="S7-300 : Rack 0; Slot 2;" Classes="formLabel" /><TextBlock x:Name="label14" Text="S7-1200 : Rack 0; Slot 0/1;" Classes="formLabel" /><TextBlock x:Name="label15" Text="S7-1500 : Rack 0; Slot 0/1;" Classes="formLabel" /><TextBlock x:Name="label19" Text="S7-400 : 看配置" Classes="formLabel" /><TextBlock x:Name="label2" Text="任何配置修改，需要重启软件" Classes="formLabel" />
+</StackPanel>
+</UserControl>

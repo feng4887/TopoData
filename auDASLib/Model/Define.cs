@@ -21,7 +21,7 @@ namespace auDASLib
         //public static string Folder = System.AppDomain.CurrentDomain.SetupInformation.ApplicationBase + @"Cfg";
         //public static string Configuration = System.AppDomain.CurrentDomain.SetupInformation.ApplicationBase + @"Cfg\auDAServerCfg.xml";
         //public static string TagDefine = System.AppDomain.CurrentDomain.SetupInformation.ApplicationBase + @"Cfg\auDAServerTagDef.xml";
-        //public static string Austart = System.AppDomain.CurrentDomain.SetupInformation.ApplicationBase + @"Cfg\Austart.xml";
+        //public static string HiTopo = System.AppDomain.CurrentDomain.SetupInformation.ApplicationBase + @"Cfg\Austart.xml";
         public static string ReportPath
         {
             get
@@ -41,7 +41,7 @@ namespace auDASLib
                 {
                     return @"C:\Users\Public\Documents\Config\"; ;
                 }
-                else { return System.AppDomain.CurrentDomain.SetupInformation.ApplicationBase + @"Config//"; }
+                else { return System.AppDomain.CurrentDomain.SetupInformation.ApplicationBase + @"Cfg/"; }
             }
         }
 
@@ -60,7 +60,7 @@ namespace auDASLib
                     //Console.WriteLine("1" + System.AppDomain.CurrentDomain.SetupInformation.ApplicationBase + "Cfg/" + " auDAServerCfg.xml");
                     //string path = Path.Combine(System.AppDomain.CurrentDomain.SetupInformation.ApplicationBase + "Cfg/", "auDAServerCfg.xml");
 
-                    return System.AppDomain.CurrentDomain.SetupInformation.ApplicationBase + "Config/hiTopoCfg.xml"; }
+                    return System.AppDomain.CurrentDomain.SetupInformation.ApplicationBase + "Cfg/hiTopoCfg.xml"; }
             }
         }
         public static string TagDefine
@@ -78,7 +78,7 @@ namespace auDASLib
                     //Console.WriteLine("1" + System.AppDomain.CurrentDomain.SetupInformation.ApplicationBase + "Cfg/" +" auDAServerTagDef.xml");
                     //string path = Path.Combine(System.AppDomain.CurrentDomain.SetupInformation.ApplicationBase + "Cfg/", "auDAServerTagDef.xml");
                     //Console.WriteLine("1" + path);
-                    return System.AppDomain.CurrentDomain.SetupInformation.ApplicationBase + "Config/hiTopoTagDef.xml"; 
+                    return System.AppDomain.CurrentDomain.SetupInformation.ApplicationBase + "Cfg/hiTopoTagDef.xml";
                 }
             }
         }

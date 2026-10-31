@@ -1,0 +1,38 @@
+<Window xmlns="https://github.com/avaloniaui"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+                    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+                    x:Class="TopoView.Views.MessageDialog" mc:Ignorable="d"
+                    d:DesignWidth="568" d:DesignHeight="240"
+                    Title="提示" SystemDecorations="None" TransparencyLevelHint="Transparent"
+                    Background="Transparent" CanResize="False" ShowInTaskbar="False"
+                    WindowStartupLocation="CenterOwner" SizeToContent="Height" Width="568" MaxWidth="720">
+  <!-- Borderless modal window: no dim overlay, and the title bar moves the real window
+       anywhere on screen through BeginMoveDrag (classic MessageBox behaviour). -->
+  <Panel Margin="24">
+    <Border Name="card" CornerRadius="0" BoxShadow="0 4 12 #24000000"
+            Background="{DynamicResource ContentDialogBackground}"
+            BorderBrush="{DynamicResource ContentDialogBorderBrush}"
+            BorderThickness="{DynamicResource ContentDialogBorderWidth}">
+      <Grid RowDefinitions="Auto,Auto,Auto">
+        <Border Name="TitleBar" Background="{DynamicResource ContentDialogTopOverlay}"
+                Padding="24,16,24,14" Cursor="SizeAll">
+          <TextBlock Name="lblTitle" FontSize="20" FontWeight="SemiBold" TextTrimming="CharacterEllipsis"
+                     Text="{Binding Title, RelativeSource={RelativeSource AncestorType=Window}}"/>
+        </Border>
+        <ScrollViewer Grid.Row="1" MaxHeight="420" HorizontalScrollBarVisibility="Disabled">
+          <StackPanel Name="pnlMessage" Margin="24,16,24,8" Spacing="14">
+            <TextBlock Name="lblMessage" Text="操作提示" TextWrapping="Wrap"/>
+            <TextBox Name="txtValue" IsVisible="False" MinWidth="300"/>
+          </StackPanel>
+        </ScrollViewer>
+        <StackPanel Grid.Row="2" Orientation="Horizontal" HorizontalAlignment="Right" Spacing="8"
+                    Margin="24,12,24,20">
+          <Button Name="btPrimary" IsVisible="False" MinWidth="120" IsDefault="True"/>
+          <Button Name="btSecondary" IsVisible="False" MinWidth="120"/>
+          <Button Name="btClose" IsVisible="False" MinWidth="120" IsCancel="True"/>
+        </StackPanel>
+      </Grid>
+    </Border>
+  </Panel>
+</Window>

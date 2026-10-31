@@ -1,0 +1,35 @@
+<!-- Business controls follow TopoData/ucHisQuery.Designer.cs. -->
+<views:BusinessPage xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:views="using:TopoView.Views"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        x:Class="TopoView.Views.ucHisQuery" mc:Ignorable="d"
+        d:DesignWidth="1080" d:DesignHeight="690" >
+
+<views:BusinessPage.Resources>
+  <views:HistoryColumnTemplate x:Key="HistoryColumnTemplate"><DataGridTextColumn Width="150" MinWidth="90" IsReadOnly="True" /></views:HistoryColumnTemplate>
+</views:BusinessPage.Resources>
+<Grid x:Name="splitContainerControl1" RowDefinitions="Auto,*" RowSpacing="16">
+  <HeaderedContentControl x:Name="groupControl1" Header="查询条件" Classes="legacyGroup" >
+<Grid ColumnDefinitions="Auto,Auto,Auto,*,Auto" ColumnSpacing="18">
+  <ComboBox x:Name="radioGroup1" Grid.Column="0" Width="200" VerticalAlignment="Center" />
+  <StackPanel Grid.Column="1" Orientation="Horizontal" Spacing="6" VerticalAlignment="Center">
+    <TextBlock x:Name="label3" Text="开始时间" Classes="formLabel" VerticalAlignment="Center" />
+    <views:LegacyDateTimeEdit x:Name="dtStime" />
+  </StackPanel>
+  <StackPanel Grid.Column="2" Orientation="Horizontal" Spacing="6" VerticalAlignment="Center">
+    <TextBlock x:Name="label4" Text="结束时间" Classes="formLabel" VerticalAlignment="Center" />
+    <views:LegacyDateTimeEdit x:Name="dtEtime" />
+  </StackPanel>
+  <StackPanel Grid.Column="4" Orientation="Horizontal" Spacing="10" VerticalAlignment="Center">
+    <Button x:Name="btSearch" Content="查询" Click="btSearch_Click" />
+    <Button x:Name="btExport" Content="导出" Click="btExport_Click" />
+  </StackPanel>
+</Grid>
+</HeaderedContentControl>
+  <DataGrid x:Name="gridControl1" Grid.Row="1" IsReadOnly="True" AutoGenerateColumns="False"
+            views:HistoryColumns.ColumnTemplate="{StaticResource HistoryColumnTemplate}"
+            CanUserResizeColumns="True" HorizontalScrollBarVisibility="Auto" />
+</Grid>
+</views:BusinessPage>

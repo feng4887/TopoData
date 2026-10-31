@@ -1,0 +1,20 @@
+<!-- Business controls follow TopoData/diaExpressAbout.Designer.cs. -->
+<Window xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        x:Class="TopoView.Views.diaExpressAbout" mc:Ignorable="d"
+        d:DesignWidth="457" d:DesignHeight="118" Title="diaExpressAbout" Width="457" Height="150"
+        CanResize="False" WindowStartupLocation="CenterOwner">
+  <StackPanel Margin="16" Spacing="10">
+    <StackPanel x:Name="panel1" Orientation="Horizontal" Spacing="12">
+      <Image x:Name="pictureBox1" Source="avares://TopoView/Assets/topodata-expression-help.png"
+             Width="54" Height="37" Stretch="Uniform" />
+      <StackPanel Spacing="10" VerticalAlignment="Center">
+        <TextBlock x:Name="label1" Text="表达式例子：(a = 100 OR b &gt; 0) AND c &lt;&gt; 2" Classes="formLabel" />
+        <TextBlock x:Name="label2" Text="a,b,c为参数名" Classes="formLabel" />
+      </StackPanel>
+    </StackPanel>
+    <Button x:Name="btYes" Content="关闭" Click="btYes_Click" HorizontalAlignment="Right" />
+  </StackPanel>
+</Window>

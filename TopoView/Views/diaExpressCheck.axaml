@@ -1,0 +1,24 @@
+<!-- Business controls follow TopoData/diaExpressCheck.Designer.cs. -->
+<Window xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:views="using:TopoView.Views"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        x:Class="TopoView.Views.diaExpressCheck" mc:Ignorable="d"
+        d:DesignWidth="409" d:DesignHeight="166" Title="表达式检查" Width="430" Height="200"
+        CanResize="False" WindowStartupLocation="CenterOwner">
+  <Grid Margin="12" ColumnDefinitions="*,Auto" ColumnSpacing="12">
+    <DataGrid x:Name="dataGridView1" AutoGenerateColumns="False" CanUserResizeColumns="True"
+              HorizontalScrollBarVisibility="Auto" SelectionMode="Extended">
+      <DataGrid.Columns>
+        <views:LegacyTextColumn Name="Column1" Header="中间变量" Binding="{Binding Alias, Mode=TwoWay}" Width="*" />
+        <views:LegacyTextColumn Name="Column2" Header="数值设定" Binding="{Binding Value, Mode=TwoWay}" Width="*" />
+        <views:LegacyTextColumn Name="DataType" Header="DataType" Binding="{Binding DataType, Mode=TwoWay}" Width="90" />
+      </DataGrid.Columns>
+    </DataGrid>
+    <StackPanel Grid.Column="1" VerticalAlignment="Bottom" Spacing="10">
+      <Button x:Name="btCheck" Content="检查" Click="btCheck_Click" />
+      <Button x:Name="btClose" Content="关闭" Click="btClose_Click" />
+    </StackPanel>
+  </Grid>
+</Window>

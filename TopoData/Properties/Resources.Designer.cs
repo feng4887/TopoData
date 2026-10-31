@@ -527,16 +527,7 @@ namespace TopoData.Properties {
                 return ResourceManager.GetString("Disable", resourceCulture);
             }
         }
-
-        /// <summary>
-        ///   查找类似 Simulator Mode 的本地化字符串。
-        /// </summary>
-        internal static string IsSimulator {
-            get {
-                return ResourceManager.GetString("IsSimulator", resourceCulture);
-            }
-        }
-
+        
         /// <summary>
         ///   查找类似 Down 的本地化字符串。
         /// </summary>
@@ -842,7 +833,7 @@ namespace TopoData.Properties {
                 return ResourceManager.GetString("Host", resourceCulture);
             }
         }
-
+        
         /// <summary>
         ///   查找类似 HostName 的本地化字符串。
         /// </summary>
@@ -851,7 +842,7 @@ namespace TopoData.Properties {
                 return ResourceManager.GetString("HostName", resourceCulture);
             }
         }
-
+        
         /// <summary>
         ///   查找类似 hour 的本地化字符串。
         /// </summary>
@@ -867,6 +858,15 @@ namespace TopoData.Properties {
         internal static string Import {
             get {
                 return ResourceManager.GetString("Import", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 Simulator Mode 的本地化字符串。
+        /// </summary>
+        internal static string IsSimulator {
+            get {
+                return ResourceManager.GetString("IsSimulator", resourceCulture);
             }
         }
         
@@ -889,7 +889,7 @@ namespace TopoData.Properties {
         }
         
         /// <summary>
-        ///   查找类似 Austar-AuDAServer 的本地化字符串。
+        ///   查找类似  的本地化字符串。
         /// </summary>
         internal static string mainTitle {
             get {

@@ -9,6 +9,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TopoData", "TopoData\TopoDa
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "hiLib", "auDASLib\hiLib.csproj", "{740F12D2-6F02-05A6-98ED-8829CE40D515}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TopoView", "TopoView\TopoView.csproj", "{23E7E3E5-C52E-4EB8-8C9E-5D81357A389A}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -27,6 +29,10 @@ Global
 		{740F12D2-6F02-05A6-98ED-8829CE40D515}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{740F12D2-6F02-05A6-98ED-8829CE40D515}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{740F12D2-6F02-05A6-98ED-8829CE40D515}.Release|Any CPU.Build.0 = Release|Any CPU
+		{23E7E3E5-C52E-4EB8-8C9E-5D81357A389A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{23E7E3E5-C52E-4EB8-8C9E-5D81357A389A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{23E7E3E5-C52E-4EB8-8C9E-5D81357A389A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{23E7E3E5-C52E-4EB8-8C9E-5D81357A389A}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

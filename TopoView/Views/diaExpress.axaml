@@ -1,0 +1,44 @@
+<!-- Business controls follow TopoData/diaExpress.Designer.cs. -->
+<Window xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:views="using:TopoView.Views"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        x:Class="TopoView.Views.diaExpress" mc:Ignorable="d"
+        d:DesignWidth="562" d:DesignHeight="256" Title="表达式编辑" Width="562" MinWidth="520"
+        SizeToContent="Height" CanResize="False" WindowStartupLocation="CenterOwner">
+  <Grid x:Name="panel1" Margin="12" RowDefinitions="*,Auto" RowSpacing="10">
+    <Grid ColumnDefinitions="*,*" ColumnSpacing="12">
+      <HeaderedContentControl x:Name="groupBox1" Header="中间参数列表" Classes="legacyGroup">
+        <Grid RowDefinitions="*,Auto" RowSpacing="8">
+          <DataGrid x:Name="listView1" AutoGenerateColumns="False" CanUserResizeColumns="True"
+                    HorizontalScrollBarVisibility="Auto" SelectionMode="Extended" MinHeight="150" IsReadOnly="True">
+            <DataGrid.Columns>
+              <views:LegacyTextColumn Name="columnHeader1" Header="中间变量" Binding="{Binding Alias, Mode=OneWay}" Width="*" />
+              <views:LegacyTextColumn Name="columnHeader2" Header="地址" Binding="{Binding TagId, Mode=OneWay}" Width="*" />
+              <views:LegacyTextColumn Name="columnHeader3" Header="数据类型" Binding="{Binding DataType, Mode=OneWay}" Width="80" />
+            </DataGrid.Columns>
+          </DataGrid>
+          <WrapPanel Grid.Row="1" ItemSpacing="10">
+            <Button x:Name="btAddTag" Content="+" Click="btAddTag_Click" />
+            <Button x:Name="btRemoveTag" Content="-" Click="btRemoveTag_Click" />
+            <Button x:Name="btSelectTag" Content="+" Click="btSelectTag_Click" />
+          </WrapPanel>
+        </Grid>
+      </HeaderedContentControl>
+      <HeaderedContentControl x:Name="groupBox2" Header="表达式" Classes="legacyGroup" Grid.Column="1">
+        <Grid RowDefinitions="*,Auto" RowSpacing="8">
+          <TextBox x:Name="richTextBox1" AcceptsReturn="True" AcceptsTab="True" MinHeight="150" />
+          <WrapPanel Grid.Row="1" ItemSpacing="10" HorizontalAlignment="Right">
+            <Button x:Name="btCheck" Content="检查" Click="btCheck_Click" />
+            <Button x:Name="btAblut" Content="说明" Click="btAblut_Click" />
+          </WrapPanel>
+        </Grid>
+      </HeaderedContentControl>
+    </Grid>
+    <WrapPanel Grid.Row="1" ItemSpacing="10" HorizontalAlignment="Right">
+      <Button x:Name="btSave" Content="保存" Click="btSave_Click" Classes="primary" />
+      <Button x:Name="btClose" Content="关闭" Click="btClose_Click" />
+    </WrapPanel>
+  </Grid>
+</Window>

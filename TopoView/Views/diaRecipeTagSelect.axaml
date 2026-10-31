@@ -1,0 +1,38 @@
+<!-- Business controls follow TopoData/diaRecipeTagSelect.Designer.cs. -->
+<Window xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        x:Class="TopoView.Views.diaRecipeTagSelect" mc:Ignorable="d"
+        d:DesignWidth="315" d:DesignHeight="176" Title="配置" Width="315" SizeToContent="Height"
+        CanResize="False" WindowStartupLocation="CenterOwner">
+  <StackPanel Margin="16" Spacing="8">
+    <StackPanel Spacing="4">
+      <TextBlock x:Name="label1" Text="配方字段" Classes="formLabel" />
+      <TextBox x:Name="tbAtribute" Width="180" HorizontalAlignment="Left" />
+    </StackPanel>
+    <StackPanel Spacing="4">
+      <TextBlock x:Name="label5" Text="默认值" Classes="formLabel" />
+      <TextBox x:Name="tbDefaultValue" Width="180" HorizontalAlignment="Left" />
+    </StackPanel>
+    <StackPanel Spacing="4">
+      <TextBlock x:Name="label4" Text="通讯点" Classes="formLabel" />
+      <StackPanel Orientation="Horizontal" Spacing="6">
+        <TextBox x:Name="tbTagName" Width="180" IsReadOnly="True" />
+        <Button x:Name="btSelect" Content="..." Click="btSelect_Click" />
+      </StackPanel>
+    </StackPanel>
+    <StackPanel Spacing="4">
+      <TextBlock x:Name="label2" Text="数据类型" Classes="formLabel" />
+      <ComboBox x:Name="cbDataType" Width="180" HorizontalAlignment="Left" />
+    </StackPanel>
+    <StackPanel Spacing="4">
+      <TextBlock x:Name="label3" Text="单位" Classes="formLabel" />
+      <TextBox x:Name="tbUOM" Width="180" HorizontalAlignment="Left" />
+    </StackPanel>
+    <StackPanel Orientation="Horizontal" Spacing="10" Margin="0,6,0,0">
+      <Button x:Name="btOK" Content="确认" Click="btOK_Click" />
+      <Button x:Name="btCancel" Content="取消" Click="btCancel_Click" />
+    </StackPanel>
+  </StackPanel>
+</Window>

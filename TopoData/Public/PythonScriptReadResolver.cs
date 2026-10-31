@@ -1,9 +1,7 @@
 //=============================================================================
-// Austar Group - AAS
 // (c)Copyright (2026) All Rights Reserved
 // Description: Resolves HiTopo Read[tag] expressions before Python execution.
 //-----------------------------------------------------------------------------
-// Author: Codex
 // Date: 2026-07-11
 // Version: 1.0
 //=============================================================================

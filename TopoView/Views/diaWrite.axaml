@@ -1,0 +1,27 @@
+<!-- Business controls follow TopoData/diaWrite.Designer.cs. -->
+<Window xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        x:Class="TopoView.Views.diaWrite" mc:Ignorable="d"
+        d:DesignWidth="296" d:DesignHeight="150" Title="写操作" Width="296" SizeToContent="Height"
+        CanResize="False" WindowStartupLocation="CenterOwner">
+  <StackPanel Margin="16" Spacing="8">
+    <StackPanel Spacing="4">
+      <TextBlock x:Name="label3" Text="变量" Classes="formLabel" />
+      <TextBox x:Name="tbName" IsReadOnly="True" />
+    </StackPanel>
+    <StackPanel Spacing="4">
+      <TextBlock x:Name="label1" Text="单位" Classes="formLabel" />
+      <TextBox x:Name="tbAddress" IsReadOnly="True" />
+    </StackPanel>
+    <StackPanel Spacing="4">
+      <TextBlock x:Name="label2" Text="数值" Classes="formLabel" />
+      <TextBox x:Name="tbValue" />
+    </StackPanel>
+    <StackPanel Orientation="Horizontal" Spacing="10" HorizontalAlignment="Center">
+      <Button x:Name="btWrite" Content="写入" Click="btWrite_Click" />
+      <Button x:Name="btCancel" Content="关闭" Click="btCancel_Click" />
+    </StackPanel>
+  </StackPanel>
+</Window>

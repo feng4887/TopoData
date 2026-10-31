@@ -220,7 +220,7 @@
     <value>语言</value>
   </data>
   <data name="mainTitle" xml:space="preserve">
-    <value>奥星-数据采集系统</value>
+    <value>数据采集系统</value>
   </data>
   <data name="Month" xml:space="preserve">
     <value>月</value>
@@ -631,7 +631,7 @@
     <value>a,b,c为参数名</value>
   </data>
   <data name="Company" xml:space="preserve">
-    <value>Austar 集团</value>
+    <value>HiTopo</value>
   </data>
   <data name="toolStripConnFail" xml:space="preserve">
     <value> 服务连接异常 </value>

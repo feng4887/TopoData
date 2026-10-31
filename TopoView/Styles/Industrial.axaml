@@ -1,0 +1,173 @@
+<Styles xmlns="https://github.com/avaloniaui" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:views="using:TopoView.Views">
+  <!-- TopoView 统一样式表（等价 Web 的单一 CSS）。
+       Siemens iX classic-light token（siemens/ix 2.7.0 theme-classic-light.css）：
+       全部色值只出现在下面这个 token 块（等价 CSS :root 变量），下方样式与各页面一律经
+       StaticResource/DynamicResource 引用；改主题只改这里（App.axaml 的 CustomAccentColor
+       与本文件 IxPrimaryColor 保持同值）。
+       Accent petrol #006E93；文字/边框是 #000A14 与 #001428 的透明度档；控件 0 圆角、1px 边框。 -->
+  <Styles.Resources>
+    <CornerRadius x:Key="ControlCornerRadius">0</CornerRadius>
+    <CornerRadius x:Key="OverlayCornerRadius">0</CornerRadius>
+
+    <!-- ===== iX palette tokens（唯一色值来源） ===== -->
+    <Color x:Key="IxPrimaryColor">#006E93</Color>
+    <Color x:Key="IxPrimaryHoverColor">#196269</Color>
+    <Color x:Key="IxPrimaryActiveColor">#16565C</Color>
+    <Color x:Key="IxPrimaryContrastColor">#FFFFFF</Color>
+    <Color x:Key="IxDynamicColor">#005E66</Color>
+    <!-- iX component-8: 选中行/输入项的 petrol 淡底（应用户要求连续两档调浅）。 -->
+    <Color x:Key="IxSelectedColor">#F7FCFD</Color>
+    <Color x:Key="IxSelectedHoverColor">#EEF9FA</Color>
+    <!-- iX 灰阶 color-1..color-8。 -->
+    <Color x:Key="IxGray1Color">#FFFFFF</Color>
+    <Color x:Key="IxGray2Color">#EFF0F1</Color>
+    <Color x:Key="IxGray3Color">#E2E4E6</Color>
+    <Color x:Key="IxGray4Color">#D8DADD</Color>
+    <Color x:Key="IxGray8Color">#92979B</Color>
+    <!-- #000A14 的 90/60/40% 三档文字（iX std/soft/weak）。 -->
+    <Color x:Key="IxTextColor">#E6000A14</Color>
+    <Color x:Key="IxTextSoftColor">#99000A14</Color>
+    <Color x:Key="IxTextWeakColor">#66000A14</Color>
+    <!-- 边框：#001428 @30/20%（std/soft）、#23303C @15%（weak）、硬分隔线。 -->
+    <Color x:Key="IxBorderStdColor">#4D001428</Color>
+    <Color x:Key="IxBorderSoftColor">#33001428</Color>
+    <Color x:Key="IxBorderWeakColor">#2623303C</Color>
+    <Color x:Key="IxBorderHardColor">#B2B8BE</Color>
+    <!-- iX 状态色。 -->
+    <Color x:Key="IxAlarmColor">#D72332</Color>
+    <Color x:Key="IxAlarmHoverColor">#C11F2D</Color>
+    <Color x:Key="IxAlarmTextColor">#B81E3F</Color>
+    <Color x:Key="IxWarningColor">#B88D00</Color>
+    <Color x:Key="IxSuccessColor">#2C8500</Color>
+    <Color x:Key="IxInfoColor">#0041B1</Color>
+
+    <SolidColorBrush x:Key="IxPrimaryBrush" Color="{StaticResource IxPrimaryColor}" />
+    <SolidColorBrush x:Key="IxPrimaryHoverBrush" Color="{StaticResource IxPrimaryHoverColor}" />
+    <SolidColorBrush x:Key="IxPrimaryActiveBrush" Color="{StaticResource IxPrimaryActiveColor}" />
+    <SolidColorBrush x:Key="IxPrimaryContrastBrush" Color="{StaticResource IxPrimaryContrastColor}" />
+    <SolidColorBrush x:Key="IxDynamicBrush" Color="{StaticResource IxDynamicColor}" />
+    <SolidColorBrush x:Key="IxSelectedBrush" Color="{StaticResource IxSelectedColor}" />
+    <SolidColorBrush x:Key="IxSelectedHoverBrush" Color="{StaticResource IxSelectedHoverColor}" />
+    <SolidColorBrush x:Key="IxGray1Brush" Color="{StaticResource IxGray1Color}" />
+    <SolidColorBrush x:Key="IxGray2Brush" Color="{StaticResource IxGray2Color}" />
+    <SolidColorBrush x:Key="IxGray3Brush" Color="{StaticResource IxGray3Color}" />
+    <SolidColorBrush x:Key="IxGray4Brush" Color="{StaticResource IxGray4Color}" />
+    <SolidColorBrush x:Key="IxGray8Brush" Color="{StaticResource IxGray8Color}" />
+    <SolidColorBrush x:Key="IxTextBrush" Color="{StaticResource IxTextColor}" />
+    <SolidColorBrush x:Key="IxTextSoftBrush" Color="{StaticResource IxTextSoftColor}" />
+    <SolidColorBrush x:Key="IxTextWeakBrush" Color="{StaticResource IxTextWeakColor}" />
+    <SolidColorBrush x:Key="IxBorderStdBrush" Color="{StaticResource IxBorderStdColor}" />
+    <SolidColorBrush x:Key="IxBorderSoftBrush" Color="{StaticResource IxBorderSoftColor}" />
+    <SolidColorBrush x:Key="IxBorderWeakBrush" Color="{StaticResource IxBorderWeakColor}" />
+    <SolidColorBrush x:Key="IxBorderHardBrush" Color="{StaticResource IxBorderHardColor}" />
+    <SolidColorBrush x:Key="IxAlarmBrush" Color="{StaticResource IxAlarmColor}" />
+    <SolidColorBrush x:Key="IxAlarmHoverBrush" Color="{StaticResource IxAlarmHoverColor}" />
+    <SolidColorBrush x:Key="IxAlarmTextBrush" Color="{StaticResource IxAlarmTextColor}" />
+    <SolidColorBrush x:Key="IxWarningBrush" Color="{StaticResource IxWarningColor}" />
+    <SolidColorBrush x:Key="IxSuccessBrush" Color="{StaticResource IxSuccessColor}" />
+    <SolidColorBrush x:Key="IxInfoBrush" Color="{StaticResource IxInfoColor}" />
+
+    <views:UiTextConverter x:Key="UiTextConverter" />
+
+    <!-- Fluent(Avalonia) 状态键 → iX：次要按钮 default/hover/pressed/disabled。 -->
+    <SolidColorBrush x:Key="ButtonBackground" Color="{StaticResource IxGray1Color}" />
+    <SolidColorBrush x:Key="ButtonBackgroundPointerOver" Color="{StaticResource IxGray2Color}" />
+    <SolidColorBrush x:Key="ButtonBackgroundPressed" Color="{StaticResource IxGray3Color}" />
+    <SolidColorBrush x:Key="ButtonBackgroundDisabled" Color="{StaticResource IxGray2Color}" />
+    <SolidColorBrush x:Key="ButtonForeground" Color="{StaticResource IxTextColor}" />
+    <SolidColorBrush x:Key="ButtonForegroundPointerOver" Color="{StaticResource IxTextColor}" />
+    <SolidColorBrush x:Key="ButtonForegroundPressed" Color="{StaticResource IxTextColor}" />
+    <SolidColorBrush x:Key="ButtonForegroundDisabled" Color="{StaticResource IxTextWeakColor}" />
+    <SolidColorBrush x:Key="ButtonBorderBrush" Color="{StaticResource IxBorderStdColor}" />
+    <SolidColorBrush x:Key="ButtonBorderBrushPointerOver" Color="{StaticResource IxBorderStdColor}" />
+    <SolidColorBrush x:Key="ButtonBorderBrushPressed" Color="{StaticResource IxBorderStdColor}" />
+    <SolidColorBrush x:Key="ButtonBorderBrushDisabled" Color="{StaticResource IxBorderSoftColor}" />
+    <!-- 主按钮（primary）：petrol + 白字。 -->
+    <SolidColorBrush x:Key="AccentButtonBackground" Color="{StaticResource IxPrimaryColor}" />
+    <SolidColorBrush x:Key="AccentButtonBackgroundPointerOver" Color="{StaticResource IxPrimaryHoverColor}" />
+    <SolidColorBrush x:Key="AccentButtonBackgroundPressed" Color="{StaticResource IxPrimaryActiveColor}" />
+    <SolidColorBrush x:Key="AccentButtonBackgroundDisabled" Color="{StaticResource IxGray2Color}" />
+    <SolidColorBrush x:Key="AccentButtonForeground" Color="{StaticResource IxPrimaryContrastColor}" />
+    <SolidColorBrush x:Key="AccentButtonForegroundPointerOver" Color="{StaticResource IxPrimaryContrastColor}" />
+    <SolidColorBrush x:Key="AccentButtonForegroundPressed" Color="{StaticResource IxPrimaryContrastColor}" />
+    <SolidColorBrush x:Key="AccentButtonForegroundDisabled" Color="{StaticResource IxTextWeakColor}" />
+    <SolidColorBrush x:Key="AccentButtonBorderBrush" Color="{StaticResource IxPrimaryColor}" />
+    <SolidColorBrush x:Key="AccentButtonBorderBrushPointerOver" Color="{StaticResource IxPrimaryHoverColor}" />
+    <SolidColorBrush x:Key="AccentButtonBorderBrushPressed" Color="{StaticResource IxPrimaryActiveColor}" />
+    <SolidColorBrush x:Key="AccentButtonBorderBrushDisabled" Color="{StaticResource IxBorderSoftColor}" />
+
+    <!-- DataGrid：FluentAvalonia 实际使用的键名（Brush+Opacity 组合），灰-2 表头、白行、petrol 淡色选中。 -->
+    <SolidColorBrush x:Key="DataGridBorder" Color="{StaticResource IxBorderSoftColor}" />
+    <SolidColorBrush x:Key="DataGridGridLinesBrush" Color="{StaticResource IxGray3Color}" />
+    <SolidColorBrush x:Key="DataGridColumnHeaderBackgroundBrush" Color="{StaticResource IxGray2Color}" />
+    <SolidColorBrush x:Key="DataGridColumnHeaderForegroundBrush" Color="{StaticResource IxTextColor}" />
+    <SolidColorBrush x:Key="DataGridColumnHeaderHoveredBackgroundBrush" Color="{StaticResource IxGray3Color}" />
+    <SolidColorBrush x:Key="DataGridColumnHeaderPressedBackgroundBrush" Color="{StaticResource IxGray4Color}" />
+    <SolidColorBrush x:Key="DataGridRowBackgroundBrush" Color="{StaticResource IxGray1Color}" />
+    <SolidColorBrush x:Key="DataGridRowHoveredBackgroundColor" Color="{StaticResource IxGray2Color}" />
+    <SolidColorBrush x:Key="DataGridRowSelectedBackgroundBrush" Color="{StaticResource IxSelectedColor}" />
+    <x:Double x:Key="DataGridRowSelectedBackgroundOpacity">1</x:Double>
+    <SolidColorBrush x:Key="DataGridRowSelectedHoveredBackgroundBrush" Color="{StaticResource IxSelectedHoverColor}" />
+    <x:Double x:Key="DataGridRowSelectedHoveredBackgroundOpacity">1</x:Double>
+    <SolidColorBrush x:Key="DataGridRowSelectedHoveredUnfocusedBackgroundBrush" Color="{StaticResource IxSelectedHoverColor}" />
+    <x:Double x:Key="DataGridRowSelectedHoveredUnfocusedBackgroundOpacity">1</x:Double>
+    <SolidColorBrush x:Key="DataGridRowSelectedUnfocusedBackgroundBrush" Color="{StaticResource IxSelectedColor}" />
+    <x:Double x:Key="DataGridRowSelectedUnfocusedBackgroundOpacity">1</x:Double>
+  </Styles.Resources>
+
+  <!-- iX body：Siemens Sans→Arial 回退；CJK 回落系统字体。 -->
+  <Style Selector="Window"><Setter Property="FontFamily" Value="Arial, Inter, Microsoft YaHei UI, Noto Sans CJK SC, sans-serif" /><Setter Property="FontSize" Value="14" /><Setter Property="Foreground" Value="{StaticResource IxTextBrush}" /></Style>
+  <Style Selector="TextBlock.pageTitle"><Setter Property="FontSize" Value="24" /><Setter Property="FontWeight" Value="SemiBold" /><Setter Property="Foreground" Value="{StaticResource IxTextBrush}" /></Style>
+  <Style Selector="TextBlock.muted"><Setter Property="Foreground" Value="{StaticResource IxTextSoftBrush}" /><Setter Property="TextWrapping" Value="Wrap" /></Style>
+  <Style Selector="TextBlock.formLabel"><Setter Property="FontSize" Value="12" /><Setter Property="Foreground" Value="{StaticResource IxTextSoftBrush}" /></Style>
+  <Style Selector="TextBlock.cardHeading"><Setter Property="FontSize" Value="15" /><Setter Property="FontWeight" Value="SemiBold" /><Setter Property="Foreground" Value="{StaticResource IxTextBrush}" /></Style>
+  <Style Selector="Border.card"><Setter Property="Background" Value="{StaticResource IxGray1Brush}" /><Setter Property="BorderBrush" Value="{StaticResource IxBorderSoftBrush}" /><Setter Property="BorderThickness" Value="1" /><Setter Property="CornerRadius" Value="0" /><Setter Property="Padding" Value="20" /></Style>
+
+  <Style Selector="Button"><Setter Property="MinHeight" Value="32" /><Setter Property="CornerRadius" Value="0" /><Setter Property="Padding" Value="16,6" /><Setter Property="BorderThickness" Value="1" /><Setter Property="Background" Value="{StaticResource IxGray1Brush}" /><Setter Property="Foreground" Value="{StaticResource IxTextBrush}" /><Setter Property="BorderBrush" Value="{StaticResource IxBorderStdBrush}" /></Style>
+  <Style Selector="Button:pointerover"><Setter Property="Background" Value="{StaticResource IxGray2Brush}" /><Setter Property="Foreground" Value="{StaticResource IxTextBrush}" /><Setter Property="BorderBrush" Value="{StaticResource IxBorderStdBrush}" /></Style>
+  <Style Selector="Button:pressed"><Setter Property="Background" Value="{StaticResource IxGray3Brush}" /><Setter Property="Foreground" Value="{StaticResource IxTextBrush}" /><Setter Property="BorderBrush" Value="{StaticResource IxBorderStdBrush}" /></Style>
+  <Style Selector="Button:disabled"><Setter Property="Background" Value="{StaticResource IxGray2Brush}" /><Setter Property="Foreground" Value="{StaticResource IxTextWeakBrush}" /><Setter Property="BorderBrush" Value="{StaticResource IxBorderSoftBrush}" /></Style>
+  <Style Selector="Button.primary"><Setter Property="Background" Value="{StaticResource IxPrimaryBrush}" /><Setter Property="Foreground" Value="{StaticResource IxPrimaryContrastBrush}" /><Setter Property="BorderBrush" Value="{StaticResource IxPrimaryBrush}" /></Style>
+  <Style Selector="Button.primary:pointerover"><Setter Property="Background" Value="{StaticResource IxPrimaryHoverBrush}" /><Setter Property="Foreground" Value="{StaticResource IxPrimaryContrastBrush}" /><Setter Property="BorderBrush" Value="{StaticResource IxPrimaryHoverBrush}" /></Style>
+  <Style Selector="Button.primary:pressed"><Setter Property="Background" Value="{StaticResource IxPrimaryActiveBrush}" /><Setter Property="Foreground" Value="{StaticResource IxPrimaryContrastBrush}" /><Setter Property="BorderBrush" Value="{StaticResource IxPrimaryActiveBrush}" /></Style>
+  <Style Selector="Button.primary:disabled"><Setter Property="Background" Value="{StaticResource IxGray2Brush}" /><Setter Property="Foreground" Value="{StaticResource IxTextWeakBrush}" /><Setter Property="BorderBrush" Value="{StaticResource IxBorderSoftBrush}" /></Style>
+
+  <Style Selector="TextBox"><Setter Property="MinHeight" Value="32" /><Setter Property="CornerRadius" Value="0" /><Setter Property="Background" Value="{StaticResource IxGray1Brush}" /><Setter Property="Foreground" Value="{StaticResource IxTextBrush}" /><Setter Property="BorderBrush" Value="{StaticResource IxBorderSoftBrush}" /><Setter Property="Padding" Value="8,4" /></Style>
+  <Style Selector="TextBox:focus"><Setter Property="BorderBrush" Value="{StaticResource IxPrimaryBrush}" /></Style>
+  <!-- Left, not Stretch: a stretch slot centres a combo that carries its own width. -->
+  <Style Selector="ComboBox"><Setter Property="MinHeight" Value="32" /><Setter Property="HorizontalAlignment" Value="Left" /><Setter Property="Foreground" Value="{StaticResource IxTextBrush}" /></Style>
+  <Style Selector="ComboBox">
+    <Setter Property="ItemTemplate">
+      <DataTemplate><TextBlock Text="{Binding Converter={StaticResource UiTextConverter}}" /></DataTemplate>
+    </Setter>
+  </Style>
+  <Style Selector="TabItem"><Setter Property="FontSize" Value="14" /></Style>
+
+  <Style Selector="DataGrid"><Setter Property="GridLinesVisibility" Value="Horizontal" /><Setter Property="BorderBrush" Value="{StaticResource IxBorderSoftBrush}" /><Setter Property="BorderThickness" Value="1" /><Setter Property="RowHeight" Value="34" /><Setter Property="ColumnHeaderHeight" Value="36" /><Setter Property="Background" Value="{StaticResource IxGray1Brush}" /><Setter Property="RowBackground" Value="{StaticResource IxGray1Brush}" /></Style>
+  <Style Selector="DataGridColumnHeader"><Setter Property="Background" Value="{StaticResource IxGray2Brush}" /><Setter Property="Foreground" Value="{StaticResource IxTextBrush}" /><Setter Property="FontWeight" Value="SemiBold" /></Style>
+  <Style Selector="DataGridRow:selected"><Setter Property="Background" Value="{StaticResource IxSelectedBrush}" /></Style>
+
+  <Style Selector="ListBox.entityList"><Setter Property="Background" Value="Transparent" /><Setter Property="BorderThickness" Value="0" /></Style>
+  <Style Selector="ListBox.entityList ListBoxItem"><Setter Property="MinHeight" Value="40" /><Setter Property="Padding" Value="12,8" /><Setter Property="CornerRadius" Value="0" /><Setter Property="Foreground" Value="{StaticResource IxTextBrush}" /></Style>
+  <Style Selector="ListBox.entityList ListBoxItem:pointerover"><Setter Property="Background" Value="{StaticResource IxGray2Brush}" /></Style>
+  <Style Selector="ListBox.entityList ListBoxItem:selected"><Setter Property="Background" Value="{StaticResource IxSelectedBrush}" /><Setter Property="Foreground" Value="{StaticResource IxDynamicBrush}" /></Style>
+  <Style Selector="ListBox.entityList ListBoxItem:selected:pointerover"><Setter Property="Background" Value="{StaticResource IxSelectedHoverBrush}" /></Style>
+
+  <Style Selector="HeaderedContentControl.legacyGroup">
+    <Setter Property="Template">
+      <ControlTemplate>
+        <Border Background="{DynamicResource IxGray1Brush}" BorderBrush="{DynamicResource IxBorderSoftBrush}" BorderThickness="1"
+                CornerRadius="0" Padding="16">
+          <Grid RowDefinitions="Auto,*" RowSpacing="12">
+            <ContentPresenter Content="{TemplateBinding Header}" FontWeight="SemiBold"
+                              FontSize="14" Foreground="{DynamicResource IxTextBrush}" />
+            <ContentPresenter Name="PART_ContentPresenter" Grid.Row="1"
+                              Content="{TemplateBinding Content}"
+                              ContentTemplate="{TemplateBinding ContentTemplate}" />
+          </Grid>
+        </Border>
+      </ControlTemplate>
+    </Setter>
+  </Style>
+</Styles>

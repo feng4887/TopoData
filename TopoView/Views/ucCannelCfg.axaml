@@ -1,0 +1,60 @@
+<!-- Business controls follow TopoData/ucCannelCfg.Designer.cs. -->
+<views:BusinessPage xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:views="using:TopoView.Views"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        x:Class="TopoView.Views.ucCannelCfg" mc:Ignorable="d"
+        d:DesignWidth="1080" d:DesignHeight="690" >
+
+<Grid ColumnDefinitions="200,*" ColumnSpacing="16">
+  <HeaderedContentControl x:Name="navBarGroup1" Header="设备列表" Classes="legacyGroup" >
+<ListBox x:Name="navBarControl1" Classes="entityList" SelectedIndex="0">
+    <ListBoxItem x:Name="navBarItem1" Content="我的设备" />
+  </ListBox>
+</HeaderedContentControl>
+  <ScrollViewer Grid.Column="1" VerticalScrollBarVisibility="Auto">
+    <StackPanel Spacing="14">
+      <StackPanel x:Name="panelControl1" Orientation="Horizontal" Spacing="10">
+        <Button x:Name="btConfirm" Content="保存" Click="btConfirm_Click" Classes="primary" /><Button x:Name="btImport" Content="导入" Click="btImport_Click" /><Button x:Name="btExport" Content="导出" Click="btExport_Click" /><Button x:Name="btDelete" Content="删除" Click="btDelete_Click" />
+      </StackPanel>
+      <Border x:Name="panelControl2"><HeaderedContentControl x:Name="groupControl1" Header="设备配置" Classes="legacyGroup" >
+<Grid RowDefinitions="Auto,Auto,Auto" RowSpacing="12">
+  <WrapPanel ItemSpacing="16">
+    <StackPanel Spacing="6"><TextBlock x:Name="labelControl1" Text="通道名" Classes="formLabel" />
+<TextBox x:Name="tbCannelID"  /></StackPanel><StackPanel Spacing="6"><TextBlock x:Name="labelControl2" Text="驱动类型" Classes="formLabel" />
+<ComboBox x:Name="cbCannel" SelectionChanged="cbCannel_SelectedIndexChanged" MinWidth="180" /></StackPanel>
+    <CheckBox x:Name="cbActive" Content="启用" VerticalAlignment="Bottom" />
+    <CheckBox x:Name="cbIsSimulator" Content="仿真模式" VerticalAlignment="Bottom" />
+  </WrapPanel>
+  <StackPanel Grid.Row="1" Spacing="6"><TextBlock x:Name="labelControl3" Text="备注" Classes="formLabel" /><TextBox x:Name="tbDescription" AcceptsReturn="True" MinHeight="54" /></StackPanel>
+  <Panel x:Name="pnCannel" Grid.Row="2">
+    <views:ucDriverOPCUA x:Name="ucOPCUA" />
+    <views:ucDriverProfinet x:Name="ucProfinet" IsVisible="False" />
+    <views:ucDriverModbusTCP x:Name="ucModbusTCP" IsVisible="False" />
+    <views:ucDriverModbusRTU x:Name="ucModbusRTU" IsVisible="False" />
+    <views:ucDriverEmpty x:Name="ucDriverEmpty" IsVisible="False" />
+  </Panel>
+</Grid>
+</HeaderedContentControl></Border>
+      <HeaderedContentControl x:Name="groupControl2" Header="点表" Classes="legacyGroup" >
+<DataGrid x:Name="gridControl1" AutoGenerateColumns="False" CanUserResizeColumns="True"
+              HorizontalScrollBarVisibility="Auto" SelectionMode="Extended" MinHeight="220" KeyDown="gridControl1_KeyDown" RowEditEnded="gridControl1_RowEditEnded">
+  <DataGrid.Columns><views:LegacyTextColumn Name="TagName" Header="TagName" Binding="{Binding Name, Mode=TwoWay}" Width="1.3*" />
+<views:LegacyTextColumn Name="Address" Header="Address" Binding="{Binding Address, Mode=TwoWay}" Width="1.8*" />
+<views:LegacyTemplateColumn Name="DataType" Header="DataType" Width="110">
+  <DataGridTemplateColumn.CellTemplate>
+    <DataTemplate DataType="views:TagEditorRow">
+      <ComboBox ItemsSource="{x:Static views:TagEditorRow.Types}"
+                SelectedItem="{Binding Type, Mode=TwoWay}" MinHeight="28" Margin="2" />
+    </DataTemplate>
+  </DataGridTemplateColumn.CellTemplate>
+</views:LegacyTemplateColumn>
+<views:LegacyTextColumn Name="UOM" Header="UOM" Binding="{Binding Unit, Mode=TwoWay}" Width="70" />
+<views:LegacyTextColumn Name="Description" Header="Description" Binding="{Binding Description, Mode=TwoWay}" Width="1.4*" /></DataGrid.Columns>
+</DataGrid>
+</HeaderedContentControl>
+    </StackPanel>
+  </ScrollViewer>
+</Grid>
+</views:BusinessPage>

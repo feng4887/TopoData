@@ -1,0 +1,11 @@
+<Application xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:fa="using:FluentAvalonia.Styling"
+             x:Class="TopoView.App" RequestedThemeVariant="Light">
+  <Application.Styles>
+    <!-- CustomAccentColor 与 Styles/Industrial.axaml 的 IxPrimaryColor 保持同值（主题引擎属性，无法引用样式资源）。 -->
+    <fa:FluentAvaloniaTheme PreferSystemTheme="False" PreferUserAccentColor="False" CustomAccentColor="#006E93" />
+    <StyleInclude Source="avares://AvaloniaEdit/Themes/Fluent/AvaloniaEdit.xaml" />
+    <StyleInclude Source="avares://TopoView/Styles/Industrial.axaml" />
+  </Application.Styles>
+</Application>

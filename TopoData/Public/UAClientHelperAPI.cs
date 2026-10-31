@@ -737,10 +737,10 @@ namespace auDASLib
             ApplicationConfiguration configuration = new ApplicationConfiguration();
 
             // Step 1 - Specify the client identity.
-            configuration.ApplicationName = "UA Client AuDAServerManager";
+            configuration.ApplicationName = "UA Client aasServerManager";
             configuration.ApplicationType = ApplicationType.Client;
-            configuration.ApplicationUri = "urn:AuDAServerManager"; //Kepp this syntax
-            configuration.ProductUri = "Austar.aasAuDAServerManager";
+            configuration.ApplicationUri = "urn:aasServerManager"; //Kepp this syntax
+            configuration.ProductUri = "HiTopo.aasServerManager";
 
             // Step 2 - Specify the client's application instance certificate.
             // Application instance certificates must be placed in a windows certficate store because that is 

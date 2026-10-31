@@ -1,0 +1,9 @@
+bin/
+obj/
+artifacts/
+Tests/bin/
+Tests/obj/
+*-build.log
+test-results.log
+build*.log
+ui-*-tests.log

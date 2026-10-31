@@ -1,0 +1,28 @@
+<!-- Business controls follow TopoData/ucDriverOPCUA.Designer.cs. -->
+<UserControl xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:views="using:TopoView.Views"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        x:Class="TopoView.Views.ucDriverOPCUA" mc:Ignorable="d"
+        d:DesignWidth="1080" d:DesignHeight="690" >
+
+<StackPanel Spacing="12">
+  <Grid ColumnDefinitions="*,Auto" ColumnSpacing="10">
+    <StackPanel Spacing="6"><TextBlock x:Name="label1" Text="Endpoint" Classes="formLabel" />
+<TextBox x:Name="tbEndPoint"  /></StackPanel>
+    <Button x:Name="btGetEndpoint" Grid.Column="1" VerticalAlignment="Bottom"
+            Content="获取Endpoint" Click="btGetEndpoint_Click" />
+  </Grid>
+  <StackPanel Spacing="6"><TextBlock x:Name="label2" Text="URI" Classes="formLabel" />
+<ComboBox x:Name="cbEndpointItems" SelectionChanged="cbEndpointItems_SelectionChanged" /></StackPanel>
+  <CheckBox x:Name="cbUseUserLogIn" Content="使用账号密码登录"
+            IsCheckedChanged="cbUseUserLogIn_IsCheckedChanged" />
+  <Grid ColumnDefinitions="*,*" ColumnSpacing="16">
+    <StackPanel Spacing="6"><TextBlock x:Name="label3" Text="用户" Classes="formLabel" />
+<TextBox x:Name="tbUserName"  /></StackPanel>
+    <StackPanel Grid.Column="1" Spacing="6"><TextBlock x:Name="label4" Text="密码" Classes="formLabel" /><TextBox x:Name="tbPsw" PasswordChar="●" /></StackPanel>
+  </Grid>
+  <Button x:Name="btGetTag" Content="获取Tag" Click="btGetTag_Click" />
+</StackPanel>
+</UserControl>

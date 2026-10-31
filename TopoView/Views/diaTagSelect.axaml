@@ -1,0 +1,28 @@
+<!-- Business controls follow TopoData/diaTagSelect.Designer.cs. -->
+<Window xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:views="using:TopoView.Views"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        x:Class="TopoView.Views.diaTagSelect" mc:Ignorable="d"
+        d:DesignWidth="812" d:DesignHeight="371" Title="选择" Width="812" Height="400">
+  <Grid RowDefinitions="Auto,*" RowSpacing="8" Margin="8">
+    <WrapPanel x:Name="panel1" ItemSpacing="10" VerticalAlignment="Center">
+      <TextBlock x:Name="label1" Text="变量名" Classes="formLabel" VerticalAlignment="Center" />
+      <TextBox x:Name="tbTnFilter" Width="202" />
+      <Button x:Name="btTnFilter" Content="⌕" Click="btTnFilter_Click" />
+      <Button x:Name="btSelect" Content="选择" Click="btSelect_Click" />
+    </WrapPanel>
+    <DataGrid x:Name="listView1" AutoGenerateColumns="False" CanUserResizeColumns="True"
+                HorizontalScrollBarVisibility="Auto" Grid.Row="1" IsReadOnly="True"
+                SelectionChanged="listView1_SelectionChanged" DoubleTapped="listView1_MouseDoubleClick">
+      <DataGrid.Columns>
+        <views:LegacyTextColumn Name="sNum" Header="序号" Binding="{Binding Index, Mode=OneWay}" Width="60" />
+        <views:LegacyTextColumn Name="sCannel" Header="通道" Binding="{Binding CannelID, Mode=OneWay}" Width="120" />
+        <views:LegacyTextColumn Name="sTagName" Header="变量名" Binding="{Binding TagName, Mode=OneWay}" Width="150" />
+        <views:LegacyTextColumn Name="sDataType" Header="数据类型" Binding="{Binding DataType, Mode=OneWay}" Width="70" />
+        <views:LegacyTextColumn Name="sUOM" Header="单位" Binding="{Binding UOM, Mode=OneWay}" Width="60" />
+      </DataGrid.Columns>
+    </DataGrid>
+  </Grid>
+</Window>

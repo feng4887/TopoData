@@ -1,0 +1,38 @@
+<!-- Business controls follow TopoData/diaOPCUATagSelect.Designer.cs. -->
+<Window xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:views="using:TopoView.Views"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        x:Class="TopoView.Views.diaOPCUATagSelect" mc:Ignorable="d"
+        d:DesignWidth="1080" d:DesignHeight="690" Title="OPC UA 变量浏览" Width="1000" Height="680" MinWidth="760" MinHeight="440" Opened="Window_Opened" Closed="Window_Closed">
+<Grid Margin="20" RowDefinitions="Auto,*" RowSpacing="14">
+  <StackPanel x:Name="panel1" Orientation="Horizontal" Spacing="10"><TextBlock x:Name="endpointLabel" Text="Endpoint：" Classes="formLabel" /><TextBox x:Name="discoveryTextBox" IsReadOnly="True" MinWidth="650" /></StackPanel>
+  <Grid x:Name="splitContainer1" Grid.Row="1" ColumnDefinitions="*,12,*">
+    <StackPanel Spacing="10"><TextBlock x:Name="Label1" Text="服务节点" Classes="formLabel" />
+      <TreeView x:Name="nodeTreeView" MinHeight="440" SelectionChanged="nodeTreeView_AfterSelect">
+        <TreeView.ItemContainerTheme>
+          <ControlTheme TargetType="TreeViewItem" BasedOn="{StaticResource {x:Type TreeViewItem}}">
+            <Setter Property="IsExpanded" Value="{Binding IsExpanded, Mode=TwoWay}" />
+          </ControlTheme>
+        </TreeView.ItemContainerTheme>
+        <TreeView.ItemTemplate><TreeDataTemplate ItemsSource="{Binding Children}"><TextBlock Text="{Binding Label}" /></TreeDataTemplate></TreeView.ItemTemplate>
+        <TreeView.ContextMenu><ContextMenu x:Name="contextMenuStrip1">
+          <MenuItem x:Name="MenuGetThisItem" Header="获取当前节点" Click="MenuGetThisItem_Click" />
+          <MenuItem x:Name="MenuGetSubItems" Header="获取所有下一级子节点" Click="MenuGetSubItems_Click" />
+          <MenuItem x:Name="MenuGetAllSubItems" Header="获取所有子节点" Click="MenuGetAllSubItems_Click" />
+          <Separator x:Name="toolStripSeparator4" />
+          <MenuItem x:Name="MenuExpendSubItems" Header="展开所有子节点" Click="MenuExpendSubItems_Click" />
+        </ContextMenu></TreeView.ContextMenu>
+      </TreeView>
+    </StackPanel>
+    <GridSplitter Grid.Column="1" Width="6" ResizeDirection="Columns" />
+    <Border x:Name="panel3" Grid.Column="2"><DataGrid x:Name="descriptionListView" AutoGenerateColumns="False" CanUserResizeColumns="True"
+              HorizontalScrollBarVisibility="Auto" SelectionMode="Extended" IsReadOnly="True">
+  <DataGrid.ContextMenu><ContextMenu x:Name="contextMenuStripTaglist"><MenuItem x:Name="removeItemsToolStripMenuItem" Header="删除标签" Click="removeItemsToolStripMenuItem_Click" /></ContextMenu></DataGrid.ContextMenu>
+<DataGrid.Columns><views:LegacyTextColumn Name="TagName" Header="属性" Binding="{Binding Name, Mode=TwoWay}" Width="*" />
+<views:LegacyTextColumn Name="Value" Header="属性值" Binding="{Binding Value, Mode=TwoWay}" Width="2*" /></DataGrid.Columns>
+</DataGrid></Border>
+  </Grid>
+</Grid>
+</Window>
